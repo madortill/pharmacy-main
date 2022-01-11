@@ -878,12 +878,33 @@ body, #main {
 
 /* quizes */
 
+.questions {
+  position: relative;
+  margin: auto;
+  font-size: 2.4rem;
+  width: 90vw;
+  top: 7vw;
+}
+
 .answers-flex {
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  width: 83vw;
+  height: 25vw;
+  position: relative;
+  margin: auto;
+  top: 10vw;
 }
 
 .answer {
+  width: 43%;
+  height: 6.45vw;
+  padding: 2vw;
+  font-size: 1.5rem;
+  line-height: 2vw;
+}
+
+.answer.normal {
   background-image: url("assets/media/test/answer_normal.svg");
 }
 
