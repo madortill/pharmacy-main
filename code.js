@@ -97,15 +97,15 @@ var Arr_1 = [
   // },
   {
     // page 11
-    divName: ["questions"],
-    functions: [""],
+    divName: ["r1p11"],
+    functions: ["pop_insert_question()"],
     type: "quiz",
     questionType: "finish"
   },
   {
-    // page 12
-    divName: ["questions"],
-    functions: [""],
+    // page 11
+    divName: ["r1p12"],
+    functions: ["pop_insert_question()"],
     type: "quiz",
     questionType: "finish"
   },
@@ -316,6 +316,13 @@ toggle_room = ()  => {
   }
 }
 
+// setting content page
+type_content = () => {
+  // display controls
+  switch_class($("#controls"), "none", "flex");
+  switch_class($(`#lesson-map-${nRoom}`), "none", "flex");
+}
+
 pop_watch_room_button = () => {
   $("#watch-room-button").on("click", function() {
     toggle_room();
@@ -328,18 +335,6 @@ pop_watch_room_button = () => {
     switch_class($("#back-room-button"), "block", "none");
     setTimeout(switch_class, 500, $("#controls"), "none", "flex");
   });
-}
-
-// setting content page
-type_content = () => {
-  // display controls
-  switch_class($("#controls"), "none", "flex");
-  switch_class($(`#lesson-map-${nRoom}`), "none", "flex");
-}
-
-// setting timer
-type_quiz = () => {
-
 }
 
 // function that switches classes
