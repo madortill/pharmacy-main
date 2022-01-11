@@ -16,14 +16,18 @@ arr_questions_bank_1 = [
 
 let finish_question_counter = 0;
 let life_question_counter = 0;
+const finish_question_num = 6;
+const life_question_num = 3;
 const ANSWER_NUM = 4;
 
 type_quiz = () => {
-    
+// setting counter according to question type and nPage
+window[`${matrix[nRoom][nPage].questionType}_question_counter`] = nPage - (matrix[nRoom].length - window[`${matrix[nRoom][nPage].questionType}_question_num`]);
 }
 
 // insert question from the question bank
   pop_insert_question = () => {
+    $(".answer").on("click", check_answer);
     // take random question from bank
     let question_bank = window[`arr_questions_bank_${nRoom}`];
     // random question from array
@@ -45,5 +49,12 @@ type_quiz = () => {
     }
     // question won't repeat
     question_bank.splice(question_num, 1);
+  }
+
+// check if the user clickes the right answer
+  check_answer = () => {
+    if ($(this).hasClass("correct")) {
+
+    }
   }
 
