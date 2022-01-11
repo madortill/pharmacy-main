@@ -875,3 +875,31 @@ body, #main {
   left: 48vw;
   transform: rotate(-6deg);
 }
+
+/* quizes */
+
+.answers-flex {
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.answer {
+  background-image: url("assets/media/test/answer_normal.svg");
+}
+
+.answer.normal:hover{
+  background-image: url("assets/media/test/answer_hover.svg");
+}
+
+.answer.normal:active{
+  background-image: url("assets/media/test/answer_down.svg");
+}
+
+.answer.right, .answer.right:hover, .answer.right:active{
+  background-image: url("assets/media/test/answer_right.svg");
+}
+
+.answer.wrong, .answer.wrong:hover, .answer.wrong:active{
+  background-image: url("assets/media/test/answer_wrong.svg");
+}
+
