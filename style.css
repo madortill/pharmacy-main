@@ -883,7 +883,9 @@ body, #main {
   margin: auto;
   font-size: 2.4rem;
   width: 90vw;
-  top: 7vw;
+  /* top: 7vw; */
+  margin-top: 7vw;
+  margin-bottom: 4vw;
 }
 
 .answers-flex {
@@ -893,7 +895,7 @@ body, #main {
   height: 25vw;
   position: relative;
   margin: auto;
-  top: 10vw;
+  /* top: 10vw; */
 }
 
 .answer {
@@ -922,5 +924,15 @@ body, #main {
 
 .answer.wrong, .answer.wrong:hover, .answer.wrong:active{
   background-image: url("assets/media/test/answer_wrong.svg");
+}
+
+.question-counter {
+  bottom: -5vw;
+  font-size: 2.5rem;
+  width: 5.8vw;
+  height: 2.5vw;
+  position: relative;
+  right: 5vw;
+  text-align: center;
 }
 

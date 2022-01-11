@@ -98,14 +98,14 @@ var Arr_1 = [
   {
     // page 11
     divName: ["r1p11"],
-    functions: ["pop_insert_question()"],
+    functions: ["pop_insert_question()", `switch_class($("#next-button"), "hidden", "visible")`, `switch_class($("#back-button"), "visible", "hidden")`],
     type: "quiz",
     questionType: "finish"
   },
   {
     // page 11
     divName: ["r1p12"],
-    functions: ["pop_insert_question()"],
+    functions: ["pop_insert_question()", `switch_class($("#back-button"), "hidden", "visible")`],
     type: "quiz",
     questionType: "finish"
   },

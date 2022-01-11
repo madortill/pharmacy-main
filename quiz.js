@@ -23,6 +23,9 @@ const ANSWER_NUM = 4;
 type_quiz = () => {
 // setting counter according to question type and nPage
 window[`${matrix[nRoom][nPage].questionType}_question_counter`] = nPage - (matrix[nRoom].length - window[`${matrix[nRoom][nPage].questionType}_question_num`]);
+    // hide controls
+    switch_class($("#controls"), "flex" ,"none");
+    switch_class($(`#lesson-map-${nRoom}`), "flex" ,"none");
 }
 
 // insert question from the question bank
@@ -52,9 +55,17 @@ window[`${matrix[nRoom][nPage].questionType}_question_counter`] = nPage - (matri
   }
 
 // check if the user clickes the right answer
-  check_answer = () => {
-    if ($(this).hasClass("correct")) {
+  check_answer = (event) => {
+    $(`#${matrix[nRoom][nPage].divName} .correct`).addClass("right");
+    $(`#${matrix[nRoom][nPage].divName} .correct`).removeClass("normal");
+    // right
+    if ($(event.currentTarget).hasClass("correct")) {
 
+    }
+    // wrong
+    else {
+        $(event.currentTarget).addClass("wrong");
+        $(event.currentTarget).removeClass("normal");
     }
   }
 
