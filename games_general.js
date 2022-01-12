@@ -65,30 +65,29 @@ endingGame = (condition) => {
             nLife--;
             // end of game
             if (nLife === 0) {
-                let arr_life_quiz = [
+                matrix[nRoom].splice(nPage, 0, 
                     {
-                        // question 1
-                        divName: ["q1l"],
-                        functions: ["pop_insert_question()", `switch_class($("#next-button"), "hidden", "visible")`, `switch_class($("#back-button"), "visible", "hidden")`],
-                        type: "quiz",
-                        questionType: "finish"
-                        },
-                        {
-                        // question 2
-                        divName: ["q2l"],
-                        functions: ["pop_insert_question()", `switch_class($("#back-button"), "hidden", "visible")`],
-                        type: "quiz",
-                        questionType: "finish"
-                        },
-                        {
-                        // question 3
-                        divName: ["q3l"],
-                        functions: [["pop_insert_question()", `switch_class($("#next-button"), "visible", "hidden")`, "check_quiz()"],],
-                        type: "quiz",
-                        questionType: "finish"
-                        }
-                ];
-                matrix[nRoom].splice(nPage, 0, arr_life_quiz);
+                    // question 1
+                    divName: ["q1"],
+                    functions: ["pop_insert_question()", `switch_class($("#next-button"), "hidden", "visible")`, `switch_class($("#back-button"), "visible", "hidden")`],
+                    type: "quiz",
+                    questionType: "finish"
+                    },                        
+                    {
+                    // question 2
+                    divName: ["q2"],
+                    functions: ["pop_insert_question()", `switch_class($("#back-button"), "hidden", "visible")`],
+                    type: "quiz",
+                    questionType: "finish"
+                    },
+                    {
+                    // question 3
+                    divName: ["q3"],
+                    functions: [["pop_insert_question()", `switch_class($("#next-button"), "visible", "hidden")`, "check_quiz()"],],
+                    type: "quiz",
+                    questionType: "finish"
+                    }
+                );
             }
         }, delay+ 500);
     }

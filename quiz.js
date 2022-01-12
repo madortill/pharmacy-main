@@ -19,10 +19,12 @@ let life_question_counter = 0;
 const finish_question_num = 6;
 const life_question_num = 3;
 const ANSWER_NUM = 4;
+var question_counter;
+var question_num;
 
 type_quiz = () => {
     // setting counter according to question type and nPage
-    //window[`${matrix[nRoom][nPage].questionType}_question_counter`] = nPage - (matrix[nRoom].length - window[`${matrix[nRoom][nPage].questionType}_question_num`]);
+    //question_counter = nPage - (matrix[nRoom].length - question_num);
     // hide controls
     switch_class($(`#lesson-map-${nRoom}`), "visible", "hidden");
     switch_class($(`#lesson-map-${nRoom}`), "none", "flex");
@@ -30,6 +32,9 @@ type_quiz = () => {
     switch_class($(`#watch-room-button`), "visible", "hidden"); 
     switch_class($("#controls"),"none", "flex");
     //switch_class($(`#lesson-map-${nRoom}`), "flex" ,"none");
+    question_counter = window[`${matrix[nRoom][nPage].questionType}_question_counter`];
+    question_num = window[`${matrix[nRoom][nPage].questionType}_question_num`];
+    $(`#${matrix[nRoom][nPage].divName} .question-counter`).text(`${question_counter}/${question_num}`);
 }
 
 // insert question from the question bank
@@ -65,7 +70,7 @@ type_quiz = () => {
     $(`#${matrix[nRoom][nPage].divName} .answer`).off("click");
     // right
     if ($(event.currentTarget).hasClass("correct")) {
-        window[`${matrix[nRoom][nPage].questionType}_question_counter`]++;
+        question_counter++;
     }
     // wrong
     else {
@@ -79,9 +84,9 @@ type_quiz = () => {
     switch_class($(`#topic-counter`), "hidden", "visible");
     switch_class($(`#watch-room-button`), "hidden", "visible"); 
     // finish room
-    if (window[`${matrix[nRoom][nPage].questionType}_question_counter`] > (window[`${matrix[nRoom][nPage].questionType}_question_num`]/2)) {
+    if (question_counter > (question_num/2)) {
         // erase question
-        matrix[nRoom].splice((nPage - window[`${matrix[nRoom][nPage].questionType}_question_num`]), window[`${matrix[nRoom][nPage].questionType}_question_num`]);
+        matrix[nRoom].splice((nPage - question_num), question_num);
         if (matrix[nRoom][nPage].questionType = "life") {
             nLife = 1;
             endingGame(true);
