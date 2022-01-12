@@ -21,12 +21,13 @@ const life_question_num = 3;
 const ANSWER_NUM = 4;
 
 type_quiz = () => {
-// setting counter according to question type and nPage
-window[`${matrix[nRoom][nPage].questionType}_question_counter`] = nPage - (matrix[nRoom].length - window[`${matrix[nRoom][nPage].questionType}_question_num`]);
-
-switch_class($(`#lesson-map-${nRoom}`), "visible", "hidden");
-switch_class($(`#watch-room-button`), "visible", "hidden"); 
+    // setting counter according to question type and nPage
+    window[`${matrix[nRoom][nPage].questionType}_question_counter`] = nPage - (matrix[nRoom].length - window[`${matrix[nRoom][nPage].questionType}_question_num`]);
     // hide controls
+    switch_class($(`#lesson-map-${nRoom}`), "visible", "hidden");
+    switch_class($(`#lesson-map-${nRoom}`), "none", "flex");
+    switch_class($(`#topic-counter`), "visible", "hidden");
+    switch_class($(`#watch-room-button`), "visible", "hidden"); 
     switch_class($("#controls"),"none", "flex");
     //switch_class($(`#lesson-map-${nRoom}`), "flex" ,"none");
 }
