@@ -119,7 +119,9 @@ endingGame = (condition) => {
         // hide hearts
         switch_class($(`#hearts-flex`), "flex", "none");
         // show back and prev
-        switch_class($("#controls .control-button"),"hidden" ,"visible");
+        if (matrix[nRoom][nPage].type === "content") {
+            switch_class($("#controls .control-button"),"hidden" ,"visible");
+        }
         $(".topic").css("pointer-events", "auto");
     }, delay + 2000);
 }
