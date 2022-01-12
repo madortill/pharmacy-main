@@ -6,95 +6,95 @@ var nPage = 0;
 
 // waiting room
 var Arr_1 = [
-  // {
-  //   // opening game question- page 1
-  //   divName: ["r1p1"],
-  //   functions: [`switch_class($("#back-button"), "visible", "hidden")`, `pop_buttons($("#next-button"), 1)`, "pop_watch_room_button()"],
-  //   type: "content",
-  //   topic: 1
-  // },
-  // {
-  //   // page 2
-  //   divName: ["r1p2"],
-  //   functions: [`switch_class($("#back-button"), "hidden", "visible")`, `pop_buttons($("#back-button"), -1)`],
-  //   type: "content",
-  //   topic: 2
-  // },
-  // {
-  //   // first game- page 3
-  //   divName: ["r1p3"],
-  //   functions: ["pop_timeEnds()", "pop_sign_click()", "pop_hover_down()"],
-  //   type: "game",
-  //   timer: "10s",
-  //   feedback: {
-  //     correct: "array",
-  //     incorrect: "array"
-  //   },
-  //   instructions_feedback: {
-  //     correct: "אתם שולטים על השלטים!",
-  //     incorrect: "חבל שתליית השלטים תלוייה בכם..."
-  //   }
-  // },
-  // {
-  //   // page 4
-  //   divName: ["r1p4"],
-  //   functions: [""],
-  //   type: "content",
-  //   topic: 3
-  // },
-  // {
-  //   // page 5
-  //   divName: ["r1p5"],
-  //   functions: [""],
-  //   type: "content"
-  // },
-  // {
-  //   // page 6
-  //   divName: ["r1p6"],
-  //   functions: [""],
-  //   type: "content"
-  // },
-  // {
-  //   // second game- page 7
-  //   divName: ["r1p7"],
-  //   functions: ["pop_hover_down()", "pop_drag_drop()"],
-  //   type: "game",
-  //   feedback: {
-  //     correct: "array",
-  //     incorrect: "array"
-  //   },
-  //   instructions_feedback: {
-  //     correct: "מזל שהמשימה הייתה תלוייה בכם",
-  //     incorrect: "יא חסרי מודעות..."
-  //   }
-  // },
-  // {
-  //   // page 8
-  //   divName: ["r1p8"],
-  //   functions: [""],
-  //   type: "content",
-  //   topic: 4
-  // },
-  // {
-  //   // page 9
-  //   divName: ["r1p9"],
-  //   functions: [""],
-  //   type: "content"
-  // },
-  // {
-  //   // third game- page 10
-  //   divName: ["r1p10"],
-  //   functions: ["pop_hover_down()", "pop_drag_drop()"],
-  //   type: "game",
-  //   feedback: {
-  //     correct: "array",
-  //     incorrect: "array"
-  //   },
-  //   instructions_feedback: {
-  //     correct: "אוגדן של קפדן!",
-  //     incorrect: "אוגדן של מפסידן..."
-  //   }
-  // },
+  {
+    // opening game question- page 1
+    divName: ["r1p1"],
+    functions: [`switch_class($("#back-button"), "visible", "hidden")`, `pop_buttons($("#next-button"), 1)`, "pop_watch_room_button()"],
+    type: "content",
+    topic: 1
+  },
+  {
+    // page 2
+    divName: ["r1p2"],
+    functions: [`switch_class($("#back-button"), "hidden", "visible")`, `pop_buttons($("#back-button"), -1)`],
+    type: "content",
+    topic: 2
+  },
+  {
+    // first game- page 3
+    divName: ["r1p3"],
+    functions: ["pop_timeEnds()", "pop_sign_click()", "pop_hover_down()"],
+    type: "game",
+    timer: "10s",
+    feedback: {
+      correct: "array",
+      incorrect: "array"
+    },
+    instructions_feedback: {
+      correct: "אתם שולטים על השלטים!",
+      incorrect: "חבל שתליית השלטים תלוייה בכם..."
+    }
+  },
+  {
+    // page 4
+    divName: ["r1p4"],
+    functions: [""],
+    type: "content",
+    topic: 3
+  },
+  {
+    // page 5
+    divName: ["r1p5"],
+    functions: [""],
+    type: "content"
+  },
+  {
+    // page 6
+    divName: ["r1p6"],
+    functions: [""],
+    type: "content"
+  },
+  {
+    // second game- page 7
+    divName: ["r1p7"],
+    functions: ["pop_hover_down()", "pop_drag_drop()"],
+    type: "game",
+    feedback: {
+      correct: "array",
+      incorrect: "array"
+    },
+    instructions_feedback: {
+      correct: "מזל שהמשימה הייתה תלוייה בכם",
+      incorrect: "יא חסרי מודעות..."
+    }
+  },
+  {
+    // page 8
+    divName: ["r1p8"],
+    functions: [""],
+    type: "content",
+    topic: 4
+  },
+  {
+    // page 9
+    divName: ["r1p9"],
+    functions: [""],
+    type: "content"
+  },
+  {
+    // third game- page 10
+    divName: ["r1p10"],
+    functions: ["pop_hover_down()", "pop_drag_drop()"],
+    type: "game",
+    feedback: {
+      correct: "array",
+      incorrect: "array"
+    },
+    instructions_feedback: {
+      correct: "אוגדן של קפדן!",
+      incorrect: "אוגדן של מפסידן..."
+    }
+  },
   {
     // question 1- page 11
     divName: ["q1"],
@@ -109,6 +109,35 @@ var Arr_1 = [
     type: "quiz",
     questionType: "finish"
   },
+  {
+    // question 3- page 13
+    divName: ["q3"],
+    functions: ["pop_insert_question()"],
+    type: "quiz",
+    questionType: "finish"
+  },
+  {
+    // question 4- page 14
+    divName: ["q4"],
+    functions: ["pop_insert_question()"],
+    type: "quiz",
+    questionType: "finish"
+  },
+  {
+    // question 5- page 15
+    divName: ["q5"],
+    functions: ["pop_insert_question()",],
+    type: "quiz",
+    questionType: "finish"
+  },
+  {
+    // question 6- page 16
+    divName: ["q6"],
+    functions: ["pop_insert_question()", `switch_class($("#next-button"), "visible", "hidden")`, "check_quiz()"],
+    type: "quiz",
+    questionType: "finish"
+  },
+
 ];
 
 // therapy room

@@ -22,7 +22,7 @@ const ANSWER_NUM = 4;
 
 type_quiz = () => {
     // setting counter according to question type and nPage
-    window[`${matrix[nRoom][nPage].questionType}_question_counter`] = nPage - (matrix[nRoom].length - window[`${matrix[nRoom][nPage].questionType}_question_num`]);
+    //window[`${matrix[nRoom][nPage].questionType}_question_counter`] = nPage - (matrix[nRoom].length - window[`${matrix[nRoom][nPage].questionType}_question_num`]);
     // hide controls
     switch_class($(`#lesson-map-${nRoom}`), "visible", "hidden");
     switch_class($(`#lesson-map-${nRoom}`), "none", "flex");
@@ -65,12 +65,31 @@ type_quiz = () => {
     $(`#${matrix[nRoom][nPage].divName} .answer`).off("click");
     // right
     if ($(event.currentTarget).hasClass("correct")) {
-
+        window[`${matrix[nRoom][nPage].questionType}_question_counter`]++;
     }
     // wrong
     else {
         $(event.currentTarget).addClass("wrong");
         $(event.currentTarget).removeClass("normal");
+    }
+  }
+
+  check_quiz = () => {
+    switch_class($(`#lesson-map-${nRoom}`), "hidden", "visible");
+    switch_class($(`#topic-counter`), "hidden", "visible");
+    switch_class($(`#watch-room-button`), "hidden", "visible"); 
+    // finish room
+    if (window[`${matrix[nRoom][nPage].questionType}_question_counter`] > (window[`${matrix[nRoom][nPage].questionType}_question_num`]/2)) {
+        // erase question
+        matrix[nRoom].splice((nPage - window[`${matrix[nRoom][nPage].questionType}_question_num`]), window[`${matrix[nRoom][nPage].questionType}_question_num`]);
+        if (matrix[nRoom][nPage].questionType = "life") {
+            nLife = 1;
+            endingGame(true);
+        }
+    } 
+    // restart room
+    else {
+
     }
   }
 
