@@ -30,14 +30,12 @@ first_question = () => {
     switch_class($(`#watch-room-button`), "visible", "hidden"); 
     switch_class($("#controls"),"none", "flex");
     // set variables
-    question_num = window[`${matrix[nRoom][nPage].questionType}_question_num`];
+    question_num = eval(`${matrix[nRoom][nPage].questionType}_question_num`);
 }
 
 type_quiz = () => {
-    // setting counter according to question type and nPage
-    question_counter = nPage - (matrix[nRoom].length - question_num);
     // set variables
-    correct_question_counter = window[`${matrix[nRoom][nPage].questionType}_correct_question_counter`];
+    correct_question_counter = eval(`${matrix[nRoom][nPage].questionType}_correct_question_counter`);
     $(`#${matrix[nRoom][nPage].divName} .question-counter`).text(`${question_counter}/${question_num}`);
 }
 
@@ -74,7 +72,7 @@ type_quiz = () => {
     $(`#${matrix[nRoom][nPage].divName} .answer`).off("click");
     // right
     if ($(event.currentTarget).hasClass("correct")) {
-        window[`${matrix[nRoom][nPage].questionType}_correct_question_counter`]++;
+        eval(`${matrix[nRoom][nPage].questionType}_correct_question_counter++`);
     }
     // wrong
     else {
@@ -82,7 +80,7 @@ type_quiz = () => {
         $(event.currentTarget).removeClass("normal");
     }
     // if the quiz is over
-    if (question_counter > question_num) {
+    if (question_counter === question_num) {
         check_quiz();
     }
   }
@@ -98,7 +96,7 @@ type_quiz = () => {
         matrix[nRoom].splice((nPage - question_num), question_num);
         if (matrix[nRoom][nPage].questionType = "life") {
             nLife = 1;
-            endingGame(true);
+            endingGame(false);
         }
     } 
     // restart room

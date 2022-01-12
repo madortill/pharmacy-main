@@ -242,10 +242,12 @@ function pop_buttons(button, number) {
       if ($(`#lesson-map-${nRoom} .topic-${topic_counter}`).css("background-image").includes("normal")) {
         checkpoint(true);
         }
+    } else if (matrix[nRoom][nPage].type === "quiz") {
+      question_counter = question_counter + eval(number);
     }
     // changes page counter
     // if the button is prev/next/about (ect), the number is added to page counter
-    if (button.hasClass("move")){
+    if (button.hasClass("move")) {
       nPage = nPage + eval(number);
       // lessom map movememt (ahami head)
         // if the topic changes whem moving page (there are pages with the same topic)
