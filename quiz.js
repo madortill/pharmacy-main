@@ -23,14 +23,17 @@ const ANSWER_NUM = 4;
 type_quiz = () => {
 // setting counter according to question type and nPage
 window[`${matrix[nRoom][nPage].questionType}_question_counter`] = nPage - (matrix[nRoom].length - window[`${matrix[nRoom][nPage].questionType}_question_num`]);
+
+switch_class($(`#lesson-map-${nRoom}`), "visible", "hidden");
+switch_class($(`#watch-room-button`), "visible", "hidden"); 
     // hide controls
-    switch_class($("#controls"), "flex" ,"none");
-    switch_class($(`#lesson-map-${nRoom}`), "flex" ,"none");
+    switch_class($("#controls"),"none", "flex");
+    //switch_class($(`#lesson-map-${nRoom}`), "flex" ,"none");
 }
 
 // insert question from the question bank
   pop_insert_question = () => {
-    $(".answer").on("click", check_answer);
+    $(`#${matrix[nRoom][nPage].divName} .answer`).on("click", check_answer);
     // take random question from bank
     let question_bank = window[`arr_questions_bank_${nRoom}`];
     // random question from array
@@ -58,6 +61,7 @@ window[`${matrix[nRoom][nPage].questionType}_question_counter`] = nPage - (matri
   check_answer = (event) => {
     $(`#${matrix[nRoom][nPage].divName} .correct`).addClass("right");
     $(`#${matrix[nRoom][nPage].divName} .correct`).removeClass("normal");
+    $(`#${matrix[nRoom][nPage].divName} .answer`).off("click");
     // right
     if ($(event.currentTarget).hasClass("correct")) {
 

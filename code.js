@@ -96,15 +96,15 @@ var Arr_1 = [
   //   }
   // },
   {
-    // page 11
-    divName: ["r1p11"],
+    // question 1- page 11
+    divName: ["q1"],
     functions: ["pop_insert_question()", `switch_class($("#next-button"), "hidden", "visible")`, `switch_class($("#back-button"), "visible", "hidden")`],
     type: "quiz",
     questionType: "finish"
   },
   {
-    // page 11
-    divName: ["r1p12"],
+    // question 2- page 12
+    divName: ["q2"],
     functions: ["pop_insert_question()", `switch_class($("#back-button"), "hidden", "visible")`],
     type: "quiz",
     questionType: "finish"
@@ -209,7 +209,7 @@ function pop_room_buttons(button) {
 function pop_buttons(button, number) {
   button.on("click", function() {
     hidePage();
-    if (matrix[nRoom][nPage].type !== undefined) {
+    if ((matrix[nRoom][nPage].type !== undefined) && (matrix[nRoom][nPage].type !== "quiz")) {
       if ($(`#lesson-map-${nRoom} .topic-${topic_counter}`).css("background-image").includes("normal")) {
         checkpoint(true);
         }
