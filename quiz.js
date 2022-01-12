@@ -13,27 +13,31 @@ arr_questions_bank_1 = [
     
 ];
 
-
-let finish_question_counter = 0;
-let life_question_counter = 0;
+let question_counter = 1;
+let finish_correct_question_counter = 0;
+let life_correct_question_counter = 0;
 const finish_question_num = 6;
 const life_question_num = 3;
 const ANSWER_NUM = 4;
-var question_counter;
-var question_num;
+var correct_question_counter = 0;
+var question_num = 0;
 
-type_quiz = () => {
-    // setting counter according to question type and nPage
-    //question_counter = nPage - (matrix[nRoom].length - question_num);
+first_question = () => {
     // hide controls
     switch_class($(`#lesson-map-${nRoom}`), "visible", "hidden");
     switch_class($(`#lesson-map-${nRoom}`), "none", "flex");
     switch_class($(`#topic-counter`), "visible", "hidden");
     switch_class($(`#watch-room-button`), "visible", "hidden"); 
     switch_class($("#controls"),"none", "flex");
-    //switch_class($(`#lesson-map-${nRoom}`), "flex" ,"none");
-    question_counter = window[`${matrix[nRoom][nPage].questionType}_question_counter`];
+    // set variables
     question_num = window[`${matrix[nRoom][nPage].questionType}_question_num`];
+}
+
+type_quiz = () => {
+    // setting counter according to question type and nPage
+    question_counter = nPage - (matrix[nRoom].length - question_num);
+    // set variables
+    correct_question_counter = window[`${matrix[nRoom][nPage].questionType}_correct_question_counter`];
     $(`#${matrix[nRoom][nPage].divName} .question-counter`).text(`${question_counter}/${question_num}`);
 }
 
@@ -70,12 +74,16 @@ type_quiz = () => {
     $(`#${matrix[nRoom][nPage].divName} .answer`).off("click");
     // right
     if ($(event.currentTarget).hasClass("correct")) {
-        question_counter++;
+        window[`${matrix[nRoom][nPage].questionType}_correct_question_counter`]++;
     }
     // wrong
     else {
         $(event.currentTarget).addClass("wrong");
         $(event.currentTarget).removeClass("normal");
+    }
+    // if the quiz is over
+    if (question_counter > question_num) {
+        check_quiz();
     }
   }
 
@@ -83,8 +91,9 @@ type_quiz = () => {
     switch_class($(`#lesson-map-${nRoom}`), "hidden", "visible");
     switch_class($(`#topic-counter`), "hidden", "visible");
     switch_class($(`#watch-room-button`), "hidden", "visible"); 
+    question_counter = 1;
     // finish room
-    if (question_counter > (question_num/2)) {
+    if (correct_question_counter > (question_num/2)) {
         // erase question
         matrix[nRoom].splice((nPage - question_num), question_num);
         if (matrix[nRoom][nPage].questionType = "life") {

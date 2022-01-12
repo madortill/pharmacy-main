@@ -98,7 +98,7 @@ var Arr_1 = [
   {
     // question 1- page 11
     divName: ["q1"],
-    functions: ["pop_insert_question()", `switch_class($("#next-button"), "hidden", "visible")`, `switch_class($("#back-button"), "visible", "hidden")`],
+    functions: ["pop_insert_question()", `switch_class($("#next-button"), "hidden", "visible")`, `switch_class($("#back-button"), "visible", "hidden")`, `first_question()`],
     type: "quiz",
     questionType: "finish"
   },
@@ -133,7 +133,7 @@ var Arr_1 = [
   {
     // question 6- page 16
     divName: ["q6"],
-    functions: ["pop_insert_question()", `switch_class($("#next-button"), "visible", "hidden")`, "check_quiz()"],
+    functions: ["pop_insert_question()", `switch_class($("#next-button"), "visible", "hidden")`],
     type: "quiz",
     questionType: "finish"
   },
