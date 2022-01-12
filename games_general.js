@@ -71,21 +71,21 @@ endingGame = (condition) => {
                     divName: ["q1"],
                     functions: ["pop_insert_question()", `switch_class($("#next-button"), "hidden", "visible")`, `switch_class($("#back-button"), "visible", "hidden")`, `first_question()`],
                     type: "quiz",
-                    questionType: "finish"
+                    questionType: "life"
                     },                        
                     {
                     // question 2
                     divName: ["q2"],
                     functions: ["pop_insert_question()", `switch_class($("#back-button"), "hidden", "visible")`],
                     type: "quiz",
-                    questionType: "finish"
+                    questionType: "life"
                     },
                     {
                     // question 3
                     divName: ["q3"],
                     functions: ["pop_insert_question()", `switch_class($("#next-button"), "visible", "hidden")`],
                     type: "quiz",
-                    questionType: "finish"
+                    questionType: "life"
                     }
                 );
             }

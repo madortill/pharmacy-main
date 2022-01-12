@@ -9,17 +9,50 @@ arr_questions_bank_1 = [
         question: "מי הכי חנפנית במדור?",
         correct_answer: `מרי`,
         wrong_answer: [`יובל`,`ניצן`,`עינב`]
-    },  
-    
+    },
+    {
+        question: "אני אמרתי את זה?",
+        correct_answer: `כי היום אני לא מרגישה שאני עשה כלום`,
+        wrong_answer: [`כלום בכלל`,`אני נשבע שאני לא עושה כלום`,`אני רוצה רק לשכב במיטה`]
+    },
+    {
+        question: "מי הכי פז''מ עולם",
+        correct_answer: `אליסה וגרגמל`,
+        wrong_answer: [`אופק`,`דורין`,`טלי`]
+    },
+    {
+        question: "מי אכל גלידה",
+        correct_answer: `טלי`,
+        wrong_answer: [`דורית`,`שחף`,`מרב`]
+    }, 
+    {
+        question: "חללהכג",
+        correct_answer: `עכעכע`,
+        wrong_answer: [`דורית`,`עככגדגכדגכד`,`מרב`]
+    },
+    {
+        question: "שלומי",
+        correct_answer: `אוגר`,
+        wrong_answer: [`לוויתן`,`חתולים`,`דולפין`]
+    },
+    {
+        question: "קטן",
+        correct_answer: `חמוד`,
+        wrong_answer: [`מרב`,`גדול`,`שמנמן`]
+    },
+    {
+        question: "מי הכי טוב?",
+        correct_answer: `נועה קילה`,
+        wrong_answer: [`ניצן סלומון`,`בריטני ספירס`,`מרגי`]
+    }          
 ];
 
 let question_counter = 1;
-let finish_correct_question_counter = 0;
-let life_correct_question_counter = 0;
 const finish_question_num = 6;
 const life_question_num = 3;
 const ANSWER_NUM = 4;
 var correct_question_counter = 0;
+var incorrect_question_counter = 0;
 var question_num = 0;
 
 first_question = () => {
@@ -34,8 +67,6 @@ first_question = () => {
 }
 
 type_quiz = () => {
-    // set variables
-    correct_question_counter = eval(`${matrix[nRoom][nPage].questionType}_correct_question_counter`);
     $(`#${matrix[nRoom][nPage].divName} .question-counter`).text(`${question_counter}/${question_num}`);
 }
 
@@ -72,15 +103,16 @@ type_quiz = () => {
     $(`#${matrix[nRoom][nPage].divName} .answer`).off("click");
     // right
     if ($(event.currentTarget).hasClass("correct")) {
-        eval(`${matrix[nRoom][nPage].questionType}_correct_question_counter++`);
+        correct_question_counter++;
     }
     // wrong
     else {
         $(event.currentTarget).addClass("wrong");
         $(event.currentTarget).removeClass("normal");
+        incorrect_question_counter++;
     }
     // if the quiz is over
-    if (question_counter === question_num) {
+    if ((correct_question_counter + incorrect_question_counter) === question_num) {
         check_quiz();
     }
   }
@@ -90,14 +122,18 @@ type_quiz = () => {
     switch_class($(`#topic-counter`), "hidden", "visible");
     switch_class($(`#watch-room-button`), "hidden", "visible"); 
     question_counter = 1;
+    correct_question_counter = 0;
+    incorrect_question_counter = 0;
     // finish room
     if (correct_question_counter > (question_num/2)) {
         // erase question
         matrix[nRoom].splice((nPage - question_num), question_num);
         if (matrix[nRoom][nPage].questionType = "life") {
             nLife = 1;
-            endingGame(false);
+            endingGame(true);
         }
+        nRoom = 0;
+        nPage = 0;
     } 
     // restart room
     else {
