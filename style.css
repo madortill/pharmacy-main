@@ -361,13 +361,57 @@ body, #main {
   justify-content: center;
 }
 
+#finish-story {
+  background-image: url("assets/media/gameover+finish/again_radial_bg.svg");
+}
+
+#finish-story .button-flex {
+  width: 55vw;
+  height: 22vw;
+  position: relative;
+  margin: auto;
+  /* top: -5vw; */
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#quiz-button {
+  background-image: url("assets/media/gameover+finish/test_normal.svg");
+  width: 26vw;
+  height: 11.3vw;
+}
+
+#quiz-button:hover {
+  background-image: url("assets/media/gameover+finish/test_hover.svg");
+}
+
+#quiz-button:active {
+  background-image: url("assets/media/gameover+finish/test_down.svg");
+}
+
+#restart-button {
+  background-image: url("assets/media/gameover+finish/restart_normal.svg");
+  width: 26vw;
+  height: 11.55vw;
+}
+
+#restart-button:hover {
+  background-image: url("assets/media/gameover+finish/restart_hover.svg");
+}
+
+#restart-button:active {
+  background-image: url("assets/media/gameover+finish/restart_down.svg");
+}
+
+
 /* ending game */
 
 #ending-game {
   background-image: url("assets/media/heart/heart_bg.svg");
 }
 
-#ending-game-title {
+.ending-game-title {
   color: rgb(252, 180, 48);
   font-size: 9vw;
   text-align: center;

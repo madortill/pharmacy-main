@@ -124,6 +124,7 @@ type_quiz = () => {
     question_counter = 1;
     correct_question_counter = 0;
     incorrect_question_counter = 0;
+    hidePage();
     // finish room
     if (correct_question_counter > (question_num/2)) {
         // erase question
