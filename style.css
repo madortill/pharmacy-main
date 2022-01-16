@@ -81,6 +81,39 @@
   }
 }
 
+/* heart appear */
+@keyframes heart_show  {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  20% {
+    opacity: 1;
+    transform: scale(1.07);
+  }
+
+  100% {
+    transform: scale(1.07);
+  }
+}
+
+@-webkit-keyframes heart_show  {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  20% {
+    opacity: 1;
+    transform: scale(1.07);
+  }
+
+  100% {
+    transform: scale(1.07);
+  }
+}
+
 /* v/x appear */
 
 @keyframes v_x  {
@@ -466,6 +499,10 @@ body, #main {
 
 .heart-animation {
   animation: heart_pop 0.5s linear; 
+}
+
+.heart-show-animation {
+  animation: heart_show 0.5s linear; 
 }
 
 /* timer */

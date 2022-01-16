@@ -136,7 +136,8 @@ finish_story = (type) => {
                 switch_class($("#controls .control-button"), "hidden", "visible");
                 switch_class($("#controls"), "flex" ,"none");
                 switch_class($(`#lesson-map-${nRoom}`), "flex", "none");
-                $(".topic").css("pointer-events", "auto");  
+                $(".topic").css("pointer-events", "auto");
+                restart();
             }, 2500);
           break;
     }
@@ -188,6 +189,10 @@ restart = () => {
     // return games to array
     matrix.splice(nRoom, 1, Arr_1);
     eval(`restart_${nRoom}`);
+    hidePage();
+    nRoom = 0;
+    nPage = 0;
+    movePage();
 }
 
 restart_1 = () => {

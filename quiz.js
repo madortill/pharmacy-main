@@ -124,21 +124,51 @@ type_quiz = () => {
     question_counter = 1;
     correct_question_counter = 0;
     incorrect_question_counter = 0;
-    hidePage();
     // finish room
     if (correct_question_counter > (question_num/2)) {
+        hidePage();
         // erase question
         matrix[nRoom].splice((nPage - question_num), question_num);
+        // showing heart animation if it is a test for extra life
         if (matrix[nRoom][nPage].questionType = "life") {
-            nLife = 1;
-            endingGame(true);
+            // display end-game general page
+            $(`#ending-game`).css("display", "block");
+            switch_class($("#spinning-flex"), "none", "flex");
+            // hearts
+            switch_class($(`#hearts-flex`), "none", "flex");
+            // heart images- switch to happy
+            for (let i = 1; i <= nLife ; i++) {
+                $(`#heart-${i} .heart`).attr("src", `assets/media/heart/heart${i}_happy.svg`);
+            }
+            
+            // animation of popping heart
+            setTimeout(() => {
+                switch_class($(`#heart-1`), "hidden", "visible");
+                $(`#heart-1 .heart`).addClass("heart-show-animation");
+            }, 2000);
+            setTimeout(cloud_effect, 2400);
+            setTimeout(() => {
+                $(`#heart-1 .heart`).removeClass("heart-show-animation");
+                
+                nLife++;
+            }, 2500);
+
+            // text
+            $(`#ending-game .ending-game-title`).text("סיימתם!");
+            setTimeout(() => {
+                // hide end-game general page
+                $(`#ending-game`).css("display", "none");
+                switch_class($("#spinning-flex"), "flex", "none");
+                // hide hearts
+                switch_class($(`#hearts-flex`), "flex", "none");
+            }, 4000);
         }
         nRoom = 0;
         nPage = 0;
     } 
     // restart room
     else {
-
+        finish_story("finish");
     }
   }
 
