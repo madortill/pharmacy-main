@@ -174,6 +174,12 @@ pop_quiz_button = () => {
             questionType: "life"
             }
         );
+        $(`#finish-story`).css("display", "none");
+        switch_class($("#spinning-flex"), "flex", "none");
+        switch_class($("#controls .control-button"), "hidden", "visible");
+        switch_class($("#controls"), "flex" ,"none");
+        switch_class($(`#lesson-map-${nRoom}`), "flex", "none");
+        $(".topic").css("pointer-events", "auto");  
         movePage();
     });
 }
