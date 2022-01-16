@@ -85,6 +85,16 @@ endingGame = (condition) => {
     matrix[nRoom].splice(nPage , 1);
     // shows next page
     setTimeout(() => {
+        // hide end-game general page
+        $(`#ending-game`).css("display", "none");
+        switch_class($("#spinning-flex"), "flex", "none");
+        // hide hearts
+        switch_class($(`#hearts-flex`), "flex", "none");
+        // show back and prev
+        if (matrix[nRoom][nPage].type === "content") {
+            switch_class($("#controls .control-button"),"hidden" ,"visible");
+        }
+        $(".topic").css("pointer-events", "auto");
         // end of game
         if (nLife === 0) {
             finish_story("life");
@@ -114,16 +124,6 @@ endingGame = (condition) => {
         } else {
             movePage();
         }
-        // hide end-game general page
-        $(`#ending-game`).css("display", "none");
-        switch_class($("#spinning-flex"), "flex", "none");
-        // hide hearts
-        switch_class($(`#hearts-flex`), "flex", "none");
-        // show back and prev
-        if (matrix[nRoom][nPage].type === "content") {
-            switch_class($("#controls .control-button"),"hidden" ,"visible");
-        }
-        $(".topic").css("pointer-events", "auto");
     }, delay + 2000);
 }
 
