@@ -98,29 +98,6 @@ endingGame = (condition) => {
         // end of game
         if (nLife === 0) {
             finish_story("life");
-            matrix[nRoom].splice(nPage, 0, 
-                {
-                // question 1
-                divName: ["q1"],
-                functions: ["pop_insert_question()", `switch_class($("#next-button"), "hidden", "visible")`, `switch_class($("#back-button"), "visible", "hidden")`, `first_question()`],
-                type: "quiz",
-                questionType: "life"
-                },                        
-                {
-                // question 2
-                divName: ["q2"],
-                functions: ["pop_insert_question()", `switch_class($("#back-button"), "hidden", "visible")`],
-                type: "quiz",
-                questionType: "life"
-                },
-                {
-                // question 3
-                divName: ["q3"],
-                functions: ["pop_insert_question()", `switch_class($("#next-button"), "visible", "hidden")`],
-                type: "quiz",
-                questionType: "life"
-                }
-            );
         } else {
             movePage();
         }
@@ -142,7 +119,8 @@ finish_story = (type) => {
     switch_class($("#spinning-flex"), "none", "flex");
     switch_class($("#controls .control-button"),"visible","hidden");
     switch_class($("#controls"),"none", "flex" );
-    switch_class($(`#lesson-map-${nRoom}`), "none", "flex");  
+    switch_class($(`#lesson-map-${nRoom}`), "none", "flex");
+    $(".topic").css("pointer-events", "none");  
     switch (type) {
         case 'life':
           console.log('Oranges are $0.59 a pound.');
@@ -157,10 +135,57 @@ finish_story = (type) => {
                 switch_class($("#spinning-flex"), "flex", "none");
                 switch_class($("#controls .control-button"), "hidden", "visible");
                 switch_class($("#controls"), "flex" ,"none");
-                switch_class($(`#lesson-map-${nRoom}`), "flex", "none");  
+                switch_class($(`#lesson-map-${nRoom}`), "flex", "none");
+                $(".topic").css("pointer-events", "auto");  
             }, 2500);
           break;
     }
+}
+
+pop_restart_button = () => {
+    $("#restart-button").on("click", function() {
+        pop_buttons($("#restart-button"), 0);
+        restart();
+    });
+}
+
+pop_quiz_button = () => {
+    $("#quiz-button").on("click", function() {
+        matrix[nRoom].splice(nPage, 0, 
+            {
+            // question 1
+            divName: ["q1"],
+            functions: ["pop_insert_question()", `switch_class($("#next-button"), "hidden", "visible")`, `switch_class($("#back-button"), "visible", "hidden")`, `first_question()`],
+            type: "quiz",
+            questionType: "life"
+            },                        
+            {
+            // question 2
+            divName: ["q2"],
+            functions: ["pop_insert_question()", `switch_class($("#back-button"), "hidden", "visible")`],
+            type: "quiz",
+            questionType: "life"
+            },
+            {
+            // question 3
+            divName: ["q3"],
+            functions: ["pop_insert_question()", `switch_class($("#next-button"), "visible", "hidden")`],
+            type: "quiz",
+            questionType: "life"
+            }
+        );
+        movePage();
+    });
+}
+
+restart = () => {
+    // return games to array
+    matrix.splice(nRoom, 1, Arr_1);
+    eval(`restart_${nRoom}`);
+}
+
+restart_1 = () => {
+
 }
 
 // called when the user loses the game
