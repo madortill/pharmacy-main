@@ -63,47 +63,20 @@ endingGame = (condition) => {
             $(`#heart-${nLife} .heart`).removeClass("heart-animation");
             switch_class($(`#heart-${nLife}`), "visible", "hidden");
             nLife--;
-            // end of game
-            if (nLife === 0) {
-                matrix[nRoom].splice(nPage, 0, 
-                    {
-                    // question 1
-                    divName: ["q1"],
-                    functions: ["pop_insert_question()", `switch_class($("#next-button"), "hidden", "visible")`, `switch_class($("#back-button"), "visible", "hidden")`, `first_question()`],
-                    type: "quiz",
-                    questionType: "life"
-                    },                        
-                    {
-                    // question 2
-                    divName: ["q2"],
-                    functions: ["pop_insert_question()", `switch_class($("#back-button"), "hidden", "visible")`],
-                    type: "quiz",
-                    questionType: "life"
-                    },
-                    {
-                    // question 3
-                    divName: ["q3"],
-                    functions: ["pop_insert_question()", `switch_class($("#next-button"), "visible", "hidden")`],
-                    type: "quiz",
-                    questionType: "life"
-                    }
-                );
-            }
         }, delay+ 500);
     }
 
     // changing text in ending page
     if (eval(`matrix[nRoom][nPage].feedback.${comment}`) === "array") {
         // from the array of generic comments
-        $(`#ending-game-title`).text(eval(`arr_${comment}_feedback[${comment}_num]`));
+        $(`#ending-game .ending-game-title`).text(eval(`arr_${comment}_feedback[${comment}_num]`));
     } else {
         // specific comments
-        $(`#ending-game-title`).text(eval(`matrix[nRoom][nPage].feedback.${comment}`));
+        $(`#ending-game .ending-game-title`).text(eval(`matrix[nRoom][nPage].feedback.${comment}`));
     }
     // adding to the appropriate counter
     eval(`${comment}_num++`);
 
-    
     // moving one step in lesson map
     switch_class($("#controls"),"none", "flex" );
     switch_class($(`#lesson-map-${nRoom}`), "none", "flex");  
@@ -112,7 +85,35 @@ endingGame = (condition) => {
     matrix[nRoom].splice(nPage , 1);
     // shows next page
     setTimeout(() => {
-        movePage();
+        // end of game
+        if (nLife === 0) {
+            finish_story("life");
+            matrix[nRoom].splice(nPage, 0, 
+                {
+                // question 1
+                divName: ["q1"],
+                functions: ["pop_insert_question()", `switch_class($("#next-button"), "hidden", "visible")`, `switch_class($("#back-button"), "visible", "hidden")`, `first_question()`],
+                type: "quiz",
+                questionType: "life"
+                },                        
+                {
+                // question 2
+                divName: ["q2"],
+                functions: ["pop_insert_question()", `switch_class($("#back-button"), "hidden", "visible")`],
+                type: "quiz",
+                questionType: "life"
+                },
+                {
+                // question 3
+                divName: ["q3"],
+                functions: ["pop_insert_question()", `switch_class($("#next-button"), "visible", "hidden")`],
+                type: "quiz",
+                questionType: "life"
+                }
+            );
+        } else {
+            movePage();
+        }
         // hide end-game general page
         $(`#ending-game`).css("display", "none");
         switch_class($("#spinning-flex"), "flex", "none");
@@ -126,13 +127,40 @@ endingGame = (condition) => {
     }, delay + 2000);
 }
 
-
 // fog cloud hearts effect
 cloud_effect = () => {
     switch_class($(`#heart-${nLife} .cloud`), "none", "block");
     setTimeout(() => {
       switch_class($(`#heart-${nLife} .cloud`), "block", "none");
     }, 50);
+}
+
+// reveals "story-finish" div
+finish_story = (type) => {
+    // display finish-story general page
+    $(`#finish-story`).css("display", "block");
+    switch_class($("#spinning-flex"), "none", "flex");
+    switch_class($("#controls .control-button"),"visible","hidden");
+    switch_class($("#controls"),"none", "flex" );
+    switch_class($(`#lesson-map-${nRoom}`), "none", "flex");  
+    switch (type) {
+        case 'life':
+          console.log('Oranges are $0.59 a pound.');
+          break;
+        // ending game completely and refreshing room
+        case 'finish':
+            switch_class($("#finish-story #button-flex"), "flex", "none");
+            setTimeout(() => {
+                // hide finish-story general page
+                switch_class($("#finish-story #button-flex"), "none", "flex");
+                $(`#finish-story`).css("display", "none");
+                switch_class($("#spinning-flex"), "flex", "none");
+                switch_class($("#controls .control-button"), "hidden", "visible");
+                switch_class($("#controls"), "flex" ,"none");
+                switch_class($(`#lesson-map-${nRoom}`), "flex", "none");  
+            }, 2500);
+          break;
+    }
 }
 
 // called when the user loses the game

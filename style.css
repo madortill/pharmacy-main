@@ -376,6 +376,13 @@ body, #main {
   align-items: center;
 }
 
+#finish-story #ahami-cry {
+  position: absolute;
+  width: 20vw;
+  bottom: 0;
+  right: 5vw;
+}
+
 #quiz-button {
   background-image: url("assets/media/gameover+finish/test_normal.svg");
   width: 26vw;
