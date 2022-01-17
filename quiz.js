@@ -69,10 +69,13 @@ first_question = () => {
 
 type_quiz = () => {
     $(`#${matrix[nRoom][nPage].divName} .question-counter`).text(`${question_counter}/${question_num}`);
+    pop_insert_question();
 }
 
 // insert question from the question bank
   pop_insert_question = () => {
+    // clean new answers from classes from the previous questions set
+    $(`.answer.correct`).removeClass("correct");
     $(`#${matrix[nRoom][nPage].divName} .answer`).on("click", check_answer);
     // take random question from bank
     let question_bank = window[`arr_questions_bank_${nRoom}`];
@@ -107,15 +110,19 @@ type_quiz = () => {
     }
     // wrong
     else {
-        switch_class($(event.currentTarget), "wrong", "normal");
+        switch_class($(event.currentTarget), "normal", "wrong");
         incorrect_question_counter++;
     }
     // if the quiz is over
     if ((correct_question_counter + incorrect_question_counter) === question_num) {
-        check_quiz();
+        // wait before moving page 
+        // the user can see his last answer for a second
+        setTimeout(() => {
+            check_quiz();
+        }, 1000);
     }
   }
-
+// check if the user passed the test
   check_quiz = () => {
     switch_class($(`#lesson-map-${nRoom}`), "hidden", "visible");
     switch_class($(`#topic-counter`), "hidden", "visible");
@@ -123,12 +130,15 @@ type_quiz = () => {
     switch_class($(`#controls .home-page-button`), "hidden", "visible"); 
     switch_class($("#next-button"), "hidden", "visible");
     switch_class($("#controls"), "flex" ,"none"); 
-    // finish room
+    // user finished quiz
+    // user passed the test
     if (correct_question_counter > (question_num/2)) {
         hidePage();
-        // showing heart animation if it is a test for extra life
+        // user passed life test
+        // adding life and showing animation
         if (matrix[nRoom][nPage].questionType === "life") {
             nLife++;
+
             // display end-game general page
             $(`#ending-game`).css("display", "block");
             switch_class($("#spinning-flex"), "none", "flex");
@@ -138,7 +148,7 @@ type_quiz = () => {
             for (let i = 1; i <= nLife ; i++) {
                 $(`#heart-${i} .heart`).attr("src", `assets/media/heart/heart${i}_happy.svg`);
             }
-            
+
             // animation of popping heart
             setTimeout(() => {
                 switch_class($(`#heart-1`), "hidden", "visible");
@@ -163,7 +173,8 @@ type_quiz = () => {
                 movePage();
             }, 4000);
         }
-        // if finishing the room's test, going back to home page to open new room
+        // user passed room's final test
+        // going back to home page to open new room
         else if (matrix[nRoom][nPage].questionType === "finish") {
             // erase 6 questions
             matrix[nRoom].splice((nPage - (question_num-1)), question_num);
@@ -175,17 +186,21 @@ type_quiz = () => {
             // moving room
             homePage();
         }
+
     } 
+
+    // user didn't pass the test
     // restart room
     else {
         finish_story("finish");
     }
+
     // reset for new questions
     question_counter = 1;
     correct_question_counter = 0;
     incorrect_question_counter = 0;
-    $(`.answer.correct`).removeClass("correct");
-    $(`.answer.right`).removeClass("right");
-    $(`.answer.wrong`).removeClass("wrong");
+    // remove classes from answers so the won't appear in new questions
+    switch_class($(`.answer.right`), "right", "normal");
+    switch_class($(`.answer.wrong`), "wrong", "normal");
   }
 

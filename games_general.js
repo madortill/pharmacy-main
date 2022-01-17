@@ -97,7 +97,15 @@ endingGame = (condition) => {
         $(".topic").css("pointer-events", "auto");
         // end of game
         if (nLife === 0) {
-            finish_story("life");
+            // this is the first life test for this room
+            if (!window[`arr_questions_bank_${nRoom}`].length === 0) {
+                finish_story("life");
+            }
+            // user can't do 2 test life
+            // user failed the room
+            else {
+                finish_story("finish");
+            }
         } else {
             movePage();
         }
@@ -156,21 +164,21 @@ pop_quiz_button = () => {
             {
             // question 1
             divName: ["q1"],
-            functions: ["pop_insert_question()", `switch_class($("#next-button"), "hidden", "visible")`, `switch_class($("#back-button"), "visible", "hidden")`, `first_question()`],
+            functions: [`switch_class($("#next-button"), "hidden", "visible")`, `switch_class($("#back-button"), "visible", "hidden")`, `first_question()`],
             type: "quiz",
             questionType: "life"
             },                        
             {
             // question 2
             divName: ["q2"],
-            functions: ["pop_insert_question()", `switch_class($("#back-button"), "hidden", "visible")`],
+            functions: [`switch_class($("#back-button"), "hidden", "visible")`],
             type: "quiz",
             questionType: "life"
             },
             {
             // question 3
             divName: ["q3"],
-            functions: ["pop_insert_question()", `switch_class($("#next-button"), "visible", "hidden")`],
+            functions: [`switch_class($("#next-button"), "visible", "hidden")`],
             type: "quiz",
             questionType: "life"
             }
