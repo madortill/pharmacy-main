@@ -281,6 +281,22 @@ body, #main {
   margin-right: 2vw;
 }
 
+#controls .home-page-button {
+  width: 9vw;
+}
+
+.home-page-button {
+  background-image: url("assets/media/gameover+finish/home_normal.svg");
+}
+
+.home-page-button:hover {
+  background-image: url("assets/media/gameover+finish/home_normal\ copy.svg");
+}
+
+.home-page-button:hover {
+  background-image: url("assets/media/gameover+finish/home_normal\ copy\ 2.svg");
+}
+
 .watch-room-button {
   background-image: url("assets/media/2content/map_normal.svg");
 }

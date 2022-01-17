@@ -159,20 +159,21 @@ type_quiz = () => {
                 switch_class($(`#hearts-flex`), "flex", "none");
                 movePage();
             }, 4000);
+            // erase 3 questions
+            matrix[nRoom].splice((nPage - (question_num-1)), question_num);
         } else if (matrix[nRoom][nPage].questionType === "finish") {
+            // erase 6 questions
+            matrix[nRoom].splice((nPage - (question_num-1)), question_num);
             // moving room
             nRoom = 0;
             nPage = 0;
+            movePage();
         }
-        // erase question
-        matrix[nRoom].splice((nPage - question_num), question_num);
     } 
     // restart room
     else {
         finish_story("finish");
     }
-    question_counter = 1;
-    correct_question_counter = 0;
-    incorrect_question_counter = 0;
+
   }
 
