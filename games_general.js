@@ -185,20 +185,6 @@ pop_quiz_button = () => {
     });
 }
 
-restart = () => {
-    // return games to array
-    matrix.splice(nRoom, 1, Arr_1);
-    eval(`restart_${nRoom}`);
-    hidePage();
-    nRoom = 0;
-    nPage = 0;
-    movePage();
-}
-
-restart_1 = () => {
-
-}
-
 // called when the user loses the game
 V_X = (condition) => {
     // hide timer
@@ -273,6 +259,7 @@ click_identify = (item) => {
     // if the user clicked incorrect item, the game is over
     else {
         V_X(false);
+        $(`#${matrix[nRoom][nPage].divName} .item`).css("pointer-events", "none");
     }
 }
 

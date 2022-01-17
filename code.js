@@ -375,6 +375,22 @@ switch_class = (object, prevClass, currClass) => {
   }
 }	
 
+restart = () => {
+  // return games to array
+  matrix.splice(nRoom, 1, Arr_1);
+  eval(`restart_${nRoom}`);
+  hidePage();
+  nRoom = 0;
+  nPage = 0;
+  nLife = 3;
+  movePage();
+
+  $(`.item`).css("pointer-events", "auto");
+  for (let i = 1; i <= nLife ; i++) {
+      $(`#heart-${i} .heart`).attr("src", `assets/media/heart/heart${i}_happy.svg`);
+  }
+}
+
 // text css opening
 function pop_calculateStrokeTextCSS(steps) {
   var css = "";

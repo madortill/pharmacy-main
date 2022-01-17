@@ -8,12 +8,16 @@ pop_sign_click = () => {
     }); 
 }
 
+restart_1 = () => {
+
+}
+
 // the parameter is the clicked correct sign
 r1p3_clicked_correct = (item) => {
     item.animate({opacity: `0`}, 200, function() {
         switch_class(item, "visible", "hidden");
         if ($(`#${matrix[nRoom][nPage].divName} .hidden`).length === 2) {
-            $(".item").css("pointer-events", "none");
+            $(`#${matrix[nRoom][nPage].divName} .item`).css("pointer-events", "none");
             V_X(true);
         }
     });

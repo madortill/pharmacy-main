@@ -120,17 +120,15 @@ type_quiz = () => {
   check_quiz = () => {
     switch_class($(`#lesson-map-${nRoom}`), "hidden", "visible");
     switch_class($(`#topic-counter`), "hidden", "visible");
-    switch_class($(`#watch-room-button`), "hidden", "visible"); 
-    question_counter = 1;
-    correct_question_counter = 0;
-    incorrect_question_counter = 0;
+    switch_class($(`#watch-room-button`), "hidden", "visible");
+    switch_class($("#next-button"), "hidden", "visible");
+    switch_class($("#controls"), "flex" ,"none"); 
     // finish room
     if (correct_question_counter > (question_num/2)) {
         hidePage();
-        // erase question
-        matrix[nRoom].splice((nPage - question_num), question_num);
         // showing heart animation if it is a test for extra life
-        if (matrix[nRoom][nPage].questionType = "life") {
+        if (matrix[nRoom][nPage].questionType === "life") {
+            nLife++;
             // display end-game general page
             $(`#ending-game`).css("display", "block");
             switch_class($("#spinning-flex"), "none", "flex");
@@ -149,8 +147,6 @@ type_quiz = () => {
             setTimeout(cloud_effect, 2400);
             setTimeout(() => {
                 $(`#heart-1 .heart`).removeClass("heart-show-animation");
-                
-                nLife++;
             }, 2500);
 
             // text
@@ -161,14 +157,22 @@ type_quiz = () => {
                 switch_class($("#spinning-flex"), "flex", "none");
                 // hide hearts
                 switch_class($(`#hearts-flex`), "flex", "none");
+                movePage();
             }, 4000);
+        } else if (matrix[nRoom][nPage].questionType === "finish") {
+            // moving room
+            nRoom = 0;
+            nPage = 0;
         }
-        nRoom = 0;
-        nPage = 0;
+        // erase question
+        matrix[nRoom].splice((nPage - question_num), question_num);
     } 
     // restart room
     else {
         finish_story("finish");
     }
+    question_counter = 1;
+    correct_question_counter = 0;
+    incorrect_question_counter = 0;
   }
 
