@@ -61,6 +61,7 @@ first_question = () => {
     switch_class($(`#lesson-map-${nRoom}`), "none", "flex");
     switch_class($(`#topic-counter`), "visible", "hidden");
     switch_class($(`#watch-room-button`), "visible", "hidden"); 
+    switch_class($(`#controls .home-page-button`), "visible", "hidden"); 
     switch_class($("#controls"),"none", "flex");
     // set variables
     question_num = eval(`${matrix[nRoom][nPage].questionType}_question_num`);
@@ -98,8 +99,7 @@ type_quiz = () => {
 
 // check if the user clickes the right answer
   check_answer = (event) => {
-    $(`#${matrix[nRoom][nPage].divName} .correct`).addClass("right");
-    $(`#${matrix[nRoom][nPage].divName} .correct`).removeClass("normal");
+    switch_class($(`#${matrix[nRoom][nPage].divName} .correct`), "normal", "right");
     $(`#${matrix[nRoom][nPage].divName} .answer`).off("click");
     // right
     if ($(event.currentTarget).hasClass("correct")) {
@@ -107,8 +107,7 @@ type_quiz = () => {
     }
     // wrong
     else {
-        $(event.currentTarget).addClass("wrong");
-        $(event.currentTarget).removeClass("normal");
+        switch_class($(event.currentTarget), "wrong", "normal");
         incorrect_question_counter++;
     }
     // if the quiz is over
@@ -121,6 +120,7 @@ type_quiz = () => {
     switch_class($(`#lesson-map-${nRoom}`), "hidden", "visible");
     switch_class($(`#topic-counter`), "hidden", "visible");
     switch_class($(`#watch-room-button`), "hidden", "visible");
+    switch_class($(`#controls .home-page-button`), "hidden", "visible"); 
     switch_class($("#next-button"), "hidden", "visible");
     switch_class($("#controls"), "flex" ,"none"); 
     // finish room
@@ -157,23 +157,35 @@ type_quiz = () => {
                 switch_class($("#spinning-flex"), "flex", "none");
                 // hide hearts
                 switch_class($(`#hearts-flex`), "flex", "none");
+                // erase 3 questions
+                matrix[nRoom].splice((nPage - (question_num-1)), question_num);
+                nPage = nPage - (question_num-1);
                 movePage();
             }, 4000);
-            // erase 3 questions
-            matrix[nRoom].splice((nPage - (question_num-1)), question_num);
-        } else if (matrix[nRoom][nPage].questionType === "finish") {
+        }
+        // if finishing the room's test, going back to home page to open new room
+        else if (matrix[nRoom][nPage].questionType === "finish") {
             // erase 6 questions
             matrix[nRoom].splice((nPage - (question_num-1)), question_num);
+            nPage = nPage - (question_num-1);
+            // opening new room
+            if (nRoom < 4) {
+                pop_room_buttons($(`#room-button-${nRoom + 1}`));
+            }
             // moving room
-            nRoom = 0;
-            nPage = 0;
-            movePage();
+            homePage();
         }
     } 
     // restart room
     else {
         finish_story("finish");
     }
-
+    // reset for new questions
+    question_counter = 1;
+    correct_question_counter = 0;
+    incorrect_question_counter = 0;
+    $(`.answer.correct`).removeClass("correct");
+    $(`.answer.right`).removeClass("right");
+    $(`.answer.wrong`).removeClass("wrong");
   }
 

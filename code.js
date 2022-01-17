@@ -9,7 +9,7 @@ var Arr_1 = [
   {
     // opening game question- page 1
     divName: ["r1p1"],
-    functions: [`switch_class($("#back-button"), "visible", "hidden")`, `pop_buttons($("#next-button"), 1)`, "pop_watch_room_button()", "pop_restart_button()", "pop_quiz_button()"],
+    functions: [`switch_class($("#back-button"), "visible", "hidden")`, `pop_buttons($("#next-button"), 1)`, "pop_watch_room_button()", "pop_home_page_button()", "pop_restart_button()", "pop_quiz_button()"],
     type: "content",
     topic: 1
   },
@@ -218,6 +218,8 @@ function hidePage() {
 
 // function that adds events listeners to room buttons that displays the chosen room- called only one time for each button
 function pop_room_buttons(button) {
+  // changing button appearance
+  switch_class(button, "enabled", "abled");
   button.on("click", function() {
     // hides last divs
     hidePage();
@@ -353,6 +355,22 @@ type_content = () => {
   switch_class($(`#lesson-map-${nRoom}`), "none", "flex");
 }
 
+pop_home_page_button = () => {
+  $("#controls .home-page-button").on("click", function() {
+    homePage();
+  });
+}
+
+// sends the user to home page
+homePage = () => {
+  hidePage();
+  nRoom = 0;
+  nPage = 0;
+  movePage();
+  switch_class($("#controls"), "flex", "none");
+  switch_class($(`#lesson-map-${nRoom}`), "flex", "none");
+}
+
 pop_watch_room_button = () => {
   $("#watch-room-button").on("click", function() {
     toggle_room();
@@ -395,9 +413,7 @@ restart = () => {
   eval(`restart_${nRoom}`);
 
   // questions
-  question_counter = 1;
-  correct_question_counter = 0;
-  incorrect_question_counter = 0;
+
 }
 
 // text css opening
