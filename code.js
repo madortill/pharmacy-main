@@ -394,8 +394,10 @@ switch_class = (object, prevClass, currClass) => {
 }	
 
 restart = () => {
-  // return games and questions to array
-  matrix.splice(nRoom, 1, Arr_1);
+  // return games and questions to matrix
+  matrix.splice(nRoom, 1, window[`Arr_${nRoom}`]);
+  // return questions to questions' matrix
+  mat_questions_bank.splice(nRoom - 1, 1, window[`arr_questions_bank_${nRoom}`]);
   homePage();
 
   // games general
@@ -406,8 +408,6 @@ restart = () => {
 
   // specific games
   eval(`restart_${nRoom}`);
-
-  // questions
 
 }
 

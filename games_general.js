@@ -130,18 +130,17 @@ finish_story = (type) => {
     $(".topic").css("pointer-events", "none");  
     switch (type) {
         case 'life':
-            switch_class($("#finish-story #button-flex"), "none", "flex");
+            switch_class($("#finish-story .button-flex"), "none", "flex");
             switch_class($("#controls"),"none", "flex");
             switch_class($(`#lesson-map-${nRoom}`), "none", "flex");
           break;
         // ending game completely and refreshing room
         case 'finish':
-            switch_class($("#finish-story #button-flex"), "flex", "none");
+            switch_class($("#finish-story .button-flex"), "flex", "none");
             switch_class($("#controls"), "flex" ,"none");
             // see the finish-story screen for 2.5 secondes
             setTimeout(() => {
                 // hide finish-story general page
-                switch_class($("#finish-story #button-flex"), "none", "flex");
                 $(`#finish-story`).css("display", "none");
                 switch_class($("#spinning-flex"), "flex", "none");
                 switch_class($("#controls .control-button"), "hidden", "visible");

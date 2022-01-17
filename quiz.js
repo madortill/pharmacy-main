@@ -47,6 +47,8 @@ arr_questions_bank_1 = [
     }          
 ];
 
+mat_questions_bank[arr_questions_bank_1];
+
 let question_counter = 1;
 const finish_question_num = 6;
 const life_question_num = 3;
@@ -78,9 +80,9 @@ type_quiz = () => {
     $(`.answer.correct`).removeClass("correct");
     $(`#${matrix[nRoom][nPage].divName} .answer`).on("click", check_answer);
     // take random question from bank
-    let question_bank = window[`arr_questions_bank_${nRoom}`];
+    let question_bank = window[`mat_questions_bank[arr_questions_bank_${nRoom - 1}]`];
     // random question from array
-    let question_num = Math.floor(Math.random() * window[`arr_questions_bank_${nRoom}`].length);
+    let question_num = Math.floor(Math.random() * window[`mat_questions_bank[arr_questions_bank_${nRoom - 1}]`].length);
     // number between 1-4
     let correct_answer = Math.floor(Math.random() * ANSWER_NUM) + 1;
     // insert question
