@@ -98,7 +98,7 @@ endingGame = (condition) => {
         // end of game
         if (nLife === 0) {
             // this is the first life test for this room
-            if (window[`arr_questions_bank_${nRoom}`].length !== 0) {
+            if (mat_questions_bank[nRoom - 1].length !== 0) {
                 finish_story("life");
             }
             // user can't do 2 test life
@@ -154,7 +154,9 @@ finish_story = (type) => {
 
 pop_restart_button = () => {
     $("#restart-button").on("click", function() {
-        pop_buttons($("#restart-button"), 0);
+        // hide finish-story general page
+        $(`#finish-story`).css("display", "none");
+        switch_class($("#spinning-flex"), "flex", "none");
         restart();
     });
 }

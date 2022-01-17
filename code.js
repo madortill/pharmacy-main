@@ -162,7 +162,7 @@ var matrix = [[
     divName: ["about"],
     functions: ['pop_buttons($("#back-about-button"), -1)']
   }
-], Arr_1, Arr_2, Arr_3, Arr_4];
+], Arr_1.slice(), Arr_2.slice(), Arr_3.slice(), Arr_4.slice()];
 
 // lesson map
 // what topic is the user currently learning

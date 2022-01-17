@@ -1,5 +1,5 @@
 // bank of questions
-arr_questions_bank_1 = [
+var arr_questions_bank_1 = [
     {
         question: "מה חייב להימצא בחדר המתנה?",
         correct_answer: `ספסלים, פחים, לוח מודעות, שילוט המורה על "איסור עישון" ואמצעי הגנה מפגעי מזג האוויר.`,
@@ -47,7 +47,7 @@ arr_questions_bank_1 = [
     }          
 ];
 
-mat_questions_bank[arr_questions_bank_1];
+var mat_questions_bank = [arr_questions_bank_1.slice()];
 
 let question_counter = 1;
 const finish_question_num = 6;
@@ -80,9 +80,9 @@ type_quiz = () => {
     $(`.answer.correct`).removeClass("correct");
     $(`#${matrix[nRoom][nPage].divName} .answer`).on("click", check_answer);
     // take random question from bank
-    let question_bank = window[`mat_questions_bank[arr_questions_bank_${nRoom - 1}]`];
+    let question_bank = mat_questions_bank[nRoom - 1];
     // random question from array
-    let question_num = Math.floor(Math.random() * window[`mat_questions_bank[arr_questions_bank_${nRoom - 1}]`].length);
+    let question_num = Math.floor(Math.random() * question_bank.length);
     // number between 1-4
     let correct_answer = Math.floor(Math.random() * ANSWER_NUM) + 1;
     // insert question
