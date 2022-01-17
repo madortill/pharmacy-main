@@ -98,7 +98,7 @@ endingGame = (condition) => {
         // end of game
         if (nLife === 0) {
             // this is the first life test for this room
-            if (!window[`arr_questions_bank_${nRoom}`].length === 0) {
+            if (window[`arr_questions_bank_${nRoom}`].length !== 0) {
                 finish_story("life");
             }
             // user can't do 2 test life
@@ -126,23 +126,25 @@ finish_story = (type) => {
     $(`#finish-story`).css("display", "block");
     switch_class($("#spinning-flex"), "none", "flex");
     switch_class($("#controls .control-button"),"visible","hidden");
-    switch_class($("#controls"),"none", "flex" );
-    switch_class($(`#lesson-map-${nRoom}`), "none", "flex");
+
     $(".topic").css("pointer-events", "none");  
     switch (type) {
         case 'life':
-          console.log('Oranges are $0.59 a pound.');
+            switch_class($("#finish-story #button-flex"), "none", "flex");
+            switch_class($("#controls"),"none", "flex");
+            switch_class($(`#lesson-map-${nRoom}`), "none", "flex");
           break;
         // ending game completely and refreshing room
         case 'finish':
             switch_class($("#finish-story #button-flex"), "flex", "none");
+            switch_class($("#controls"), "flex" ,"none");
+            // see the finish-story screen for 2.5 secondes
             setTimeout(() => {
                 // hide finish-story general page
                 switch_class($("#finish-story #button-flex"), "none", "flex");
                 $(`#finish-story`).css("display", "none");
                 switch_class($("#spinning-flex"), "flex", "none");
                 switch_class($("#controls .control-button"), "hidden", "visible");
-                switch_class($("#controls"), "flex" ,"none");
                 switch_class($(`#lesson-map-${nRoom}`), "flex", "none");
                 $(".topic").css("pointer-events", "auto");
                 restart();

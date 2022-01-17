@@ -396,12 +396,7 @@ switch_class = (object, prevClass, currClass) => {
 restart = () => {
   // return games and questions to array
   matrix.splice(nRoom, 1, Arr_1);
-
-  hidePage();
-  nRoom = 0;
-  nPage = 0;
-  nLife = 3;
-  movePage();
+  homePage();
 
   // games general
   $(`.item`).css("pointer-events", "auto");
