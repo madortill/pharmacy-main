@@ -157,6 +157,7 @@ pop_restart_button = () => {
         // hide finish-story general page
         $(`#finish-story`).css("display", "none");
         switch_class($("#spinning-flex"), "flex", "none");
+        switch_class($("#controls .control-button"), "hidden", "visible");
         restart();
     });
 }

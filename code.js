@@ -398,6 +398,14 @@ restart = () => {
   matrix.splice(nRoom, 1, window[`Arr_${nRoom}`]);
   // return questions to questions' matrix
   mat_questions_bank.splice(nRoom - 1, 1, window[`arr_questions_bank_${nRoom}`]);
+  // specific games
+  eval(`restart_${nRoom}`);
+  // lesson map
+  $(`#lesson-map-${nRoom} .topic`).css("background-image", "url('assets/media/2content/checkpoint_normal.svg')");
+
+
+  // home page
+  //nRoom = 0 nPage = 0
   homePage();
 
   // games general
@@ -405,10 +413,6 @@ restart = () => {
   for (let i = 1; i <= nLife ; i++) {
       $(`#heart-${i} .heart`).attr("src", `assets/media/heart/heart${i}_happy.svg`);
   }
-
-  // specific games
-  eval(`restart_${nRoom}`);
-
 }
 
 // text css opening

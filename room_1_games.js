@@ -9,6 +9,9 @@ pop_sign_click = () => {
 }
 
 restart_1 = () => {
+    // r1p3
+    // r1p7
+    counter_r1p7_signs_order = 0
 
 }
 
@@ -23,8 +26,8 @@ r1p3_clicked_correct = (item) => {
     });
 }
 
-counter_r1p7_signs_order = 0;
-arr_r1p7_signs_order = [1,8,7,6,2,4,5,3];
+var counter_r1p7_signs_order = 0;
+var arr_r1p7_signs_order = [1,8,7,6,2,4,5,3];
 r1p7_dropped_correct = (drag, drop) => {
     var $this = drop;
     // disable item dragging
