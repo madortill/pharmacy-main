@@ -123,11 +123,12 @@ restart_1 = () => {
     // r1p7
     counter_r1p7_signs_order = 0
     $("#r1p7 .board").addClass("empty");
+    arr_r1p7_signs_order = [];
     // new signs order
-    for (let i = 0; i < arr_r1p7_signs_order.length ; i++) {
-        let random = Math.floor(Math.random() * arr_r1p7_signs_order.length) + 1;
+    for (let i = 0; i < $("#r1p7 .sign").length ; i++) {
+        let random = Math.floor(Math.random() * $("#r1p7 .sign").length) + 1;
         while (arr_r1p7_signs_order.includes(random)) {
-            random = Math.floor(Math.random() * arr_r1p7_signs_order.length) + 1;
+            random = Math.floor(Math.random() * $("#r1p7 .sign").length) + 1;
         }
         arr_r1p7_signs_order[i] = random;
     }
@@ -135,7 +136,7 @@ restart_1 = () => {
     // signs return to original location
     $("#r1p7 .sign").css({top: "38vw", left: "42.5vw"});
     // signs dissappear accept from the first
-    for (let i = 2; i <= arr_r1p7_signs_order.length ; i++) {
+    for (let i = 2; i <= $("#r1p7 .sign").length ; i++) {
         switch_class($(`#r1p7 .drag.data-num-${i}`), "none", "block");
     }
 
