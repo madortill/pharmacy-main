@@ -413,6 +413,12 @@ restart = () => {
   for (let i = 1; i <= nLife ; i++) {
       $(`#heart-${i} .heart`).attr("src", `assets/media/heart/heart${i}_happy.svg`);
   }
+  $(`.drag`).draggable({
+    revert:"invalid",
+    revertDuration: 200,
+    containment: "window",
+    drag: function(event, ui) {}
+  }).css("position", "absolute");
 }
 
 // text css opening
