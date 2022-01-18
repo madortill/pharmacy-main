@@ -30,6 +30,7 @@ var Arr_1 = [
       correct: "array",
       incorrect: "array"
     },
+    instructions: "התבלבלתי ותליתי את כל השלטים מחוץ למרפאה!<br>לחצו על השלטים שאמורים להיות בפנים",
     instructions_feedback: {
       correct: "אתם שולטים על השלטים!",
       incorrect: "חבל שתליית השלטים תלוייה בכם..."
@@ -63,6 +64,7 @@ var Arr_1 = [
       correct: "array",
       incorrect: "array"
     },
+    instructions: "בבקשה עזרו לי לגרור את המודעה ללוח הנכון",
     instructions_feedback: {
       correct: "מזל שהמשימה הייתה תלוייה בכם",
       incorrect: "יא חסרי מודעות..."
@@ -90,6 +92,7 @@ var Arr_1 = [
       correct: "שלב בוס!",
       incorrect: "שלב בוס!"
     },
+    instructions: "עזרו לי ליצור אוגדן לחדר קבלה! גררו את הדפים הנחוצים לאוגדן ואת השאר לפח",
     instructions_feedback: {
       correct: "אוגדן של קפדן!",
       incorrect: "אוגדן של מפסידן..."

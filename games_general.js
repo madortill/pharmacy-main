@@ -20,6 +20,7 @@ type_game = () => {
         // reset timeline
         $("#time-timeline").css({"object-position": "40% 0", "animation-duration" : matrix[nRoom][nPage].timer});
     }
+    $(`#${matrix[nRoom][nPage].divName} .instructions`).html(matrix[nRoom][nPage].instructions);
   }
 
 endingGame = (condition) => {
