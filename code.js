@@ -399,10 +399,10 @@ restart = () => {
   // return questions to questions' matrix
   mat_questions_bank.splice(nRoom - 1, 1, window[`arr_questions_bank_${nRoom}`]);
   // specific games
-  eval(`restart_${nRoom}`);
+  eval(`restart_${nRoom}()`);
   // lesson map
   $(`#lesson-map-${nRoom} .topic`).css("background-image", "url('assets/media/2content/checkpoint_normal.svg')");
-
+  $(`.ahami-head, #topic-counter`).attr("src", `assets/media/2content/head_happy.svg`);
 
   // home page
   //nRoom = 0 nPage = 0
