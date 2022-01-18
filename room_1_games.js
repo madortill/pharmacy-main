@@ -119,6 +119,7 @@ r1p10_dropped_correct = (drag, drop) => {
 restart_1 = () => {
     // r1p3
     switch_class($("#r1p3 .item"), "hidden", "visible");
+    $("#r1p3 .item").css("opacity", "1");
 
     // r1p7
     counter_r1p7_signs_order = 0
@@ -151,11 +152,11 @@ restart_1 = () => {
         arr_r1p10_files_order[i].used = false;
     }
     for (let i = 0; i < arr_r1p10_files_order.length ; i++) {
-        let random = Math.floor(Math.random() * arr_r1p10_files_order) + 1;
+        let random = Math.floor(Math.random() * arr_r1p10_files_order.length);
         while (arr_r1p10_files_order[random].used) {
-            random = Math.floor(Math.random() * arr_r1p10_files_order) + 1;
+            random = Math.floor(Math.random() * arr_r1p10_files_order.length);
         }
-        (`#r1p10 .file.data-num-${i}`).css({top: arr_r1p10_files_order[random].top, left: arr_r1p10_files_order[random].left, transform: arr_r1p10_files_order[random].transform});
+        $(`#r1p10 .file.data-num-${i}`).css({top: arr_r1p10_files_order[random].top, left: arr_r1p10_files_order[random].left, transform: arr_r1p10_files_order[random].transform});
         arr_r1p10_files_order[random].used = true;
     }
 }

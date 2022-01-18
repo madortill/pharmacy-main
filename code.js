@@ -272,6 +272,10 @@ function pop_buttons(button, number) {
 check_room = () => {
   topic_counter = 1;
   nLife = 3;
+  for (let i = 1; i <= nLife ; i++) {
+    switch_class($(`#heart-${i}`), "hidden", "visible");
+    $(`#heart-${i} .heart`).attr("src", `assets/media/heart/heart${i}_happy.svg`);
+  }
   switch (nRoom) {
     case 1:
       topic_distance = 15;  
@@ -410,9 +414,6 @@ restart = () => {
 
   // games general
   $(`.item`).css("pointer-events", "auto");
-  for (let i = 1; i <= nLife ; i++) {
-      $(`#heart-${i} .heart`).attr("src", `assets/media/heart/heart${i}_happy.svg`);
-  }
   $(`.drag`).draggable({
     revert:"invalid",
     revertDuration: 200,
