@@ -278,7 +278,7 @@ check_room = () => {
   }
   switch (nRoom) {
     case 1:
-      topic_distance = 15;  
+      topic_distance = 14.9;  
       break;
     case 2:
       topic_distance = 2;  

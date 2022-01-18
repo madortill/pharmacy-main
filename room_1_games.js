@@ -145,6 +145,7 @@ restart_1 = () => {
     counter_r1p10_folder = 0;
     counter_r1p10_trash = 0;
     $("#r1p10 .drag-2").css({width: "10.5vw"});
+    switch_class($("#r1p10 .drag-2"), "none", "block");
     $("#r1p10 .data-num-2.drag-2").attr("src", `assets/media/exer3/exer3_bikurofe.svg`);
     $("#r1p10 .data-num-2.drag-6").attr("src", `assets/media/exer3/exer3_kabala.svg`);
     // new files order
@@ -156,7 +157,7 @@ restart_1 = () => {
         while (arr_r1p10_files_order[random].used) {
             random = Math.floor(Math.random() * arr_r1p10_files_order.length);
         }
-        $(`#r1p10 .file.data-num-${i}`).css({top: arr_r1p10_files_order[random].top, left: arr_r1p10_files_order[random].left, transform: arr_r1p10_files_order[random].transform});
+        $(`#r1p10 .file.data-num-${i + 1}`).css({top: arr_r1p10_files_order[random].top, left: arr_r1p10_files_order[random].left, transform: arr_r1p10_files_order[random].transform});
         arr_r1p10_files_order[random].used = true;
     }
 }
