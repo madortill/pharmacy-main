@@ -186,6 +186,7 @@ type_quiz = () => {
                 pop_room_buttons($(`#room-button-${nRoom + 1}`));
             }
             // moving room
+            hidePage();
             homePage();
         }
 

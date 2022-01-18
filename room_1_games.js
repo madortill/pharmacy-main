@@ -138,7 +138,7 @@ restart_1 = () => {
     $("#r1p7 .sign").css({top: "38vw", left: "42.5vw"});
     // signs dissappear accept from the first
     for (let i = 2; i <= $("#r1p7 .sign").length ; i++) {
-        switch_class($(`#r1p7 .drag.data-num-${i}`), "none", "block");
+        switch_class($(`#r1p7 .drag.data-num-${i}`), "block", "none");
     }
 
     // r1p10

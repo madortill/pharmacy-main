@@ -5,8 +5,8 @@ var nLife = 3;
 // feedback arrays
 let correct_num = 0;
 let incorrect_num = 0;
-var arr_correct_feedback = ["תותח!"];
-var arr_incorrect_feedback = ["איזה לוזר!"];
+var arr_correct_feedback = ["תותח!", "תותחן!"];
+var arr_incorrect_feedback = ['דו"ח!' ,"איזה לוזר!"];
 
 // setting game page
 type_game = () => {

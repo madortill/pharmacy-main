@@ -369,13 +369,14 @@ type_content = () => {
 
 pop_home_page_button = () => {
   $("#controls .home-page-button").on("click", function() {
+    hidePage();
     homePage();
   });
 }
 
+// before using this function there is need to call hidePage()
 // sends the user to home page
 homePage = () => {
-  hidePage();
   nRoom = 0;
   nPage = 0;
   movePage();
@@ -406,6 +407,10 @@ switch_class = (object, prevClass, currClass) => {
 }	
 
 restart = () => {
+  // can't reset matrix after resetting nRoom and nPage
+  // can't reset matrix before resetting nRoom and nPage because it messes the page's order
+  // let nPrevRoom = nRoom;
+  hidePage();
   // return games and questions to matrix
   matrix.splice(nRoom, 1, window[`Arr_${nRoom}`].slice());
   // return questions to questions' matrix
