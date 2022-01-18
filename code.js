@@ -270,12 +270,14 @@ function pop_buttons(button, number) {
 
 // function that is called every time going in to new room to start from stratch
 check_room = () => {
-  topic_counter = 1;
+  // hearts
   nLife = 3;
   for (let i = 1; i <= nLife ; i++) {
     switch_class($(`#heart-${i}`), "hidden", "visible");
     $(`#heart-${i} .heart`).attr("src", `assets/media/heart/heart${i}_happy.svg`);
   }
+  // lesson map
+  topic_counter = 1;
   switch (nRoom) {
     case 1:
       topic_distance = 14.8;  
@@ -293,6 +295,9 @@ check_room = () => {
       topic_distance = 4; 
   }
   $("#topic-counter").css("right", "-63.5vw");
+  // comments array
+  correct_num = 0;
+  incorrect_num = 0;
 }
 
 

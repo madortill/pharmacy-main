@@ -144,10 +144,10 @@ restart_1 = () => {
     // r1p10
     counter_r1p10_folder = 0;
     counter_r1p10_trash = 0;
-    $("#r1p10 .drag-2").css({width: "10.5vw"});
-    switch_class($("#r1p10 .drag-2"), "none", "block");
+    $("#r1p10 .drag").css({width: "10.5vw"});
+    switch_class($("#r1p10 .drag-1"), "none", "block");
     $("#r1p10 .data-num-2.drag-2").attr("src", `assets/media/exer3/exer3_bikurofe.svg`);
-    $("#r1p10 .data-num-2.drag-6").attr("src", `assets/media/exer3/exer3_kabala.svg`);
+    $("#r1p10 .data-num-6.drag-2").attr("src", `assets/media/exer3/exer3_kabala.svg`);
     // new files order
     for (let i = 0; i < arr_r1p10_files_order.length ; i++) {
         arr_r1p10_files_order[i].used = false;
