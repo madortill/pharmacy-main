@@ -137,8 +137,11 @@ restart_1 = () => {
     // signs return to original location
     $("#r1p7 .sign").css({top: "38vw", left: "42.5vw"});
     // signs dissappear accept from the first
-    for (let i = 2; i <= $("#r1p7 .sign").length ; i++) {
-        switch_class($(`#r1p7 .drag.data-num-${i}`), "block", "none");
+    for (let i = 1; i <= $("#r1p7 .sign").length ; i++) {
+        // hide all except from the first sign
+        if (i !==  arr_r1p7_signs_order[0]) {
+            switch_class($(`#r1p7 .drag.data-num-${i}`), "block", "none");
+        }
     }
 
     // r1p10

@@ -427,12 +427,13 @@ restart = () => {
 
   // games general
   $(`.item`).css("pointer-events", "auto");
-  $(`.drag`).draggable({
-    revert:"invalid",
-    revertDuration: 200,
-    containment: "window",
-    drag: function(event, ui) {}
-  }).css("position", "absolute");
+  // $(`.drag`).draggable({
+  //   revert:"invalid",
+  //   revertDuration: 200,
+  //   containment: "window",
+  //   drag: function(event, ui) {}
+  // }).css("position", "absolute");
+  $(`.drag`).draggable("option", "disabled", false);
 }
 
 // text css opening
