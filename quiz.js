@@ -76,7 +76,7 @@ type_quiz = () => {
 // insert question from the question bank
   pop_insert_question = () => {
     // clean new answers from classes from the previous questions set
-    $(`.answer.correct`).removeClass("correct");
+    $(`#${matrix[nRoom][nPage].divName} .answer.correct`).removeClass("correct");
     $(`#${matrix[nRoom][nPage].divName} .answer`).on("click", check_answer);
     // take random question from bank
     let question_bank = mat_questions_bank[nRoom - 1];

@@ -129,7 +129,7 @@ var Arr_1 = [
   {
     // question 5- page 15
     divName: ["q5"],
-    functions: [`pop_insert_question()`],
+    functions: [`switch_class($("#next-button"), "hidden", "visible")`, `pop_insert_question()`],
     type: "quiz",
     questionType: "finish"
   },
