@@ -169,21 +169,21 @@ pop_quiz_button = () => {
             {
             // question 1
             divName: ["q1"],
-            functions: [`switch_class($("#next-button"), "hidden", "visible")`, `switch_class($("#back-button"), "visible", "hidden")`, `first_question()`],
+            functions: [`switch_class($("#next-button"), "hidden", "visible")`, `switch_class($("#back-button"), "visible", "hidden")`, `first_question()`, `pop_insert_question()`],
             type: "quiz",
             questionType: "life"
             },                        
             {
             // question 2
             divName: ["q2"],
-            functions: [`switch_class($("#back-button"), "hidden", "visible")`],
+            functions: [`switch_class($("#back-button"), "hidden", "visible")`, `pop_insert_question()`],
             type: "quiz",
             questionType: "life"
             },
             {
             // question 3
             divName: ["q3"],
-            functions: [`switch_class($("#next-button"), "visible", "hidden")`],
+            functions: [`switch_class($("#next-button"), "visible", "hidden")`, `pop_insert_question()`],
             type: "quiz",
             questionType: "life"
             }

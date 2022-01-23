@@ -101,42 +101,42 @@ var Arr_1 = [
   {
     // question 1- page 11
     divName: ["q1"],
-    functions: [`switch_class($("#next-button"), "hidden", "visible")`, `switch_class($("#back-button"), "visible", "hidden")`, `first_question()`],
+    functions: [`switch_class($("#next-button"), "hidden", "visible")`, `switch_class($("#back-button"), "visible", "hidden")`, `first_question()`, `pop_insert_question()`],
     type: "quiz",
     questionType: "finish"
   },
   {
     // question 2- page 12
     divName: ["q2"],
-    functions: [`switch_class($("#back-button"), "hidden", "visible")`],
+    functions: [`switch_class($("#back-button"), "hidden", "visible")`, `pop_insert_question()`],
     type: "quiz",
     questionType: "finish"
   },
   {
     // question 3- page 13
     divName: ["q3"],
-    functions: [],
+    functions: [`pop_insert_question()`],
     type: "quiz",
     questionType: "finish"
   },
   {
     // question 4- page 14
     divName: ["q4"],
-    functions: [],
+    functions: [`pop_insert_question()`],
     type: "quiz",
     questionType: "finish"
   },
   {
     // question 5- page 15
     divName: ["q5"],
-    functions: [],
+    functions: [`pop_insert_question()`],
     type: "quiz",
     questionType: "finish"
   },
   {
     // question 6- page 16
     divName: ["q6"],
-    functions: [`switch_class($("#next-button"), "visible", "hidden")`],
+    functions: [`switch_class($("#next-button"), "visible", "hidden")`, `pop_insert_question()`],
     type: "quiz",
     questionType: "finish"
   },

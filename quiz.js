@@ -71,7 +71,6 @@ first_question = () => {
 
 type_quiz = () => {
     $(`#${matrix[nRoom][nPage].divName} .question-counter`).text(`${question_counter}/${question_num}`);
-    pop_insert_question();
 }
 
 // insert question from the question bank
