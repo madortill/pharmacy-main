@@ -141,6 +141,8 @@ restart_1 = () => {
         // hide all except from the first sign
         if (i !==  arr_r1p7_signs_order[0]) {
             switch_class($(`#r1p7 .drag.data-num-${i}`), "block", "none");
+        } else {
+            switch_class($(`#r1p7 .drag.data-num-${i}`), "none", "block");
         }
     }
 
