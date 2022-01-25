@@ -48,6 +48,7 @@ var arr_questions_bank_1 = [
 ];
 
 var mat_questions_bank = [arr_questions_bank_1.slice()];
+var question_bank;
 
 let question_counter = 1;
 const finish_question_num = 6;
@@ -67,6 +68,7 @@ first_question = () => {
     switch_class($("#controls"),"none", "flex");
     // set variables
     question_num = eval(`${matrix[nRoom][nPage].questionType}_question_num`);
+    question_bank = mat_questions_bank[nRoom - 1];
 }
 
 type_quiz = () => {
@@ -79,7 +81,6 @@ type_quiz = () => {
     $(`#${matrix[nRoom][nPage].divName} .answer.correct`).removeClass("correct");
     $(`#${matrix[nRoom][nPage].divName} .answer`).on("click", check_answer);
     // take random question from bank
-    let question_bank = mat_questions_bank[nRoom - 1];
     // random question from array
     let question_num = Math.floor(Math.random() * question_bank.length);
     // number between 1-4
@@ -94,7 +95,7 @@ type_quiz = () => {
         } else {
             let wrong_answer = Math.floor(Math.random() * (question_bank[question_num].wrong_answer.length));
             $(`#${matrix[nRoom][nPage].divName} .answer.data-num-${i}`).text(question_bank[question_num].wrong_answer[wrong_answer]);
-            question_bank[question_num].wrong_answer.splice(wrong_answer, 1);
+            mat_questions_bank[nRoom - 1][question_num].wrong_answer.splice(wrong_answer, 1);
         }
     }
     // question won't repeat
