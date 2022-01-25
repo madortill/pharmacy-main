@@ -101,42 +101,42 @@ var Arr_1 = [
   {
     // question 1- page 11
     divName: ["q1"],
-    functions: [`switch_class($("#next-button"), "hidden", "visible")`, `switch_class($("#back-button"), "visible", "hidden")`, `first_question()`, `pop_insert_question()`],
+    functions: [`first_question()`, `switch_class($("#next-button"), "hidden", "visible")`, `switch_class($("#back-button"), "visible", "hidden")`],
     type: "quiz",
     questionType: "finish"
   },
   {
     // question 2- page 12
     divName: ["q2"],
-    functions: [`switch_class($("#back-button"), "hidden", "visible")`, `pop_insert_question()`],
+    functions: [`switch_class($("#back-button"), "hidden", "visible")`],
     type: "quiz",
     questionType: "finish"
   },
   {
     // question 3- page 13
     divName: ["q3"],
-    functions: [`pop_insert_question()`],
+    functions: [],
     type: "quiz",
     questionType: "finish"
   },
   {
     // question 4- page 14
     divName: ["q4"],
-    functions: [`pop_insert_question()`],
+    functions: [],
     type: "quiz",
     questionType: "finish"
   },
   {
     // question 5- page 15
     divName: ["q5"],
-    functions: [`switch_class($("#next-button"), "hidden", "visible")`, `pop_insert_question()`],
+    functions: [`switch_class($("#next-button"), "hidden", "visible")`],
     type: "quiz",
     questionType: "finish"
   },
   {
     // question 6- page 16
     divName: ["q6"],
-    functions: [`switch_class($("#next-button"), "visible", "hidden")`, `pop_insert_question()`],
+    functions: [`switch_class($("#next-button"), "visible", "hidden")`],
     type: "quiz",
     questionType: "finish"
   },
@@ -414,7 +414,7 @@ restart = () => {
   // return games and questions to matrix
   matrix.splice(nRoom, 1, window[`Arr_${nRoom}`].slice());
   // return questions to questions' matrix
-  mat_questions_bank.splice(nRoom - 1, 1, window[`arr_questions_bank_${nRoom}`].slice());
+  mat_questions_bank.splice(nRoom - 1, 1, copy(window[`arr_questions_bank_${nRoom}`]));
   // specific games
   eval(`restart_${nRoom}()`);
   // lesson map
@@ -451,4 +451,14 @@ function pop_calculateStrokeTextCSS(steps) {
       ") 0 var(--stroke-color),";
   }
   return css;
+}
+
+function copy(o) {
+  var output, v, key;
+  output = Array.isArray(o) ? [] : {};
+  for (key in o) {
+      v = o[key];
+      output[key] = (typeof v === "object") ? copy(v) : v;
+  }
+  return output;
 }

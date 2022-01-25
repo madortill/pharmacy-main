@@ -47,7 +47,7 @@ var arr_questions_bank_1 = [
     }          
 ];
 
-var mat_questions_bank = [arr_questions_bank_1.slice()];
+var mat_questions_bank = [copy(arr_questions_bank_1)];
 var question_bank;
 
 let question_counter = 1;
@@ -69,6 +69,12 @@ first_question = () => {
     // set variables
     question_num = eval(`${matrix[nRoom][nPage].questionType}_question_num`);
     question_bank = mat_questions_bank[nRoom - 1];
+    // add function that will pop after one time but will be executed again after restart
+    if (mat_questions_bank[nRoom - 1].length === arr_questions_bank_1.length) {
+        for (let i = 0; i < question_num; i++) {
+            matrix[nRoom][nPage + i].functions.push("pop_insert_question()");
+            }
+    }
 }
 
 type_quiz = () => {
@@ -82,24 +88,24 @@ type_quiz = () => {
     $(`#${matrix[nRoom][nPage].divName} .answer`).on("click", check_answer);
     // take random question from bank
     // random question from array
-    let question_num = Math.floor(Math.random() * question_bank.length);
+    let question_number = Math.floor(Math.random() * question_bank.length);
     // number between 1-4
     let correct_answer = Math.floor(Math.random() * ANSWER_NUM) + 1;
     // insert question
-    $(`#${matrix[nRoom][nPage].divName} .questions`).text(question_bank[question_num].question);
+    $(`#${matrix[nRoom][nPage].divName} .questions`).text(question_bank[question_number].question);
     // fill answers
     for (let i = 1; i <= ANSWER_NUM; i++) {
         if (i === correct_answer) {
-            $(`#${matrix[nRoom][nPage].divName} .answer.data-num-${i}`).text(question_bank[question_num].correct_answer);
+            $(`#${matrix[nRoom][nPage].divName} .answer.data-num-${i}`).text(question_bank[question_number].correct_answer);
             $(`#${matrix[nRoom][nPage].divName} .answer.data-num-${i}`).addClass("correct");
         } else {
-            let wrong_answer = Math.floor(Math.random() * (question_bank[question_num].wrong_answer.length));
-            $(`#${matrix[nRoom][nPage].divName} .answer.data-num-${i}`).text(question_bank[question_num].wrong_answer[wrong_answer]);
-            mat_questions_bank[nRoom - 1][question_num].wrong_answer.splice(wrong_answer, 1);
+            let wrong_answer = Math.floor(Math.random() * (question_bank[question_number].wrong_answer.length));
+            $(`#${matrix[nRoom][nPage].divName} .answer.data-num-${i}`).text(question_bank[question_number].wrong_answer[wrong_answer]);
+            mat_questions_bank[nRoom - 1][question_number].wrong_answer.splice(wrong_answer, 1);
         }
     }
     // question won't repeat
-    question_bank.splice(question_num, 1);
+    question_bank.splice(question_number, 1);
   }
 
 // check if the user clickes the right answer
@@ -178,15 +184,14 @@ type_quiz = () => {
         // user passed room's final test
         // going back to home page to open new room
         else if (matrix[nRoom][nPage].questionType === "finish") {
-            // erase 6 questions
-            matrix[nRoom].splice((nPage - (question_num-1)), question_num);
-            nPage = nPage - (question_num-1);
             // opening new room
             if (nRoom < 4) {
                 pop_room_buttons($(`#room-button-${nRoom + 1}`));
             }
             // moving room
             hidePage();
+            // erase 6 questions
+            matrix[nRoom].splice((nPage - (question_num-1)), question_num);
             homePage();
         }
 
