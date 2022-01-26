@@ -184,15 +184,18 @@ type_quiz = () => {
         // user passed room's final test
         // going back to home page to open new room
         else if (matrix[nRoom][nPage].questionType === "finish") {
+            // display end-room general page
+            $("#spinning-flex").attr("src", "assets/media/room_finish/round_finish_bg.svg");
+            $(`#ending-room`).css("display", "block");
+            $(`#room-sign`).attr("src")
             // keeping in the array the room's mark
             let mark = Math.round((100/question_num) * correct_question_counter);
-            arr_marks[nRoom-1].push(mark);
+            arr_marks.push(mark);
             $(`#ending-room .ending-room-title`).text(`ציון: ${mark}`);
-            $("#spinning-flex").attr("src", "assets/media/room_finish/round_finish_bg.svg");
             setTimeout(() => {
                 // hide end-room general page
                 $("#spinning-flex").attr("src", "assets/media/heart/round_lights.svg");
-                $(`#ending-game`).css("display", "none");
+                $(`#ending-room`).css("display", "none");
                 switch_class($("#spinning-flex"), "flex", "none");
                 // opening new room
                 if (arr_marks.length < 4) {
