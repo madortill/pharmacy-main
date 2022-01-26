@@ -479,11 +479,21 @@ body, #main {
 
 /* ending room */
 #room-sign {
-  width: 36vw;
-  bottom: -12vw;
+  width: 40vw;
+  bottom: -1vw;
   margin: auto;
   position: relative;
   display: block;
+}
+
+.ending-room-title {
+  color: rgb(147, 157, 205);
+  font-size: 7vw;
+  text-align: center;
+  --stroke-color: rgb(57, 68, 122);
+  --stroke-width: 6px;
+  letter-spacing: var(5px);
+  margin-top: 3vw;
 }
 
 /* hearts */

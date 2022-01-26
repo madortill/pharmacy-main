@@ -185,7 +185,7 @@ type_quiz = () => {
         // going back to home page to open new room
         else if (matrix[nRoom][nPage].questionType === "finish") {
             // display end-room general page
-            $("#spinning-flex").attr("src", "assets/media/room_finish/round_finish_bg.svg");
+            $("#spinning-bg").attr("src", "assets/media/room_finish/round_finish_bg.svg");
             $(`#ending-room`).css("display", "block");
             $(`#room-sign`).attr("src", `assets/media/room_finish/finish_room_${nRoom}.svg`);
             // keeping in the array the room's mark
@@ -194,12 +194,14 @@ type_quiz = () => {
             $(`#ending-room .ending-room-title`).text(`ציון: ${mark}`);
             setTimeout(() => {
                 // hide end-room general page
-                $("#spinning-flex").attr("src", "assets/media/heart/round_lights.svg");
+                $("#spinning-bg").attr("src", "assets/media/heart/round_lights.svg");
                 $(`#ending-room`).css("display", "none");
                 switch_class($("#spinning-flex"), "flex", "none");
                 // opening new room
                 if (arr_marks.length < 4) {
                     pop_room_buttons($(`#room-button-${nRoom + 1}`));
+                    // hiding the next button of the last page of the finished room
+                    matrix[nRoom][matrix[nRoom].length - 1].functions.push(`switch_class($("#next-button"), "visible", "hidden")`);
                 }
                 // moving room
                 hidePage();

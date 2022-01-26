@@ -139,7 +139,7 @@ var Arr_1 = [
     functions: [`switch_class($("#next-button"), "visible", "hidden")`],
     type: "quiz",
     questionType: "finish"
-  },
+  }
 ];
 
 // therapy room
