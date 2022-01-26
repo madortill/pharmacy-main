@@ -48,8 +48,8 @@ var arr_questions_bank_1 = [
 ];
 
 var mat_questions_bank = [copy(arr_questions_bank_1)];
-var question_bank;
 
+var question_bank;
 let question_counter = 1;
 const finish_question_num = 6;
 const life_question_num = 3;
@@ -57,6 +57,8 @@ const ANSWER_NUM = 4;
 var correct_question_counter = 0;
 var incorrect_question_counter = 0;
 var question_num = 0;
+
+var arr_marks = [];
 
 first_question = () => {
     // hide controls
@@ -142,21 +144,19 @@ type_quiz = () => {
     // user passed the test
     if (correct_question_counter > (question_num/2)) {
         hidePage();
+        switch_class($("#spinning-flex"), "none", "flex");
         // user passed life test
         // adding life and showing animation
         if (matrix[nRoom][nPage].questionType === "life") {
             nLife++;
-
             // display end-game general page
             $(`#ending-game`).css("display", "block");
-            switch_class($("#spinning-flex"), "none", "flex");
             // hearts
             switch_class($(`#hearts-flex`), "none", "flex");
             // heart images- switch to happy
             for (let i = 1; i <= nLife ; i++) {
                 $(`#heart-${i} .heart`).attr("src", `assets/media/heart/heart${i}_happy.svg`);
             }
-
             // animation of popping heart
             setTimeout(() => {
                 switch_class($(`#heart-1`), "hidden", "visible");
@@ -184,17 +184,27 @@ type_quiz = () => {
         // user passed room's final test
         // going back to home page to open new room
         else if (matrix[nRoom][nPage].questionType === "finish") {
-            // opening new room
-            if (nRoom < 4) {
-                pop_room_buttons($(`#room-button-${nRoom + 1}`));
-            }
-            // moving room
-            hidePage();
-            // erase 6 questions
-            matrix[nRoom].splice((nPage - (question_num-1)), question_num);
-            homePage();
+            // keeping in the array the room's mark
+            let mark = Math.round((100/question_num) * correct_question_counter);
+            arr_marks[nRoom-1].push(mark);
+            $(`#ending-room .ending-room-title`).text(`ציון: ${mark}`);
+            $("#spinning-flex").attr("src", "assets/media/room_finish/round_finish_bg.svg");
+            setTimeout(() => {
+                // hide end-room general page
+                $("#spinning-flex").attr("src", "assets/media/heart/round_lights.svg");
+                $(`#ending-game`).css("display", "none");
+                switch_class($("#spinning-flex"), "flex", "none");
+                // opening new room
+                if (arr_marks.length < 4) {
+                    pop_room_buttons($(`#room-button-${nRoom + 1}`));
+                }
+                // moving room
+                hidePage();
+                // erase 6 questions
+                matrix[nRoom].splice((nPage - (question_num-1)), question_num);
+                homePage();
+            }, 2500);
         }
-
     } 
 
     // user didn't pass the test
