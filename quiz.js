@@ -187,7 +187,7 @@ type_quiz = () => {
             // display end-room general page
             $("#spinning-flex").attr("src", "assets/media/room_finish/round_finish_bg.svg");
             $(`#ending-room`).css("display", "block");
-            $(`#room-sign`).attr("src")
+            $(`#room-sign`).attr("src", `assets/media/room_finish/finish_room_${nRoom}.svg`);
             // keeping in the array the room's mark
             let mark = Math.round((100/question_num) * correct_question_counter);
             arr_marks.push(mark);
