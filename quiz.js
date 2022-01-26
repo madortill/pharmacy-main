@@ -200,13 +200,26 @@ type_quiz = () => {
                 // opening new room
                 if (arr_marks.length < 4) {
                     pop_room_buttons($(`#room-button-${nRoom + 1}`));
-                    // hiding the next button of the last page of the finished room
-                    matrix[nRoom][matrix[nRoom].length - 1].functions.push(`switch_class($("#next-button"), "visible", "hidden")`);
                 }
                 // moving room
                 hidePage();
                 // erase 6 questions
                 matrix[nRoom].splice((nPage - (question_num-1)), question_num);
+
+                matrix[nRoom].forEach((page) => { 
+                    if (page === matrix[nRoom][matrix[nRoom].length - 1]) {
+                        // hiding the next button of the last page of the finished room
+                        page.functions.push(`switch_class($("#next-button"), "visible", "hidden")`);
+                    } else if ((page === matrix[nRoom][matrix[nRoom].length - 2])) {
+                        page.functions.push(`switch_class($("#next-button"), "hidden", "visible")`);
+                    }
+                    // showing back button when clicking topic 
+                    if ((page.topic !== undefined) && (page.topic !== 1)) {
+                        page.functions.push(`switch_class($("#back-button"), "hidden", "visible")`);
+                    }
+                });
+                // matrix[nRoom][matrix[nRoom].length - 1].functions.push(`switch_class($("#next-button"), "visible", "hidden")`);
+                // matrix[nRoom][matrix[nRoom].length - 2].functions.push(`switch_class($("#next-button"), "hidden", "visible")`);
                 homePage();
             }, 2500);
         }
