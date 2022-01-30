@@ -22,14 +22,14 @@ var Arr_1 = [
   {
     // first game- page 2
     divName: ["r2p2"],
-    functions: ["pop_slider()"],
+    functions: ["pop_r2p2_slider()"],
     type: "game",
-    timer: "10s",
+    timer: "1000s",
     feedback: {
       correct: "array",
       incorrect: "array"
     },
-    instructions: "גדי חייל בסדיר, תור (למקרה לא דחוף) הוא רוצה להסדיר.<br>גררו את הסמן, כדי לבחור את הזמן<br>והקישו על ENTER כדי שהתור יוזמן",
+    instructions: "גדי חייל בסדיר, תור (למקרה לא דחוף) הוא רוצה להסדיר.<br>גררו את הסמן כדי לבחור את הזמן, והקישו על ENTER כדי שהתור יוזמן.",
     instructions_feedback: {
       correct: "חבל על הזמן!",
       incorrect: "חבל על הזמן..."
@@ -176,14 +176,14 @@ var Arr_2 = [
   {
     // first game- page 2
     divName: ["r2p2"],
-    functions: ["pop_slider()"],
+    functions: ["pop_r2p2_slider()"],
     type: "game",
     timer: "10s",
     feedback: {
       correct: "array",
       incorrect: "array"
     },
-    instructions: "גדי חייל בסדיר, תור (למקרה לא דחוף) הוא רוצה להסדיר.<br>גררו את הסמן, כדי לבחור את הזמן<br>והקישו על ENTER כדי שהתור יוזמן",
+    instructions: "גדי חייל בסדיר, תור (למקרה לא דחוף) הוא רוצה להסדיר.<br>גררו את הסמן כדי לבחור את הזמן, והקישו על ENTER כדי שהתור יוזמן.",
     instructions_feedback: {
       correct: "חבל על הזמן!",
       incorrect: "חבל על הזמן..."
