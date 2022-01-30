@@ -14,6 +14,12 @@ var Arr_1 = [
     topic: 1
   },
   {
+    // page 2
+    divName: ["r3p1"],
+    functions: [`switch_class($("#back-button"), "hidden", "visible")`, `pop_buttons($("#back-button"), -1)`],
+    type: "content"
+  },
+  {
     // first game- page 2
     divName: ["r2p2"],
     functions: ["pop_r2p2_slider()", "enter()"],
