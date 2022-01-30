@@ -1069,3 +1069,71 @@ body, #main {
   background-image: url("assets/media/exer4/exer04_bg_empty.svg");
 }
 
+#r2p2 .instructions-flex {
+  top: 16vh;
+  right: 12.5vw;
+}
+
+#r2p2 .ahami-head {
+  width: 6rem;
+  margin-left: 2vw;
+}
+
+#r2p2 .instructions {
+  font-size: 2.2rem;
+  width: 70vw;
+}
+
+#gadi-text {
+  top: 10vw;
+  position: relative;
+  right: 19.5vw;
+  font-size: 2.5vw;
+}
+
+#r2p2 .slider-design {
+  position: relative;
+  margin: auto;
+  background-image: url(assets/media/exer4/exer4_bar.svg);
+  width: 69.8vw;
+  height: 12.2vw;
+  margin-top: 15vw;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.slider {
+  right: 3vw;
+  width: 91%;
+}
+
+.ui-widget.ui-widget-content {
+  border: none;
+}
+
+.ui-widget-content {
+  border: 1px solid #dddddd;
+  background: none;
+  color: #333333;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active {
+  border: none;;
+  background: rgb(242,187,95);
+  font-weight: normal;
+  color: #454545;
+}
+
+.ui-slider-horizontal .ui-slider-handle {
+  top: -2.73vw;
+}
+.ui-slider .ui-slider-handle {
+  position: absolute;
+  z-index: 2;
+  width: 1.2em;
+  height: 6.1vw;
+  cursor: default;
+  -ms-touch-action: none;
+  touch-action: none;
+}
+
