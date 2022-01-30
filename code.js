@@ -16,7 +16,7 @@ var Arr_1 = [
   {
     // first game- page 2
     divName: ["r2p2"],
-    functions: ["pop_r2p2_slider()"],
+    functions: ["pop_r2p2_slider()", "enter()"],
     type: "game",
     timer: "1000s",
     feedback: {
@@ -170,7 +170,7 @@ var Arr_2 = [
   {
     // first game- page 2
     divName: ["r2p2"],
-    functions: ["pop_r2p2_slider()"],
+    functions: ["pop_r2p2_slider()", `enter("slider")`],
     type: "game",
     timer: "10s",
     feedback: {
@@ -473,6 +473,7 @@ restart = () => {
   //   drag: function(event, ui) {}
   // }).css("position", "absolute");
   $(`.drag`).draggable("option", "disabled", false);
+  $(`.slider`).slider("enable");
 }
 
 // text css opening

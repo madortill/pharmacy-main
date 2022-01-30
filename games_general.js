@@ -303,3 +303,15 @@ pop_drag_drop = () => {
         });
     }
 }
+
+// check = what u want to check' for example slider
+enter = (check) => {
+    // if the user clicked enter
+    $(`#${matrix[nRoom][nPage].divName}`).keydown(function(event) {
+        // if the user clicked enter
+        if (event.which === 13) {
+            // calling slider function for specific page
+            window[matrix[nRoom][nPage].divName + "_check_" + check];
+        }
+    });
+}
