@@ -46,8 +46,10 @@ var arr_questions_bank_1 = [
         wrong_answer: [`ניצן סלומון`,`בריטני ספירס`,`מרגי`]
     }          
 ];
-
-var mat_questions_bank = [copy(arr_questions_bank_1)];
+var arr_questions_bank_2 = [];
+var arr_questions_bank_3 = [];
+var arr_questions_bank_4 = [];
+var mat_questions_bank = [copy(arr_questions_bank_1), copy(arr_questions_bank_2), copy(arr_questions_bank_3), copy(arr_questions_bank_4)];
 
 var question_bank;
 let question_counter = 1;
@@ -218,8 +220,6 @@ type_quiz = () => {
                         page.functions.push(`switch_class($("#back-button"), "hidden", "visible")`);
                     }
                 });
-                // matrix[nRoom][matrix[nRoom].length - 1].functions.push(`switch_class($("#next-button"), "visible", "hidden")`);
-                // matrix[nRoom][matrix[nRoom].length - 2].functions.push(`switch_class($("#next-button"), "hidden", "visible")`);
                 homePage();
             }, 2500);
         }

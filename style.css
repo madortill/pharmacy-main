@@ -779,6 +779,10 @@ body, #main {
   margin-top: 0.45vw;
 }
 
+.flex-text span {
+  width: 90%;
+}
+
 .span-container {
   width: 100%;
 }
@@ -1057,5 +1061,11 @@ body, #main {
   position: relative;
   right: 5vw;
   text-align: center;
+}
+
+/* r2p2 */
+
+#r2p2 {
+  background-image: url("assets/media/exer4/exer04_bg_empty.svg");
 }
 

@@ -14,6 +14,22 @@ var Arr_1 = [
     topic: 1
   },
   {
+    // first game- page 2
+    divName: ["r2p2"],
+    functions: ["pop_slider()"],
+    type: "game",
+    timer: "10s",
+    feedback: {
+      correct: "array",
+      incorrect: "array"
+    },
+    instructions: "גדי חייל בסדיר, תור (למקרה לא דחוף) הוא רוצה להסדיר.<br>גררו את הסמן, כדי לבחור את הזמן<br>והקישו על ENTER כדי שהתור יוזמן",
+    instructions_feedback: {
+      correct: "חבל על הזמן!",
+      incorrect: "חבל על הזמן..."
+    }
+  },
+  {
     // page 2
     divName: ["r1p2"],
     functions: [`switch_class($("#back-button"), "hidden", "visible")`, `pop_buttons($("#back-button"), -1)`],
@@ -144,6 +160,29 @@ var Arr_1 = [
 
 // therapy room
 var Arr_2 = [
+  {
+    // opening game question- page 1
+    divName: ["r2p1"],
+    functions: [`switch_class($("#back-button"), "visible", "hidden")`],
+    type: "content",
+    topic: 1
+  },
+  {
+    // first game- page 2
+    divName: ["r2p2"],
+    functions: ["pop_slider()"],
+    type: "game",
+    timer: "10s",
+    feedback: {
+      correct: "array",
+      incorrect: "array"
+    },
+    instructions: "גדי חייל בסדיר, תור (למקרה לא דחוף) הוא רוצה להסדיר.<br>גררו את הסמן, כדי לבחור את הזמן<br>והקישו על ENTER כדי שהתור יוזמן",
+    instructions_feedback: {
+      correct: "חבל על הזמן!",
+      incorrect: "חבל על הזמן..."
+    }
+  },
 ];
 
 // doctor's room
