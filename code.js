@@ -14,22 +14,6 @@ var Arr_1 = [
     topic: 1
   },
   {
-    // first game- page 2
-    divName: ["r2p2"],
-    functions: ["pop_r2p2_slider()", `enter("slider")`],
-    type: "game",
-    timer: "1000s",
-    feedback: {
-      correct: "array",
-      incorrect: "array"
-    },
-    instructions: "גדי חייל בסדיר, תור (למקרה לא דחוף) הוא רוצה להסדיר.<br>גררו את הסמן כדי לבחור את הזמן, והקישו על ENTER כדי שהתור יוזמן.",
-    instructions_feedback: {
-      correct: "חבל על הזמן!",
-      incorrect: "חבל על הזמן..."
-    }
-  },
-  {
     // page 2
     divName: ["r1p2"],
     functions: [`switch_class($("#back-button"), "hidden", "visible")`, `pop_buttons($("#back-button"), -1)`],
@@ -183,6 +167,13 @@ var Arr_2 = [
       incorrect: "חבל על הזמן..."
     }
   },
+  {
+    // page 2
+    divName: ["r2p3"],
+    functions: [`switch_class($("#back-button"), "hidden", "visible")`],
+    type: "content",
+    topic: 2
+  },
 ];
 
 // doctor's room
@@ -265,7 +256,6 @@ function pop_room_buttons(button) {
   button.on("click", function() {
     // hides last divs
     hidePage();
-    
     // changes room counter
     nRoom = Number(button.attr("id").slice(-1)); 
     // display room
@@ -325,7 +315,7 @@ check_room = () => {
       topic_distance = 14.8;  
       break;
     case 2:
-      topic_distance = 2;  
+      topic_distance = 8;  
       break;
     case 3:
       topic_distance = 3;  
@@ -416,11 +406,16 @@ pop_home_page_button = () => {
 // before using this function there is need to call hidePage()
 // sends the user to home page
 homePage = () => {
+  // hide previous lesson map
+  switch_class($(`#lesson-map-${nRoom}`), "flex", "none");
   nRoom = 0;
   nPage = 0;
   movePage();
   switch_class($("#controls"), "flex", "none");
-  switch_class($(`#lesson-map-${nRoom}`), "flex", "none");
+  // ahami head happy
+  if ($("#topic-counter").attr("src") === "assets/media/2content/head_sad.svg") {
+    $("#topic-counter").attr("src", "assets/media/2content/head_happy.svg")
+  }
 }
 
 pop_watch_room_button = () => {

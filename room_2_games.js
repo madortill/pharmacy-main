@@ -11,7 +11,7 @@ pop_r2p2_slider = () => {
 }
 
 r2p2_check_slider = () => {
-    $(`#${matrix[nRoom][nPage].divName}`).off("keydown");
+    $(document).off("keypress");
     $(`#${matrix[nRoom][nPage].divName} .slider`).slider("disable");
     let hour = $(`#${matrix[nRoom][nPage].divName} .slider`).slider( "value");
     // if the user dragged the anchore between 09:00-12:00 or 13:00-15:00

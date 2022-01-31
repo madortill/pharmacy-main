@@ -1122,6 +1122,7 @@ body, #main {
   background: rgb(242,187,95);
   font-weight: normal;
   color: #454545;
+  cursor: pointer !important;
 }
 
 .ui-slider-horizontal .ui-slider-handle {
