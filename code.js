@@ -195,7 +195,7 @@ var matrix = [[
     divName: ["about"],
     functions: ['pop_buttons($("#back-about-button"), -1)']
   }
-], Arr_1.slice(), Arr_2.slice(), Arr_3.slice(), Arr_4.slice()];
+], Arr_2.slice(), Arr_1.slice(), Arr_3.slice(), Arr_4.slice()];
 
 // lesson map
 // what topic is the user currently learning
@@ -315,7 +315,7 @@ check_room = () => {
       topic_distance = 14.8;  
       break;
     case 2:
-      topic_distance = 8;  
+      topic_distance = 5.5;  
       break;
     case 3:
       topic_distance = 3;  
