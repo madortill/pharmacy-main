@@ -1,4 +1,3 @@
-
 // life
 var nLife = 3;
 
@@ -311,6 +310,24 @@ enter = (check) => {
         if (e.which === 13) {
             // calling slider function for specific page
             eval(matrix[nRoom][nPage].divName + "_check_" + check + "()");
+        }
+    });
+}
+
+let r2p4_falling_order = [1,2,3,4];
+// check = what u want to check' for example slider
+press_keyboard_arrows = (item, distance) => {
+    $(document).keypress(function(e){
+        switch (e.which) {
+            // left
+            case 37:
+                `#${matrix[nRoom][nPage].divName} .item.block`
+
+                break;
+            // right
+            case 39:
+
+                break;
         }
     });
 }
