@@ -15,28 +15,6 @@ var Arr_1 = [
   },
   {
     // page 2
-    divName: ["r3p1"],
-    functions: [`switch_class($("#back-button"), "hidden", "visible")`, `pop_buttons($("#back-button"), -1)`],
-    type: "content"
-  },
-  {
-    // first game- page 2
-    divName: ["r2p2"],
-    functions: ["pop_r2p2_slider()"],
-    type: "game",
-    timer: "1000s",
-    feedback: {
-      correct: "array",
-      incorrect: "array"
-    },
-    instructions: "גדי חייל בסדיר, תור (למקרה לא דחוף) הוא רוצה להסדיר.<br>גררו את הסמן כדי לבחור את הזמן, והקישו על ENTER כדי שהתור יוזמן.",
-    instructions_feedback: {
-      correct: "חבל על הזמן!",
-      incorrect: "חבל על הזמן..."
-    }
-  },
-  {
-    // page 2
     divName: ["r1p2"],
     functions: [`switch_class($("#back-button"), "hidden", "visible")`, `pop_buttons($("#back-button"), -1)`],
     type: "content",
@@ -193,6 +171,52 @@ var Arr_2 = [
 
 // doctor's room
 var Arr_3 = [
+  {
+    // room 3 page 1
+    divName: ["r3p1"],
+    functions: [`switch_class($("#back-button"), "hidden", "visible")`],
+    type: "content",
+    topic: 1
+  },
+  {
+    // room 3 page 2
+    divName: ["r3p2"],
+    functions: [`switch_class($("#back-button"), "hidden", "visible")`, `pop_sign_click()`, `pop_timeEnds()`],
+    type: "game",
+    timer: "3s",
+    feedback: {
+      correct: "array",
+      incorrect: "array"
+    },
+    instructions: "הרופא שכח לקחת את החותמת הביתה... תוכלו למצוא אותה?",
+    instructions_feedback: {
+      correct: "תחתמו קבע!",
+      incorrect: "אתם מבולבלים... תחתמו חופש!"
+    }
+  },
+  {
+    // room 3 page 3
+    divName: ["r3p3"],
+    functions: [`switch_class($("#back-button"), "visible", "hidden")`,],
+    type: "content",
+    topic: 2
+  },
+  {
+    // room 3 page 2
+    divName: ["r3p4"],
+    functions: [`switch_class($("#back-button"), "hidden", "visible")`, `pop_sign_click()`, `pop_timeEnds()`],
+    type: "game",
+    timer: "20s",
+    feedback: {
+      correct: "array",
+      incorrect: "array"
+    },
+    instructions: "מצא את ההבדלים בין החדרים!",
+    instructions_feedback: {
+      correct: "ראייה 6-6! יכולתם להיות צלפים!",
+      incorrect: "מזל שאנחנו בחדר רופא תקבעו תור לרופא עיניים!"
+    }
+  },
 ];
 
 // medicines room

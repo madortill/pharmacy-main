@@ -6,6 +6,7 @@
     <link rel="shortcut icon" href="assets/media/2content/head_happy.svg">
     <link rel="stylesheet" href="assets/JQuery/jquery-ui.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="room_3.css">
     <script src="assets/JQuery/jquery-3.4.1.min.js"></script>
     <script src="assets/JQuery/jquery-ui.min.js"></script>
     <script src="code.js"></script>
@@ -13,6 +14,7 @@
     <script src="quiz.js"></script> 
     <script src="room_1_games.js"></script>
     <script src="room_2_games.js"></script>       
+    <script src="room_3_games.js"></script>       
     <title>מרפאה וחצי</title>
   </head>
   <body>
@@ -405,23 +407,93 @@
       <!-- page 1 -->
       <div id="r3p1" class="page background notebook">
         <div class="container">
+          <div class="background bold title big-title">הרגלי עבודה</div>
+          <div class="flex flex-text">
+            <img class="asterix" src="assets/media/1home/asterisk.svg">
+            <span>בדיקת המטופלים על ידי רופא תתבצע אך ורק בחדר הרופא. במקרים בהם יוחלט על ידי הרופא, יטופל המטופל גם בחדר הטיפולים. יש לשמור על פרטיות המטופלים ולמנוע כניסה לחדר רופא ללא אישור.</span>
+          </div>
+          <div class="flex flex-text">
+            <div class="attach background"></div>
+            <span>לפני בדיקת החיילים בחדר הרופא, יש לוודא כי קיימים כל האמצעים הנדרשים לביצוע בדיקת חולים (טופסולוגיה, דפי צילום, טפסי רטרו וכדומה).</span>
+          </div>
+          <div class="flex flex-text">
+            <img class="asterix" src="assets/media/1home/asterisk.svg">
+            <span>יש לוודא שלכל חיילת שמגיעה למרפאה יש ליווי - אלא אם החיילת וויתרה מראש על זכותה לליווי, ציינה זאת בפני הרופא טרם קיום המפגש והוא תיעד זאת במערכת הרשומות הרפואית.</span>
+          </div>
+          <div class="flex flex-text">
+            <img class="asterix" src="assets/media/1home/asterisk.svg">
+            <span>על הרופא לפרט לחייל את כל מהלך הטיפול שינתן לו בכדי לשפר את שביעות רצונו ושיתוף הפעולה של החייל עם הרופא.</span>
+          </div>
+          <div class="flex flex-text">
+            <img class="asterix" src="assets/media/1home/asterisk.svg">
+            <span>במרפאה לא יוחזקו חותמות אישיות - על כל רופא להחזיק את חותמתו בצמוד אליו ולדאוג לאבטחתה.</span>
+          </div>
+        </div>
+      </div>
+
+      
+      <!-- page 2- page 2's game -->
+      <div id="r3p2" class="page background">
+        <div class="container">
+          <div class="instructions-flex flex">
+            <img class="ahami-head" src="assets/media/2content/head_happy.svg">
+            <div class="bold instructions">הרופא שכח לקחת את החותמת הביתה... תוכלו למצוא אותה?</div>
+          </div>
+          <div class="stamp button item correct"></div>
+          
+        </div>
+      </div>
+
+      <!-- page 3 -->
+      <div id="r3p3" class="page background notebook">
+        <div class="container">
           <div class="background bold title big-title">תחזוקת החדר</div>
           <div class="flex flex-text">
             <img class="asterix" src="assets/media/1home/asterisk.svg">
-            <span>חדר ההמתנה יהיה מוגן מפני פגעי מזג האוויר.</span>
+            <span>בחדר חייבים להימצא כיור, סבון ונייר לשטיפת ידיים וניגובן.</span>
           </div>
           <div class="flex flex-text">
             <img class="asterix" src="assets/media/1home/asterisk.svg">
-            <span>בחדר ההמתנה יימצאו הוראות, הנחיות, ומידע הסברתי למטופל, בהתאם להוראות קרפר.</span>
+            <span>בחדר יהיו אמצעים תקינים למיזוג / חימום.</span>
           </div>
           <div class="flex flex-text">
             <img class="asterix" src="assets/media/1home/asterisk.svg">
-            <span>בחדר יהיו ספסלי המתנה עם משענת בהתאם לתקן היחידה.</span>
+            <span>בחדר רופא יימצא צר"פ משקי לצורך תפעולו של החדר בהתאם לתקני היחידה (ניתן להיעזר בנגד הלוגיסטיקה - אט"ל 2000).</span>
           </div>
           <div class="flex flex-text">
             <img class="asterix" src="assets/media/1home/asterisk.svg">
-            <span>בחדר יפוזרו פחי אשפה לצורך שמירה על סביבה נקייה.</span>
+            <span>בחדר יימצא אוגדן חדר רפואה.</span>
           </div>
+          <div class="flex flex-text">
+            <div class="attach background"></div>
+            <span>בחדר רופא תימצא עגלת טיפולים לרופא (על פי תקן).</span>
+          </div>
+        </div>
+      </div>
+
+       
+      <!-- page 4- page 4's game -->
+      <div id="r3p4" class="page background">
+        <div class="container">
+          <div class="instructions-flex flex">
+            <img class="ahami-head" src="assets/media/2content/head_happy.svg">
+            <div class="bold instructions">מצא את ההבדלים בין החדרים!</div>
+          </div>
+          <div class="items">
+            <img class="soap soap item correct transparent" src="assets/media/exer12/exer12_soap.svg"></img>
+            <img class="ac item correct transparent" src="assets/media/exer12/exer12_ac.svg"></img>
+            <img class="certain item correct transparent" src="assets/media/exer12/exer12_certain.svg"></img>
+            <img class="cupboard item correct transparent" src="assets/media/exer12/exer12_cupboard.svg"></img>
+            <div class="chair item correct transparent"></div>
+          </div>
+          <div class="targets">
+            <div class="soap target item correct"></div>
+            <div class="ac target item correct"></div>
+            <div class="certain target item correct"></div>
+            <div class="cupboard target item correct"></div>
+            <div class="chair target item correct"></div>
+          </div>
+          
         </div>
       </div>
 

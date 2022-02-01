@@ -1,0 +1,131 @@
+/* page 2 */
+#r3p2 .ahami-head {
+    width: 5rem;
+    margin-left: 1vw;
+}
+
+#r3p2 {
+background-image: url("assets/media/exer11/exer11_bg.svg");
+}
+
+#r3p2 .instructions {
+    font-size: 2.4rem;
+    width: 70vw;
+}
+
+#r3p2 .instructions-flex {
+    top: 6vh;
+    right: 2.5vw;
+}
+
+#r3p2 .stamp {
+    position: absolute;
+    top: 72vh;
+    right: 43.5vw;
+    width: 9vw;
+    height: 11vh;
+}
+
+/* page 4 */
+#r3p4 {
+    background-image: url("assets/media/exer12/exer12_bg_empty.svg");
+}
+
+#r3p4 .ahami-head {
+    width: 5rem;
+    margin-left: 1vw;
+}
+    
+#r3p4 .instructions {
+    font-size: 2.4rem;
+    width: 70vw;
+}
+    
+#r3p4 .instructions-flex {
+    top: 85vh;
+    right: 2.5vw;
+}
+
+#r3p4 .soap {
+    position: absolute;
+    top: 40.6vh;
+    right: 88.8vw;
+    width: 1vw;
+}
+
+#r3p4 .certain {
+    position: absolute;
+    top: 28vh;
+    right: 50vw;
+    width: 7.15vw;
+}
+
+#r3p4 .ac {
+    position: absolute;
+    top: 26.7vh;
+    right: 81.6vw;
+    width: 14vw;
+}
+
+#r3p4 .cupboard {
+    position: absolute;
+    top: 29vh;
+    right: 63.59vw;
+    width: 17.5vw;
+}
+
+#r3p4 .chair {
+    position: absolute;
+    top: 67vh;
+    left: 0;
+    width: 18vw;
+    height: 11vh;
+}
+
+#r3p4 .targets .soap {
+    position: absolute;
+    top: 40.6vh;
+    right: 37.8vw;
+    width: 2vw;
+    height: 7vh;
+}
+
+#r3p4 .targets .certain {
+    position: absolute;
+    top: 28vh;
+    right: 0;
+    width: 7.15vw;
+    height: 44vh;
+}
+
+#r3p4 .targets .ac {
+    position: absolute;
+    top: 26.7vh;
+    right: 31.4vw;
+    width: 14vw;
+    height: 11vh;
+}
+
+#r3p4 .targets .cupboard {
+    position: absolute;
+    top: 29vh;
+    right: 13.3vw;
+    width: 13vw;
+    height: 33vh;
+}
+
+#r3p4 .targets .chair {
+    position: absolute;
+    top: 67vh;
+    left: 50vw;
+    width: 18vw;
+    height: 11vh;
+}
+
+.transparent {
+    opacity: 0;
+}
+
+.opic {
+    opacity: 1;
+}
