@@ -7,6 +7,13 @@ var nPage = 0;
 // waiting room
 var Arr_1 = [
   {
+    // room 3 page 5
+    divName: ["r3p5"],
+    functions: [`switch_class($("#back-button"), "hidden", "visible")`],
+    type: "content",
+    topic: 1
+  },
+  {
     // opening game question- page 1
     divName: ["r1p1"],
     functions: [`switch_class($("#back-button"), "visible", "hidden")`, `pop_buttons($("#next-button"), 1)`, "pop_watch_room_button()", "pop_home_page_button()", "pop_restart_button()", "pop_quiz_button()"],
@@ -202,7 +209,7 @@ var Arr_3 = [
     topic: 2
   },
   {
-    // room 3 page 2
+    // room 3 page 4
     divName: ["r3p4"],
     functions: [`switch_class($("#back-button"), "hidden", "visible")`, `pop_sign_click()`, `pop_timeEnds()`],
     type: "game",
@@ -216,6 +223,20 @@ var Arr_3 = [
       correct: "ראייה 6-6! יכולתם להיות צלפים!",
       incorrect: "מזל שאנחנו בחדר רופא תקבעו תור לרופא עיניים!"
     }
+  },
+  {
+    // room 3 page 5
+    divName: ["r3p5"],
+    functions: [`switch_class($("#back-button"), "hidden", "visible")`],
+    type: "content",
+    topic: 1
+  },
+  {
+    // room 3 page 6
+    divName: ["r3p6"],
+    functions: [`switch_class($("#back-button"), "hidden", "visible")`],
+    type: "content",
+    topic: 1
   },
 ];
 
