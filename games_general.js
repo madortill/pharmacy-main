@@ -314,20 +314,93 @@ enter = (check) => {
     });
 }
 
-let r2p4_falling_order = [1,2,3,4];
-// check = what u want to check' for example slider
-press_keyboard_arrows = (item, distance) => {
-    $(document).keypress(function(e){
-        switch (e.which) {
-            // left
-            case 37:
-                `#${matrix[nRoom][nPage].divName} .item.block`
+let r2p4_falling_order = [
+    { 
+        data_num: 1,
+        velocity: "1"
+    },
+    { 
+        data_num: 2,
+        velocity: "0.8"
+    },
+    { 
+        data_num: 3,
+        velocity: "0.5"
+    },
+    { 
+        data_num: 4,
+        velocity: "0.2"
+    },
+];
 
-                break;
-            // right
-            case 39:
+let x_position = 10;
+let y_position = 0;
+let falling_item;
 
-                break;
+// generic function for games with falling items controled by keyboard's arrows
+falling_items = (distance) => {
+    falling_item = $(`#${matrix[nRoom][nPage].divName} .item.data-num-${`${matrix[nRoom][nPage].divName}_falling_order`[0].data_num}`);
+    falling_items_keyboard(falling_item, distance);
+    faling_items_down(falling_item, distance);
+}
+
+// moving down
+faling_items_down = (falling_item, distance) => {
+    // changing location in matrix
+    
+    // the item is not collapsing the floor
+    if (eval(`mat_${matrix[nRoom][nPage].divName}`)[y_position + 1][x_position] !== "SAFETY_WALL") {
+        // if the next square is a trash can
+        if (eval(`mat_${matrix[nRoom][nPage].divName}`)[y_position + 1][x_position].includes("SQUARE")) {
+            // if the square matches the item
+            if (eval(`mat_${matrix[nRoom][nPage].divName}`)[y_position + 1][x_position] === `SQUARE-${`${matrix[nRoom][nPage].divName}_falling_order`[0].data_num}`) {
+                falling_item.css("top", distance);
+                falling_item.addClass("heart-animation");
+                switch_class(falling_item, "block", "none");
+                // remove item from the array
+                eval(`${matrix[nRoom][nPage].divName}_falling_order`).shift();
+                // finish game
+                if (eval(`${matrix[nRoom][nPage].divName}_falling_order`).length === 0) {
+                    V_X(true);
+                } 
+                // reveal another item
+                else {
+                    x_position = 10;
+                    y_position = 0;
+                    falling_item = $(`#${matrix[nRoom][nPage].divName} .item.data-num-${`${matrix[nRoom][nPage].divName}_falling_order`[0].data_num}`);
+                    setTimeout(faling_items_down, `${matrix[nRoom][nPage].divName}_falling_order`[0].velocity * 1000, falling_item, distance);
+                }
+            } else {
+                // the user put the item in the wrong place
+                V_X(false);
+            }
+        } 
+        // move the item down
+        else {
+            eval(`mat_${matrix[nRoom][nPage].divName}`)[y_position][x_position] = "EMPTY";
+            y_position += 1;
+            eval(`mat_${matrix[nRoom][nPage].divName}`)[y_position][x_position] = `ITEM-${`${matrix[nRoom][nPage].divName}_falling_order`[0].data_num}`;
+            falling_item.css("top", distance);
+            setTimeout(faling_items_down, `${matrix[nRoom][nPage].divName}_falling_order`[0].velocity * 1000, falling_item, distance);
+        }
+    }
+    // the item collapsed the floor
+    else {
+        V_X(false);
+    }
+}
+
+// distance = (num)vw
+// moving left/right
+falling_items_keyboard = (falling_item, distance) => {
+    $(document).keypress(function(e) {
+        if ((e.which === 37 || e.which === 39) && (eval(`mat_${matrix[nRoom][nPage].divName}`)[y_position][x_position + e.which - 38] !== "SAFETY_WALL")){
+            eval(`mat_${matrix[nRoom][nPage].divName}`)[y_position][x_position] = "EMPTY";
+            falling_item.css("right", distance * (e.which - 38));
+            x_position += e.which - 38;
+            eval(`mat_${matrix[nRoom][nPage].divName}`)[y_position][x_position] = `ITEM-${`${matrix[nRoom][nPage].divName}_falling_order`[0].data_num}`;
         }
     });
 }
+
+

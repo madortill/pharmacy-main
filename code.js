@@ -144,40 +144,40 @@ var Arr_1 = [
 
 // therapy room
 var Arr_2 = [
-  // {
-  //   // opening game question- page 1
-  //   divName: ["r2p1"],
-  //   functions: [`switch_class($("#back-button"), "visible", "hidden")`],
-  //   type: "content",
-  //   topic: 1
-  // },
-  // {
-  //   // first game- page 2
-  //   divName: ["r2p2"],
-  //   functions: ["pop_timeEnds()", "pop_r2p2_slider()", `enter("slider")`],
-  //   type: "game",
-  //   timer: "10s",
-  //   feedback: {
-  //     correct: "array",
-  //     incorrect: "array"
-  //   },
-  //   instructions: "גדי חייל בסדיר, תור (למקרה לא דחוף) הוא רוצה להסדיר.<br>גררו את הסמן כדי לבחור את הזמן, והקישו על ENTER כדי שהתור יוזמן.",
-  //   instructions_feedback: {
-  //     correct: "חבל על הזמן!",
-  //     incorrect: "חבל על הזמן..."
-  //   }
-  // },
-  // {
-  //   // page 3
-  //   divName: ["r2p3"],
-  //   functions: [`switch_class($("#back-button"), "hidden", "visible")`],
-  //   type: "content",
-  //   topic: 2
-  // },
+  {
+    // opening game question- page 1
+    divName: ["r2p1"],
+    functions: [`switch_class($("#back-button"), "visible", "hidden")`],
+    type: "content",
+    topic: 1
+  },
+  {
+    // first game- page 2
+    divName: ["r2p2"],
+    functions: ["pop_timeEnds()", "pop_r2p2_slider()", `enter("slider")`],
+    type: "game",
+    timer: "10s",
+    feedback: {
+      correct: "array",
+      incorrect: "array"
+    },
+    instructions: "גדי חייל בסדיר, תור (למקרה לא דחוף) הוא רוצה להסדיר.<br>גררו את הסמן כדי לבחור את הזמן, והקישו על ENTER כדי שהתור יוזמן.",
+    instructions_feedback: {
+      correct: "חבל על הזמן!",
+      incorrect: "חבל על הזמן..."
+    }
+  },
+  {
+    // page 3
+    divName: ["r2p3"],
+    functions: [`switch_class($("#back-button"), "hidden", "visible")`],
+    type: "content",
+    topic: 2
+  },
   {
     // second game- page 4
     divName: ["r2p4"],
-    functions: [`pop_r2p4_build_mat()`],
+    functions: [`pop_r2p4_build_mat()`, `falling_items("1vw")`],
     type: "game",
     feedback: {
       correct: "array",
