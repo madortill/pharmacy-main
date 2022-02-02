@@ -333,28 +333,27 @@ let r2p4_falling_order = [
     },
 ];
 
-let x_position = 10;
+let x_position;
 let y_position = 0;
 let falling_item;
 
 // generic function for games with falling items controled by keyboard's arrows
 falling_items = (distance) => {
-    falling_item = $(`#${matrix[nRoom][nPage].divName} .item.data-num-${`${matrix[nRoom][nPage].divName}_falling_order`[0].data_num}`);
+    //let data_num = eval(`${matrix[nRoom][nPage].divName}_falling_order`)[0].data_num;
+    falling_item = $(`#${matrix[nRoom][nPage].divName} .item.data-num-${eval(`${matrix[nRoom][nPage].divName}_falling_order`)[0].data_num}`);
     falling_items_keyboard(falling_item, distance);
     faling_items_down(falling_item, distance);
 }
 
 // moving down
 faling_items_down = (falling_item, distance) => {
-    // changing location in matrix
-    
     // the item is not collapsing the floor
     if (eval(`mat_${matrix[nRoom][nPage].divName}`)[y_position + 1][x_position] !== "SAFETY_WALL") {
         // if the next square is a trash can
         if (eval(`mat_${matrix[nRoom][nPage].divName}`)[y_position + 1][x_position].includes("SQUARE")) {
             // if the square matches the item
-            if (eval(`mat_${matrix[nRoom][nPage].divName}`)[y_position + 1][x_position] === `SQUARE-${`${matrix[nRoom][nPage].divName}_falling_order`[0].data_num}`) {
-                falling_item.css("top", distance);
+            if (eval(`mat_${matrix[nRoom][nPage].divName}`)[y_position + 1][x_position] === `SQUARE_${eval(`${matrix[nRoom][nPage].divName}_falling_order`)[0].data_num}`) {
+                falling_item.css("top", "+=" + distance + "vw");
                 falling_item.addClass("heart-animation");
                 switch_class(falling_item, "block", "none");
                 // remove item from the array
@@ -365,9 +364,10 @@ faling_items_down = (falling_item, distance) => {
                 } 
                 // reveal another item
                 else {
-                    x_position = 10;
+                    x_position = (width/2) - 0.5;
                     y_position = 0;
-                    falling_item = $(`#${matrix[nRoom][nPage].divName} .item.data-num-${`${matrix[nRoom][nPage].divName}_falling_order`[0].data_num}`);
+                    falling_item = $(`#${matrix[nRoom][nPage].divName} .item.data-num-${eval(`${matrix[nRoom][nPage].divName}_falling_order`)[0].data_num}`);
+                    switch_class(falling_item, "none", "block");
                     setTimeout(faling_items_down, `${matrix[nRoom][nPage].divName}_falling_order`[0].velocity * 1000, falling_item, distance);
                 }
             } else {
@@ -379,9 +379,9 @@ faling_items_down = (falling_item, distance) => {
         else {
             eval(`mat_${matrix[nRoom][nPage].divName}`)[y_position][x_position] = "EMPTY";
             y_position += 1;
-            eval(`mat_${matrix[nRoom][nPage].divName}`)[y_position][x_position] = `ITEM-${`${matrix[nRoom][nPage].divName}_falling_order`[0].data_num}`;
-            falling_item.css("top", distance);
-            setTimeout(faling_items_down, `${matrix[nRoom][nPage].divName}_falling_order`[0].velocity * 1000, falling_item, distance);
+            eval(`mat_${matrix[nRoom][nPage].divName}`)[y_position][x_position] = `ITEM-${eval(`${matrix[nRoom][nPage].divName}_falling_order`)[0].data_num}`;
+            falling_item.css("top", "+=" + distance + "vw");
+            setTimeout(faling_items_down, eval(`${matrix[nRoom][nPage].divName}_falling_order`)[0].velocity * 1000, falling_item, distance);
         }
     }
     // the item collapsed the floor
@@ -393,12 +393,12 @@ faling_items_down = (falling_item, distance) => {
 // distance = (num)vw
 // moving left/right
 falling_items_keyboard = (falling_item, distance) => {
-    $(document).keypress(function(e) {
+    $(document).keydown(function(e) {
         if ((e.which === 37 || e.which === 39) && (eval(`mat_${matrix[nRoom][nPage].divName}`)[y_position][x_position + e.which - 38] !== "SAFETY_WALL")){
             eval(`mat_${matrix[nRoom][nPage].divName}`)[y_position][x_position] = "EMPTY";
-            falling_item.css("right", distance * (e.which - 38));
             x_position += e.which - 38;
-            eval(`mat_${matrix[nRoom][nPage].divName}`)[y_position][x_position] = `ITEM-${`${matrix[nRoom][nPage].divName}_falling_order`[0].data_num}`;
+            falling_item.css("left", "+=" + (distance/2) * (e.which - 38) + "vw");
+            eval(`mat_${matrix[nRoom][nPage].divName}`)[y_position][x_position] = `ITEM-${eval(`${matrix[nRoom][nPage].divName}_falling_order`)[0].data_num}`;
         }
     });
 }

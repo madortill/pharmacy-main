@@ -1138,3 +1138,32 @@ body, #main {
   touch-action: none;
 }
 
+/* r2p4 */
+
+#r2p4 {
+  background-image: url("assets/media/exer5/exer05_bg.svg");
+}
+
+#r2p4 .item {
+  width: 5vw;
+  position: absolute;
+  top: -5vw;
+  transform: translate(-50%, -50%);
+  left: 50vw;
+}
+
+#r2p4 .instructions-flex {
+  top: 16vh;
+  right: 12.5vw;
+}
+
+#r2p4 .ahami-head {
+  width: 6rem;
+  margin-left: 2vw;
+}
+
+#r2p4 .instructions {
+  font-size: 2.2rem;
+  width: 70vw;
+}
+

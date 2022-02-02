@@ -14,6 +14,21 @@ var Arr_1 = [
     topic: 1
   },
   {
+    // second game- page 4
+    divName: ["r2p4"],
+    functions: [`pop_r2p4_build_mat()`, `falling_items(1)`],
+    type: "game",
+    feedback: {
+      correct: "array",
+      incorrect: "array"
+    },
+    instructions: "שלטו באמצעות החצים במקלדת<br>לאיזה פח הפסולת אמורה לרדת",
+    instructions_feedback: {
+      correct: "אתם חדים כמו מחט!",
+      incorrect: "עבודה פח..."
+    }
+  },
+  {
     // page 2
     divName: ["r1p2"],
     functions: [`switch_class($("#back-button"), "hidden", "visible")`, `pop_buttons($("#back-button"), -1)`],
@@ -177,16 +192,16 @@ var Arr_2 = [
   {
     // second game- page 4
     divName: ["r2p4"],
-    functions: [`pop_r2p4_build_mat()`, `falling_items("1vw")`],
+    functions: [`pop_r2p4_build_mat()`, `falling_items(5)`],
     type: "game",
     feedback: {
       correct: "array",
       incorrect: "array"
     },
-    instructions: "גדי חייל בסדיר, תור (למקרה לא דחוף) הוא רוצה להסדיר.<br>גררו את הסמן כדי לבחור את הזמן, והקישו על ENTER כדי שהתור יוזמן.",
+    instructions: "שלטו באמצעות החצים במקלדת<br>לאיזה פח הפסולת אמורה לרדת",
     instructions_feedback: {
-      correct: "חבל על הזמן!",
-      incorrect: "חבל על הזמן..."
+      correct: "אתם חדים כמו מחט!",
+      incorrect: "עבודה פח..."
     }
   },
 
@@ -211,7 +226,7 @@ var matrix = [[
     divName: ["about"],
     functions: ['pop_buttons($("#back-about-button"), -1)']
   }
-], Arr_2.slice(), Arr_1.slice(), Arr_3.slice(), Arr_4.slice()];
+], Arr_1.slice(), Arr_2.slice(), Arr_3.slice(), Arr_4.slice()];
 
 // lesson map
 // what topic is the user currently learning
