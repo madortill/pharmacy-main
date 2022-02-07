@@ -322,12 +322,16 @@ let falling_item;
 falling_items = (distance) => {
     //let data_num = eval(`${matrix[nRoom][nPage].divName}_falling_order`)[0].data_num;
     //falling_item = $(`#${matrix[nRoom][nPage].divName} .item.data-num-${eval(`${matrix[nRoom][nPage].divName}_falling_order`)[0].data_num}`);
-    falling_items_keyboard(distance);
-    faling_items_down(distance);
+    setTimeout(show_keyboard, 1000, keyboard_blinks);
+    setTimeout(function() {
+        falling_items_keyboard(distance);
+        falling_items_down(distance);
+    } ,3000);
+    
 }
 
 // moving down
-faling_items_down = (distance) => {
+falling_items_down = (distance) => {
     let falling_item = $(`#${matrix[nRoom][nPage].divName} .item.data-num-${eval(`${matrix[nRoom][nPage].divName}_falling_order`)[0].data_num}`);
     falling_item.css("left", `${eval(`${matrix[nRoom][nPage].divName}_first_location`) + (x_position - 1) * (distance)}vw`);
     switch_class(falling_item, "none", "block");
@@ -355,7 +359,7 @@ faling_items_down = (distance) => {
                     x_position = Math.floor(Math.random() * 4) + 1;
                     console.log(x_position);
                     y_position = 0;
-                    setTimeout(faling_items_down, `${matrix[nRoom][nPage].divName}_falling_order`[0].velocity, distance);
+                    setTimeout(falling_items_down, `${matrix[nRoom][nPage].divName}_falling_order`[0].velocity, distance);
                 }
             } else {
                 // the user put the item in the wrong place
@@ -370,7 +374,7 @@ faling_items_down = (distance) => {
             y_position += 1;
             eval(`mat_${matrix[nRoom][nPage].divName}`)[y_position][x_position] = `ITEM-${eval(`${matrix[nRoom][nPage].divName}_falling_order`)[0].data_num}`;
             falling_item.animate({top: `+=3vw`}, 100);
-            setTimeout(faling_items_down, eval(`${matrix[nRoom][nPage].divName}_falling_order`)[0].velocity, distance);
+            setTimeout(falling_items_down, eval(`${matrix[nRoom][nPage].divName}_falling_order`)[0].velocity, distance);
         }
     }
     // the item collapsed the floor
@@ -394,31 +398,21 @@ falling_items_keyboard = (distance) => {
     });
 }
 
-let keyboard_blink = 4;
+// shows blinking keyboard to help the user understand the instructions
+const keyboard_blinks = 4;
 show_keyboard = (keyboard_blink) => {
-    switch (keyboard_blink) {
-        case 4:
-            switch_class($("#keyboard"), "none", "block"); 
-          break;
-        case 0:
-            switch_class($("#keyboard"), "block", "none") 
-          break;
-      }
-      switch (keyboard_blink%2) {
-        case 0:
+    if (keyboard_blink === 0) {
+        switch_class($("#keyboard"), "block", "none");
+    } else {
+        if (keyboard_blink === keyboard_blinks) {
+            switch_class($("#keyboard"), "none", "block");
+        } else if (keyboard_blink % 2 === 0) {
+            $("#keyboard").attr("src", "assets/media/exer5/keyboard_normal.svg");
+        } else if (keyboard_blink % 2 !== 0) {
             $("#keyboard").attr("src", "assets/media/exer5/keyboard_blink.svg");
-          break;
-        case !0:
-            switch_class($("#keyboard"), "block", "none") 
-          break;
-      }
-    
-    setTimeout(function() {
-        $("#keyboard").attr("src", "assets/media/exer5/keyboard_blink.svg");
-    }, 100);
-    setTimeout(function() {
-        $("#keyboard").attr("src", "assets/media/exer5/keyboard_normal.svg");
-    }, 200);
+        }
+        setTimeout(show_keyboard, 400, keyboard_blink - 1);
+    }
 }
 
 

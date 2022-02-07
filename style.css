@@ -825,8 +825,16 @@ body, #main {
 }
 
 .file {
-  position:absolute;
+  position: absolute;
   width: 10.5vw;
+}
+
+#keyboard {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20vw;
 }
 
 /* r1p3 */

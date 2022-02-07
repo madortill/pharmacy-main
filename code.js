@@ -14,21 +14,6 @@ var Arr_1 = [
     topic: 1
   },
   {
-    // second game- page 4
-    divName: ["r2p4"],
-    functions: [`pop_r2p4_build_mat()`, `falling_items(21)`],
-    type: "game",
-    feedback: {
-      correct: "array",
-      incorrect: "array"
-    },
-    instructions: "שלטו באמצעות החצים במקלדת<br>לאיזה פח הפסולת אמורה לרדת",
-    instructions_feedback: {
-      correct: "אתם חדים כמו מחט!",
-      incorrect: "עבודה פח..."
-    }
-  },
-  {
     // page 2
     divName: ["r1p2"],
     functions: [`switch_class($("#back-button"), "hidden", "visible")`, `pop_buttons($("#back-button"), -1)`],
@@ -192,7 +177,7 @@ var Arr_2 = [
   {
     // second game- page 4
     divName: ["r2p4"],
-    functions: [`pop_r2p4_build_mat()`, `falling_items(5)`],
+    functions: [`pop_r2p4_build_mat()`, `falling_items(21)`],
     type: "game",
     feedback: {
       correct: "array",
