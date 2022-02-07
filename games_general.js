@@ -314,46 +314,30 @@ enter = (check) => {
     });
 }
 
-let r2p4_falling_order = [
-    { 
-        data_num: 1,
-        velocity: "1"
-    },
-    { 
-        data_num: 2,
-        velocity: "0.8"
-    },
-    { 
-        data_num: 3,
-        velocity: "0.5"
-    },
-    { 
-        data_num: 4,
-        velocity: "0.2"
-    },
-];
-
-let x_position;
+let x_position = 1;
 let y_position = 0;
 let falling_item;
 
 // generic function for games with falling items controled by keyboard's arrows
 falling_items = (distance) => {
     //let data_num = eval(`${matrix[nRoom][nPage].divName}_falling_order`)[0].data_num;
-    falling_item = $(`#${matrix[nRoom][nPage].divName} .item.data-num-${eval(`${matrix[nRoom][nPage].divName}_falling_order`)[0].data_num}`);
-    falling_items_keyboard(falling_item, distance);
-    faling_items_down(falling_item, distance);
+    //falling_item = $(`#${matrix[nRoom][nPage].divName} .item.data-num-${eval(`${matrix[nRoom][nPage].divName}_falling_order`)[0].data_num}`);
+    falling_items_keyboard(distance);
+    faling_items_down(distance);
 }
 
 // moving down
-faling_items_down = (falling_item, distance) => {
+faling_items_down = (distance) => {
+    let falling_item = $(`#${matrix[nRoom][nPage].divName} .item.data-num-${eval(`${matrix[nRoom][nPage].divName}_falling_order`)[0].data_num}`);
+    falling_item.css("left", `${eval(`${matrix[nRoom][nPage].divName}_first_location`) + (x_position - 1) * (distance)}vw`);
+    switch_class(falling_item, "none", "block");
     // the item is not collapsing the floor
     if (eval(`mat_${matrix[nRoom][nPage].divName}`)[y_position + 1][x_position] !== "SAFETY_WALL") {
         // if the next square is a trash can
         if (eval(`mat_${matrix[nRoom][nPage].divName}`)[y_position + 1][x_position].includes("SQUARE")) {
             // if the square matches the item
             if (eval(`mat_${matrix[nRoom][nPage].divName}`)[y_position + 1][x_position] === `SQUARE_${eval(`${matrix[nRoom][nPage].divName}_falling_order`)[0].data_num}`) {
-                falling_item.css("top", "+=" + distance + "vw");
+                falling_item.animate({top: `+=3vw`}, eval(`${matrix[nRoom][nPage].divName}_falling_order`)[0].velocity);
                 falling_item.addClass("heart-animation");
                 switch_class(falling_item, "block", "none");
                 // remove item from the array
@@ -361,18 +345,23 @@ faling_items_down = (falling_item, distance) => {
                 // finish game
                 if (eval(`${matrix[nRoom][nPage].divName}_falling_order`).length === 0) {
                     V_X(true);
+                    $(document).off("keydown");
+                    x_position = 1;
+                    y_position = 0;
                 } 
                 // reveal another item
                 else {
-                    x_position = (width/2) - 0.5;
+                    // random number between 1-4
+                    x_position = Math.floor(Math.random() * 4) + 1;
+                    console.log(x_position);
                     y_position = 0;
-                    falling_item = $(`#${matrix[nRoom][nPage].divName} .item.data-num-${eval(`${matrix[nRoom][nPage].divName}_falling_order`)[0].data_num}`);
-                    switch_class(falling_item, "none", "block");
-                    setTimeout(faling_items_down, `${matrix[nRoom][nPage].divName}_falling_order`[0].velocity * 1000, falling_item, distance);
+                    setTimeout(faling_items_down, `${matrix[nRoom][nPage].divName}_falling_order`[0].velocity, distance);
                 }
             } else {
                 // the user put the item in the wrong place
                 V_X(false);
+                x_position = 1;
+                y_position = 0;
             }
         } 
         // move the item down
@@ -380,27 +369,56 @@ faling_items_down = (falling_item, distance) => {
             eval(`mat_${matrix[nRoom][nPage].divName}`)[y_position][x_position] = "EMPTY";
             y_position += 1;
             eval(`mat_${matrix[nRoom][nPage].divName}`)[y_position][x_position] = `ITEM-${eval(`${matrix[nRoom][nPage].divName}_falling_order`)[0].data_num}`;
-            falling_item.css("top", "+=" + distance + "vw");
-            setTimeout(faling_items_down, eval(`${matrix[nRoom][nPage].divName}_falling_order`)[0].velocity * 1000, falling_item, distance);
+            falling_item.animate({top: `+=3vw`}, 100);
+            setTimeout(faling_items_down, eval(`${matrix[nRoom][nPage].divName}_falling_order`)[0].velocity, distance);
         }
     }
     // the item collapsed the floor
     else {
         V_X(false);
+        x_position = 1;
+        y_position = 0;
     }
 }
 
 // distance = (num)vw
 // moving left/right
-falling_items_keyboard = (falling_item, distance) => {
+falling_items_keyboard = (distance) => {
     $(document).keydown(function(e) {
         if ((e.which === 37 || e.which === 39) && (eval(`mat_${matrix[nRoom][nPage].divName}`)[y_position][x_position + e.which - 38] !== "SAFETY_WALL")){
             eval(`mat_${matrix[nRoom][nPage].divName}`)[y_position][x_position] = "EMPTY";
             x_position += e.which - 38;
-            falling_item.css("left", "+=" + (distance/2) * (e.which - 38) + "vw");
+            $(`#${matrix[nRoom][nPage].divName} .item.data-num-${eval(`${matrix[nRoom][nPage].divName}_falling_order`)[0].data_num}`).animate({left: `+=${(distance) * (e.which - 38)}vw`}, 100);
             eval(`mat_${matrix[nRoom][nPage].divName}`)[y_position][x_position] = `ITEM-${eval(`${matrix[nRoom][nPage].divName}_falling_order`)[0].data_num}`;
         }
     });
+}
+
+let keyboard_blink = 4;
+show_keyboard = (keyboard_blink) => {
+    switch (keyboard_blink) {
+        case 4:
+            switch_class($("#keyboard"), "none", "block"); 
+          break;
+        case 0:
+            switch_class($("#keyboard"), "block", "none") 
+          break;
+      }
+      switch (keyboard_blink%2) {
+        case 0:
+            $("#keyboard").attr("src", "assets/media/exer5/keyboard_blink.svg");
+          break;
+        case !0:
+            switch_class($("#keyboard"), "block", "none") 
+          break;
+      }
+    
+    setTimeout(function() {
+        $("#keyboard").attr("src", "assets/media/exer5/keyboard_blink.svg");
+    }, 100);
+    setTimeout(function() {
+        $("#keyboard").attr("src", "assets/media/exer5/keyboard_normal.svg");
+    }, 200);
 }
 
 

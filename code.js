@@ -16,7 +16,7 @@ var Arr_1 = [
   {
     // second game- page 4
     divName: ["r2p4"],
-    functions: [`pop_r2p4_build_mat()`, `falling_items(1)`],
+    functions: [`pop_r2p4_build_mat()`, `falling_items(21)`],
     type: "game",
     feedback: {
       correct: "array",

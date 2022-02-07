@@ -1,6 +1,27 @@
 let mat_r2p4 = [];
-const width = 86;
-const length = 11;
+const width = 6;
+const length = 15;
+
+
+let r2p4_falling_order = [
+    { 
+        data_num: 3,
+        velocity: "500"
+    },
+    { 
+        data_num: 2,
+        velocity: "400"
+    },
+    { 
+        data_num: 4,
+        velocity: "300"
+    },
+    { 
+        data_num: 1,
+        velocity: "200"
+    },
+];
+let r2p4_first_location = 18.5;
 
 // activates the slider
 // works only on items with class "slider"
@@ -31,7 +52,6 @@ r2p2_check_slider = () => {
 // builds a matrix contains information about game objects' location and movement
 // r2p4
 pop_r2p4_build_mat = () => {
-    x_position = (width/2) - 0.5;
     // create empty arrays
     for (let i = 0; i <= length - 1; i++) {
         mat_r2p4[i] = [];
@@ -48,22 +68,25 @@ pop_r2p4_build_mat = () => {
     for (let i = 0; i <= width - 1; i++) {
         mat_r2p4[length - 1][i] = "SAFETY_WALL"
     }
-    // mark trash cans
-    for (let i = 3; i <= 7; i++) {
-        mat_r2p4[length - 2][i] = `SQUARE_1`;
-    }
-    for (let i = 12; i <= 13; i++) {
-        mat_r2p4[length - 2][i] = `SQUARE_2`;
-    }
-    for (let i = 18; i <= 19; i++) {
-        mat_r2p4[length - 2][i] = `SQUARE_3`;
-    }
-    for (let i = 25; i <= 28; i++) {
-        mat_r2p4[length - 2][i] = `SQUARE_4`;
+    for (let i = 0; i < length - 1; i++) {
+        for (let j = 1; j < width - 1; j++) {
+            mat_r2p4[length - 1][j] = `SQUARE_${j}`;
+        }
     }
     console.log(mat_r2p4);
 }
 
 restart_2 = () => {
-
+    // r2p4
+    switch_class($(`#r2p4 .item`), "block", "none");
+    for (let i = 0; i < $(`#r2p4 .item`).length; i++) {
+        let random = Math.floor(Math.random() * $(`#r2p4 .item`).length) + 1;
+        for (let j = 0; j < i; i++) {
+            while (r2p4_falling_order[j].data_num === random) {
+                random = Math.floor(Math.random() * $(`#r2p4 .item`).length) + 1;
+                j = 0;
+            }
+        }
+        r2p4_falling_order[i].data_num = random;
+    }
 }
