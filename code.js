@@ -8,7 +8,7 @@ var nPage = 0;
 var Arr_1 = [
   {
     // opening game question- page 1
-    divName: ["r1p1"],
+    divName: ["r2p5"],
     functions: [`switch_class($("#back-button"), "visible", "hidden")`, `pop_buttons($("#next-button"), 1)`, "pop_watch_room_button()", "pop_home_page_button()", "pop_restart_button()", "pop_quiz_button()"],
     type: "content",
     topic: 1
@@ -188,6 +188,13 @@ var Arr_2 = [
       correct: "אתם חדים כמו מחט!",
       incorrect: "עבודה פח..."
     }
+  },
+  {
+    // page 5
+    divName: ["r2p5"],
+    functions: [],
+    type: "content",
+    topic: 3
   },
 
 ];
