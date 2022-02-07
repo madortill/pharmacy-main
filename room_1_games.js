@@ -1,6 +1,6 @@
 // called to add to each sign event listener to click_identify
 // in order the function will work the items need to have the class "item"
-// r1p3
+// r1p3 r2p10
 pop_sign_click = () => {
     // add event listener for each item
     $(`#${matrix[nRoom][nPage].divName} .item`).on("click", (event) => {

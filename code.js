@@ -7,21 +7,6 @@ var nPage = 0;
 // waiting room
 var Arr_1 = [
   {
-    // third game- page 8
-    divName: ["r2p8"],
-    functions: ["pop_hover_down()", "pop_drag_drop()"],
-    type: "game",
-    feedback: {
-      correct: "array",
-      incorrect: "array"
-    },
-    instructions: "בבקשה עזרו לי לגרור את השלט למקום הנכון",
-    instructions_feedback: {
-      correct: "הכל מוכן למסדר המפקד!",
-      incorrect: "מזל שאין מסדר היום..."
-    }
-  },
-  {
     // opening game question- page 1
     divName: ["r1p1"],
     functions: [`switch_class($("#back-button"), "visible", "hidden")`, `pop_buttons($("#next-button"), 1)`, "pop_watch_room_button()", "pop_home_page_button()", "pop_restart_button()", "pop_quiz_button()"],
@@ -238,6 +223,36 @@ var Arr_2 = [
     instructions_feedback: {
       correct: "הכל מוכן למסדר המפקד!",
       incorrect: "מזל שאין מסדר היום..."
+    }
+  },
+  {
+    // page 9
+    divName: ["r2p9"],
+    functions: [],
+    type: "content",
+    topic: 6
+  },
+  {
+    // page 10
+    divName: ["r2p10"],
+    functions: [],
+    type: "content",
+    topic: 7
+  },
+  {
+    // forth game- page 11
+    divName: ["r2p11"],
+    functions: ["pop_sign_click()"],
+    type: "game",
+    timer: "5s",
+    feedback: {
+      correct: "array",
+      incorrect: "array"
+    },
+    instructions: "לחצו על נורית החיווי כדי להפעיל אותה!",
+    instructions_feedback: {
+      correct: "אתם זוהרים כמו נורה!",
+      incorrect: "כנראה שאתם שייכים ל-dark side"
     }
   },
 

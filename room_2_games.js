@@ -106,6 +106,24 @@ r2p8_dropped_correct = (drag, drop) => {
     }
 }
 
+// the parameter is the clicked correct sign
+r2p11_clicked_correct = (item) => {
+    $(`#${matrix[nRoom][nPage].divName} .item`).css("pointer-events", "none");
+    // blink effect
+    for (let i = 0; i < 14; i++) {
+        setTimeout(() => {
+            if (item.attr("src").includes("light_on")) {
+                item.attr("src", "assets/media/exer7/exer07_light_off.svg");
+            } else {
+                item.attr("src", "assets/media/exer7/exer07_light_on.svg");
+            };
+          }, i * 200);
+    }
+    setTimeout(() => {
+        V_X(true);
+    }, 1000);
+}
+
 restart_2 = () => {
     // r2p4
     switch_class($(`#r2p4 .item`), "block", "none");

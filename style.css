@@ -1234,3 +1234,40 @@ body, #main {
   background-color: white;
   padding: 1.5vw;
 }
+
+/* r2p11 */
+
+#r2p11 {
+  background-image: url("assets/media/exer7/exer07_bg_wood.svg");
+}
+
+#r2p11 .ahami-head {
+  width: 5rem;
+  margin-left: 1vw;
+}
+
+#r2p11 .instructions {
+  font-size: 2.4rem;
+  width: 70vw;
+}
+
+#r2p11 .instructions-flex {
+  background-color: white;
+  padding: 1.5vw;
+}
+
+#r2p11 .defibrillator {
+  width: 41vw;
+  position: absolute;
+  top: 10.5vw;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+#r2p11 .item {
+  width: 1.1vw;
+  position: absolute;
+  top: 16.5vw;
+  right: 33.5vw;
+}
+

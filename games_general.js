@@ -260,7 +260,7 @@ pop_hover_down = () => {
 
 // game of clicking on items (clicking on wrong item is disqulification)
 // the parameter is the clicked item
-// r1p3
+// r1p3 r2p10
 click_identify = (item) => {
     // if the user clicked correct item
     if ((item).hasClass("correct")) {
