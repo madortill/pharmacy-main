@@ -2,7 +2,6 @@
 // in order the function will work the items need to have the class "item"
 // r1p3
 pop_sign_click = () => {
-    
     // add event listener for each item
     $(`#${matrix[nRoom][nPage].divName} .item`).on("click", (event) => {
         click_identify($(event.target));
@@ -123,29 +122,10 @@ restart_1 = () => {
     $("#r1p3 .item").css("opacity", "1");
 
     // r1p7
-    counter_r1p7_signs_order = 0
     $("#r1p7 .board").addClass("empty");
-    arr_r1p7_signs_order = [];
-    // new signs order
-    for (let i = 0; i < $("#r1p7 .sign").length ; i++) {
-        let random = Math.floor(Math.random() * $("#r1p7 .sign").length) + 1;
-        while (arr_r1p7_signs_order.includes(random)) {
-            random = Math.floor(Math.random() * $("#r1p7 .sign").length) + 1;
-        }
-        arr_r1p7_signs_order[i] = random;
-    }
-    console.log(arr_r1p7_signs_order);
+    restart_drag("r1p7");
     // signs return to original location
     $("#r1p7 .sign").css({top: "38vw", left: "42.5vw"});
-    // signs dissappear accept from the first
-    for (let i = 1; i <= $("#r1p7 .sign").length ; i++) {
-        // hide all except from the first sign
-        if (i !==  arr_r1p7_signs_order[0]) {
-            switch_class($(`#r1p7 .drag.data-num-${i}`), "block", "none");
-        } else {
-            switch_class($(`#r1p7 .drag.data-num-${i}`), "none", "block");
-        }
-    }
 
     // r1p10
     counter_r1p10_folder = 0;

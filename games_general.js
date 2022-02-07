@@ -277,7 +277,7 @@ click_identify = (item) => {
 
 // called to add to drop and drag
 // in order the function will work the items need to have the class "drag" and "drop"
-//r1p7 r1p10
+//r1p7 r1p10 r2p8
 pop_drag_drop = () => {
     $(`#${matrix[nRoom][nPage].divName} .drag`).draggable({
         revert:"invalid",
@@ -301,6 +301,29 @@ pop_drag_drop = () => {
             }
         });
     }
+}
+
+// r1p7 r2p8
+restart_drag = (page) => {
+    eval(`counter_${page}_signs_order`) = 0;
+    eval(`arr_${page}_signs_order`) = [];
+        // new signs order
+        for (let i = 0; i < $(`#${page} .sign`).length ; i++) {
+            let random = Math.floor(Math.random() * $(`#${page} .sign`).length) + 1;
+            while (eval(`counter_${page}_signs_order`).includes(random)) {
+                random = Math.floor(Math.random() * $(`#${page} .sign`).length) + 1;
+            }
+            eval(`arr_${page}_signs_order`)[i] = random;
+        }
+        // signs dissappear accept from the first
+        for (let i = 1; i <= $(`#${page} .sign`).length ; i++) {
+            // hide all except from the first sign
+            if (i !==   eval(`arr_${page}_signs_order`)[0]) {
+                switch_class($(`#${page} .drag.data-num-${i}`), "block", "none");
+            } else {
+                switch_class($(`#${page} .drag.data-num-${i}`), "none", "block");
+            }
+        }
 }
 
 // check = what u want to check' for example slider

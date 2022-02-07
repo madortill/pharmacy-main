@@ -76,6 +76,36 @@ pop_r2p4_build_mat = () => {
     console.log(mat_r2p4);
 }
 
+var counter_r2p8_signs_order = 0;
+var arr_r2p8_signs_order = [1,3,2];
+var arr_r2p8_signs_locations = [
+    {
+        top: "14vw",
+        left: "75vw"
+    }, 
+    {
+        top: "15vw",
+        left: "40vw"
+    },     
+    {
+        top: "44vw",
+        left: "30vw"
+    } 
+];
+r2p8_dropped_correct = (drag, drop) => {
+    // disable item dragging
+    drag.draggable("option", "disabled", true);
+    // changing sign location
+    $(`#${matrix[nRoom][nPage].divName} .drag.data-num-${arr_r2p8_signs_order[counter_r2p8_signs_order]}`).animate({top: arr_r2p8_signs_locations[arr_r2p8_signs_order[counter_r2p8_signs_order] - 1].top, left: arr_r2p8_signs_locations[arr_r2p8_signs_order[counter_r2p8_signs_order] - 1].left}, 200);
+    counter_r2p8_signs_order++;
+    if (counter_r2p8_signs_order < arr_r2p8_signs_order.length) {
+        // new sign appear
+        switch_class($(`#${matrix[nRoom][nPage].divName} .drag.data-num-${arr_r2p8_signs_order[counter_r2p8_signs_order]}`), "none", "block");
+    } else {
+        V_X(true);
+    }
+}
+
 restart_2 = () => {
     // r2p4
     switch_class($(`#r2p4 .item`), "block", "none");
@@ -89,4 +119,10 @@ restart_2 = () => {
         }
         r2p4_falling_order[i].data_num = random;
     }
+
+    // r2p8
+    restart_drag("r2p8");
+    // signs return to original location
+    $("#r2p8 .sign").css({top: "86vw", left: "32vw"});
 }
+

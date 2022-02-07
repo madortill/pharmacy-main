@@ -1174,3 +1174,63 @@ body, #main {
   right: 2.5vw;
 }
 
+/* r2p8 */
+
+#r2p8 {
+  background-image: url("assets/media/rooms/room_tipulim_bg.svg");
+}
+
+.side-hands {
+  right: 0;
+  top: 35vw;
+  width: 11vw;
+  position: absolute;
+}
+
+#r2p8 .sign {
+  width: 10vw;
+  position: absolute;
+  left: 86vw;
+  top: 32vw;
+}
+
+#r2p8 .drop {
+  background-color: salmon;
+  position: absolute;
+}
+
+#r2p8 .drop-1 {
+  top: 8vw;
+  right: 11vw;
+  width: 38vw;
+  height: 15vw;
+}
+
+#r2p8 .drop-2 {
+  top: 8vw;
+  right: 50vw;
+  width: 20vw;
+  height: 22vw;
+}
+
+#r2p8 .drop-3 {
+  top: 44vw;
+  right: 45vw;
+  width: 44vw;
+  height: 7vw;
+}
+
+#r2p8 .ahami-head {
+  width: 5rem;
+  margin-left: 1vw;
+}
+
+#r2p8 .instructions {
+  font-size: 2.4rem;
+  width: 70vw;
+}
+
+#r2p8 .instructions-flex {
+  background-color: white;
+  padding: 1.5vw;
+}
