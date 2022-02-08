@@ -41,7 +41,7 @@ r2p2_check_slider = () => {
     $(`#${matrix[nRoom][nPage].divName} .slider`).slider("disable");
     let hour = $(`#${matrix[nRoom][nPage].divName} .slider`).slider( "value");
     // if the user dragged the anchore between 09:00-12:00 or 13:00-15:00
-    if (((9 < hour) && (hour < 12)) || ((13 < hour) && (hour < 15))) {
+    if (((9 < hour) && (hour < 12)) || ((13 < hour) && (hour < 15)) && b_timer) {
         V_X(true);
     } else {
         V_X(false);
@@ -101,7 +101,7 @@ r2p8_dropped_correct = (drag, drop) => {
     if (counter_r2p8_signs_order < arr_r2p8_signs_order.length) {
         // new sign appear
         switch_class($(`#${matrix[nRoom][nPage].divName} .drag.data-num-${arr_r2p8_signs_order[counter_r2p8_signs_order]}`), "none", "block");
-    } else {
+    } else if (b_timer) {
         V_X(true);
     }
 }
@@ -120,7 +120,9 @@ r2p11_clicked_correct = (item) => {
           }, i * 200);
     }
     setTimeout(() => {
-        V_X(true);
+        if (b_timer) {
+            V_X(true);
+        }
     }, 1000);
 }
 

@@ -60,6 +60,7 @@ var Arr_1 = [
     divName: ["r1p7"],
     functions: ["pop_hover_down()", "pop_drag_drop()"],
     type: "game",
+    timer: "60s",
     feedback: {
       correct: "array",
       incorrect: "array"
@@ -88,6 +89,7 @@ var Arr_1 = [
     divName: ["r1p10"],
     functions: ["pop_hover_down()", "pop_drag_drop()"],
     type: "game",
+    timer: "60s",
     feedback: {
       correct: "שלב בוס!",
       incorrect: "שלב בוס!"
@@ -154,7 +156,7 @@ var Arr_2 = [
   {
     // first game- page 2
     divName: ["r2p2"],
-    functions: ["pop_timeEnds()", "pop_r2p2_slider()", `enter("slider")`],
+    functions: ["pop_r2p2_slider()", `enter("slider")`],
     type: "game",
     timer: "10s",
     feedback: {
@@ -215,6 +217,7 @@ var Arr_2 = [
     divName: ["r2p8"],
     functions: ["pop_hover_down()", "pop_drag_drop()"],
     type: "game",
+    timer: "60s",
     feedback: {
       correct: "array",
       incorrect: "array"
@@ -255,11 +258,153 @@ var Arr_2 = [
       incorrect: "כנראה שאתם שייכים ל-dark side"
     }
   },
-
+  {
+    // page 12
+    divName: ["r2p12"],
+    functions: [],
+    type: "content",
+    topic: 8
+  },
+  {
+    // fifth game- page 13
+    divName: ["r2p13"],
+    functions: ["pop_hover_down()", "pop_drag_drop()"],
+    type: "game",
+    timer: "60s",
+    feedback: {
+      correct: "שלב בוס!",
+      incorrect: "שלב בוס!"
+    },
+    instructions: "עזרו לי ליצור אוגדן לעמדת המעבדה! גררו את הדפים הנחוצים לאוגדן ואת השאר לפח",
+    instructions_feedback: {
+      correct: "אוגדן של קפדן!",
+      incorrect: "אוגדן של מפסידן..."
+    }
+  },
 ];
 
 // doctor's room
-var Arr_3 = [
+var Arr_3 = [  
+  {
+  // room 3 page 1
+  divName: ["r3p1"],
+  functions: [`switch_class($("#back-button"), "visible", "hidden")`],
+  type: "content",
+  topic: 1
+},
+{
+  // room 3 page 2
+  divName: ["r3p2"],
+  functions: [`switch_class($("#back-button"), "hidden", "visible")`, `pop_sign_click()`],
+  type: "game",
+  timer: "3s",
+  feedback: {
+    correct: "array",
+    incorrect: "array"
+  },
+  instructions: "הרופא שכח לקחת את החותמת הביתה... תוכלו למצוא אותה?",
+  instructions_feedback: {
+    correct: "תחתמו קבע!",
+    incorrect: "אתם מבולבלים... תחתמו חופש!"
+  }
+},
+{
+  // room 3 page 3
+  divName: ["r3p3"],
+  functions: [],
+  type: "content",
+  topic: 2
+},
+{
+  // room 3 page 4
+  divName: ["r3p4"],
+  functions: [`pop_sign_click()`],
+  type: "game",
+  timer: "20s",
+  feedback: {
+    correct: "array",
+    incorrect: "array"
+  },
+  instructions: "מצא את ההבדלים בין החדרים!",
+  instructions_feedback: {
+    correct: "ראייה 6-6! יכולתם להיות צלפים!",
+    incorrect: "מזל שאנחנו בחדר רופא תקבעו תור לרופא עיניים!"
+  }
+},
+{
+  // room 3 page 5
+  divName: ["r3p5"],
+  functions: [],
+  type: "content",
+  topic: 3
+},
+{
+  // room 3 page 6
+  divName: ["r3p6"],
+  functions: [],
+  type: "content",
+  topic: 3
+},
+{
+  // room 3 page 7
+  divName: ["r3p7"],
+  functions: [],
+  type: "content",
+  topic: 4
+},
+{
+  // room 3 page 8
+  divName: ["r3p8"],
+  functions: [`r3p8_clicked_correct()`],
+  type: "game",
+  timer: "8s",
+  feedback: {
+    correct: "array",
+    incorrect: "array"
+  },
+  instructions: `רשמו את השם המלא של הד"ר על השלט של הדלת!`,
+  instructions_feedback: {
+    correct: "אתה כוכב כמו עוז זהבי",
+    incorrect: "חבל על הזמן..."
+  }
+},
+{
+  // room 3 page 9
+  divName: ["r3p9"],
+  functions: [],
+  type: "content",
+  topic: 5
+},
+{
+  // room 3 page 10
+  divName: ["r3p10"],
+  functions: [],
+  type: "content",
+  topic: 5
+},
+{
+  // room 3 page 11
+  divName: ["r3p11"],
+  functions: [`pop_drag_drop()`, `pop_hover_down()`, `carousel()`, `pop_down()`],
+  type: "game",
+  timer: "30s",
+  feedback: {
+    correct: "array",
+    incorrect: "array"
+  },
+  instructions: "איזה טופס חסר? עברו בין הטפסים וגררו את הנכון למקום!",
+  instructions_feedback: {
+    correct: "אתם טיפוס מוצלח!",
+    incorrect: "אין לכם טפיסה מהירה אה..."
+  }
+},
+{
+  // room 3 page 12
+  divName: ["r3p12"],
+  functions: [],
+  type: "content",
+  topic: 6
+}
 ];
 
 // medicines room

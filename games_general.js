@@ -7,6 +7,9 @@ let incorrect_num = 0;
 var arr_correct_feedback = ["תותח!", "תותחן!"];
 var arr_incorrect_feedback = ['דו"ח!' ,"איזה לוזר!"];
 
+// timer
+let b_timer = true;
+
 // setting game page
 type_game = () => {
     // hide controls
@@ -16,6 +19,7 @@ type_game = () => {
     if (matrix[nRoom][nPage].timer !== undefined) {
         // display timer
         switch_class($("#timer"), "none", "block");
+        b_timer = true;
         // reset timeline
         $("#time-timeline").css({"object-position": "40% 0", "animation-duration" : matrix[nRoom][nPage].timer});
     }
@@ -231,6 +235,7 @@ pop_timeEnds = () => {
     // event listener for ending timer animation
     document.querySelector("#time-timeline").addEventListener("animationend", () => {
         V_X(false);
+        b_timer = false;
     });
 }
 
@@ -436,6 +441,33 @@ show_keyboard = (keyboard_blink) => {
         }
         setTimeout(show_keyboard, 400, keyboard_blink - 1);
     }
+}
+
+// item must heve class carousel-item
+// arrows must have class arrow-left and arrow-right
+carousel = (event) => {
+    let arr_carousel_items = $(`#${matrix[nRoom][nPage].divName} .carousel-item`);
+    if(!event){ // first time in the function
+        carousel_count = 0;
+        carousel_former_item = arr_carousel_items[carousel_count];
+        $(`.arrows`).on("click", carousel);
+    } else { // come from arrows 
+        // check which arrow and adjust count
+        if($(event.target).hasClass("arrow-right")) {
+            carousel_count--;
+            if (Number(carousel_count) === -1) {
+                carousel_count = arr_carousel_items.length - 1;
+            }
+        } else if($(event.target).hasClass("arrow-left")) {
+            carousel_count++;
+            if (Number(carousel_count) === arr_carousel_items.length) {
+                carousel_count = 0;
+            }
+        }
+    }
+    switch_class($(carousel_current_item), "visible", "hidden");
+    carousel_current_item = arr_carousel_items[carousel_count];
+    switch_class($(carousel_current_item), "hidden", "visible");
 }
 
 

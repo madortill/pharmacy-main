@@ -12,7 +12,7 @@ pop_sign_click = () => {
 r1p3_clicked_correct = (item) => {
     item.animate({opacity: `0`}, 200, function() {
         switch_class(item, "visible", "hidden");
-        if ($(`#${matrix[nRoom][nPage].divName} .hidden`).length === 2) {
+        if (($(`#${matrix[nRoom][nPage].divName} .hidden`).length === 2) && b_timer) {
             $(`#${matrix[nRoom][nPage].divName} .item`).css("pointer-events", "none");
             V_X(true);
         }
@@ -50,7 +50,7 @@ r1p7_dropped_correct = (drag, drop) => {
     if (counter_r1p7_signs_order < arr_r1p7_signs_order.length) {
         //new sign appear
         switch_class($(`#${matrix[nRoom][nPage].divName} .drag.data-num-${arr_r1p7_signs_order[counter_r1p7_signs_order]}`), "none", "block");
-    } else {
+    } else if (b_timer) {
         V_X(true);
     }
 }
@@ -110,7 +110,7 @@ r1p10_dropped_correct = (drag, drop) => {
         drag.css("width", "7vw");
     }
     // winning
-    if ((counter_r1p10_folder === $(`#${matrix[nRoom][nPage].divName} .drag-1`).length) && ((counter_r1p10_trash === $(`#${matrix[nRoom][nPage].divName} .drag-2`).length))) {
+    if (b_timer && (counter_r1p10_folder === $(`#${matrix[nRoom][nPage].divName} .drag-1`).length) && ((counter_r1p10_trash === $(`#${matrix[nRoom][nPage].divName} .drag-2`).length))) {
         V_X(true);
     } 
 }
@@ -125,7 +125,7 @@ restart_1 = () => {
     $("#r1p7 .board").addClass("empty");
     restart_drag("r1p7");
     // signs return to original location
-    $("#r1p7 .sign").css({top: "38vw", left: "42.5vw"});
+    $("#r1p7 .sign").css({top: "36vw", left: "42.5vw"});
 
     // r1p10
     counter_r1p10_folder = 0;
