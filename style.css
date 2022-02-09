@@ -173,6 +173,13 @@ body, #main {
   font-family: "Rubik-Bold";
 }
 
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .gray {
   color:rgb(26, 26, 26)
 }
@@ -505,10 +512,6 @@ body, #main {
   justify-content: space-evenly;
   align-items: center;
   flex-wrap: nowrap;
-  transform: translate(-50%, -50%);
-  position: absolute;
-  top: 50%;
-  left: 50%;
   z-index: 3;
 }
 
@@ -520,15 +523,6 @@ body, #main {
 
 .heart {
   width: 17vw;
-}
-
-.cloud {
-  width: 25vw;
-  transform: translate(-50%, -50%);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: 4;
 }
 
 .heart-animation {
@@ -790,10 +784,6 @@ body, #main {
 /* games */
 
 .v-x {
-  transform: translate(-50%, -50%);
-  position: absolute;
-  top: 50%;
-  left: 50%;
   z-index: 5;
   width: 20vw;
   animation: v_x 0.2s linear;
@@ -831,10 +821,6 @@ body, #main {
 }
 
 #keyboard {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   width: 20vw;
 }
 
@@ -1308,6 +1294,12 @@ body, #main {
   top: 28vw;
   left: 50vw;
   transform: rotate(-6deg);
+}
+
+/* r2p14 */
+
+#treatment-table {
+  width: 15vw;
 }
 
 /* room 3 */

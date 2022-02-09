@@ -14,22 +14,6 @@ var Arr_1 = [
     topic: 1
   },
   {
-    // fifth game- page 13
-    divName: ["r2p13"],
-    functions: ["pop_hover_down()", "pop_drag_drop()"],
-    type: "game",
-    timer: "60s",
-    feedback: {
-      correct: "array",
-      incorrect: "array"
-    },
-    instructions: "עזרו לי ליצור אוגדן לעמדת המעבדה! גררו את הדפים הנחוצים לאוגדן ואת השאר לפח",
-    instructions_feedback: {
-      correct: "אוגדן של קפדן!",
-      incorrect: "אוגדן של מפסידן..."
-    }
-  },
-  {
     // page 2
     divName: ["r1p2"],
     functions: [`switch_class($("#back-button"), "hidden", "visible")`, `pop_buttons($("#back-button"), -1)`],
@@ -296,6 +280,13 @@ var Arr_2 = [
       correct: "אוגדן של קפדן!",
       incorrect: "אוגדן של מפסידן..."
     }
+  },
+  {
+    // page 12
+    divName: ["r2p14"],
+    functions: [],
+    type: "content",
+    topic: 9
   },
 ];
 
