@@ -126,6 +126,52 @@ r2p11_clicked_correct = (item) => {
     }, 1000);
 }
 
+var counter_r2p13_folder = 0;
+var counter_r2p13_trash = 0;
+var arr_r2p13_files_order = [
+    {
+        top: "15vw",
+        left: "83vw",
+        transform: "rotate(3deg)",
+        used: false
+    },
+    {
+        top: "17vw",
+        left: "75vw",
+        transform: "rotate(-0.5deg)",
+        used: false
+    },
+    {
+        top: "11vw",
+        left: "56vw",
+        transform: "rotate(3.5deg)",
+        used: false
+    },
+    {
+        top: "28vw",
+        left: "77vw",
+        transform: "rotate(8.5deg)",
+        used: false
+    },
+    {
+        top: "33vw",
+        left: "63vw",
+        transform: "rotate(2deg)",
+        used: false
+    },
+    {
+        top: "28vw",
+        left: "50vw",
+        transform: "rotate(-6deg)",
+        used: false
+    }
+]
+
+// exactly the same exercise
+r2p13_dropped_correct = (drag, drop) => {
+    r1p10_dropped_correct(drag, drop);
+}
+
 restart_2 = () => {
     // r2p4
     switch_class($(`#r2p4 .item`), "block", "none");
@@ -141,8 +187,12 @@ restart_2 = () => {
     }
 
     // r2p8
-    restart_drag("r2p8");
+    restart_sign_drag("r2p8");
     // signs return to original location
     $("#r2p8 .sign").css({top: "86vw", left: "32vw"});
+
+    // r2p13
+    restart_trash_drag("r2p13");
+    $("#r2p13 .data-num-2.drag-3").attr("src", `assets/media/exer3/exer3_bikurofe.svg`);
 }
 

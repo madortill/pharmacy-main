@@ -309,7 +309,7 @@ pop_drag_drop = () => {
 }
 
 // r1p7 r2p8
-restart_drag = (page) => {
+restart_sign_drag = (page) => {
     eval(`counter_${page}_signs_order`) = 0;
     eval(`arr_${page}_signs_order`) = [];
         // new signs order
@@ -329,6 +329,26 @@ restart_drag = (page) => {
                 switch_class($(`#${page} .drag.data-num-${i}`), "none", "block");
             }
         }
+}
+
+// r1p10 r2p13
+restart_trash_drag = (page) => {
+    eval(`counter_${page}_folder`) = 0;
+    eval(`counter_${page}_trash`) = 0;
+    $(`#${page} .drag`).css({width: "10.5vw"});
+    switch_class($(`#${page} .drag-1`), "none", "block");
+    // new files order
+    for (let i = 0; i < eval(`arr_${page}_files_order`).length ; i++) {
+        eval(`arr_${page}_files_order`)[i].used = false;
+    }
+    for (let i = 0; i < eval(`arr_${page}_files_order`).length ; i++) {
+        let random = Math.floor(Math.random() * eval(`arr_${page}_files_order`).length);
+        while (eval(`arr_${page}_files_order`)[random].used) {
+            random = Math.floor(Math.random() * eval(`arr_${page}_files_order`).length);
+        }
+        $(`#${page} .file.data-num-${i + 1}`).css({top: eval(`arr_${page}_files_order`)[random].top, left: eval(`arr_${page}_files_order`)[random].left, transform: eval(`arr_${page}_files_order`)[random].transform});
+        eval(`arr_${page}_files_order`)[random].used = true;
+    }
 }
 
 // check = what u want to check' for example slider

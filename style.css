@@ -954,22 +954,22 @@ body, #main {
 
 /* r1p10 */
 
-#r1p10 {
+#r1p10, #r2p13 {
   background-image: url("assets/media/exer3/exer3bg.svg");
 }
 
-#r1p10 .ahami-head {
+#r1p10 .ahami-head, #r2p13 .ahami-head {
   width: 5rem;
   margin-left: 1vw;
 }
 
-#r1p10 .instructions {
+#r1p10 .instructions, #r2p13 .instructions {
   font-size: 2.4rem;
   width: 70vw;
   /* right: 10vw; */
 }
 
-#r1p10 .instructions-flex {
+#r1p10 .instructions-flex, #r2p13 .instructions-flex {
   top: 6vh;
   right: 11.5vw;
   color: white;
@@ -1270,6 +1270,44 @@ body, #main {
   position: absolute;
   top: 16.5vw;
   right: 33.5vw;
+}
+
+/* r2p13 */
+
+#r2p13 .file.data-num-1 {
+  top: 15vw;
+  left: 83vw;
+  transform: rotate(3deg);
+}
+
+#r2p13 .file.data-num-2 {
+  top: 17vw;
+  left: 75vw;
+  transform: rotate(-0.5deg);
+}
+
+#r2p13 .file.data-num-3 {
+  top: 11vw;
+  left: 56vw;
+  transform: rotate(3.5deg);
+}
+
+#r2p13 .file.data-num-4 {
+  top: 28vw;
+  left: 77vw;
+  transform: rotate(8.5deg);
+}
+
+#r2p13 .file.data-num-5 {
+  top: 33vw;
+  left: 63vw;
+  transform: rotate(2deg);
+}
+
+#r2p13 .file.data-num-6 {
+  top: 28vw;
+  left: 50vw;
+  transform: rotate(-6deg);
 }
 
 /* room 3 */

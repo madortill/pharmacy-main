@@ -100,17 +100,17 @@ r1p10_dropped_correct = (drag, drop) => {
     drag.draggable("option", "disabled", true);
     // vertical position
     if (drop.hasClass("folder")) {
-        counter_r1p10_folder++;
+        window[`counter_${matrix[nRoom][nPage].divName}_folder`]++;
         drag.animate({width: `5vw`}, 100, function() {
             switch_class(drag, "block", "none");
-        })
+        });
     } else if (drop.hasClass("trash")) {
-        counter_r1p10_trash++;
-        drag.attr("src", `assets/media/exer3/pieceofshit${counter_r1p10_trash}.svg`);
+        window[`counter_${matrix[nRoom][nPage].divName}_trash`]++;
+        drag.attr("src", `assets/media/exer3/pieceofshit${eval(`counter_${matrix[nRoom][nPage].divName}_trash`)}.svg`);
         drag.css("width", "7vw");
     }
     // winning
-    if (b_timer && (counter_r1p10_folder === $(`#${matrix[nRoom][nPage].divName} .drag-1`).length) && ((counter_r1p10_trash === $(`#${matrix[nRoom][nPage].divName} .drag-2`).length))) {
+    if (b_timer && (eval(`counter_${matrix[nRoom][nPage].divName}_folder`) === $(`#${matrix[nRoom][nPage].divName} .drag-1`).length) && ((eval(`counter_${matrix[nRoom][nPage].divName}_trash`) === $(`#${matrix[nRoom][nPage].divName} .drag-2`).length))) {
         V_X(true);
     } 
 }
@@ -123,27 +123,12 @@ restart_1 = () => {
 
     // r1p7
     $("#r1p7 .board").addClass("empty");
-    restart_drag("r1p7");
+    restart_sign_drag("r1p7");
     // signs return to original location
     $("#r1p7 .sign").css({top: "36vw", left: "42.5vw"});
 
     // r1p10
-    counter_r1p10_folder = 0;
-    counter_r1p10_trash = 0;
-    $("#r1p10 .drag").css({width: "10.5vw"});
-    switch_class($("#r1p10 .drag-1"), "none", "block");
+    restart_trash_drag("r1p10");
     $("#r1p10 .data-num-2.drag-2").attr("src", `assets/media/exer3/exer3_bikurofe.svg`);
     $("#r1p10 .data-num-6.drag-2").attr("src", `assets/media/exer3/exer3_kabala.svg`);
-    // new files order
-    for (let i = 0; i < arr_r1p10_files_order.length ; i++) {
-        arr_r1p10_files_order[i].used = false;
-    }
-    for (let i = 0; i < arr_r1p10_files_order.length ; i++) {
-        let random = Math.floor(Math.random() * arr_r1p10_files_order.length);
-        while (arr_r1p10_files_order[random].used) {
-            random = Math.floor(Math.random() * arr_r1p10_files_order.length);
-        }
-        $(`#r1p10 .file.data-num-${i + 1}`).css({top: arr_r1p10_files_order[random].top, left: arr_r1p10_files_order[random].left, transform: arr_r1p10_files_order[random].transform});
-        arr_r1p10_files_order[random].used = true;
-    }
 }
