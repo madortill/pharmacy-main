@@ -76,9 +76,9 @@ pop_r2p4_build_mat = () => {
     console.log(mat_r2p4);
 }
 
-var counter_r2p8_signs_order = 0;
-var arr_r2p8_signs_order = [1,3,2];
-var arr_r2p8_signs_locations = [
+var counter_r2p8_items_order = 0;
+var arr_r2p8_items_order = [1,3,2];
+var arr_r2p8_items_locations = [
     {
         top: "14vw",
         left: "75vw"
@@ -95,18 +95,18 @@ var arr_r2p8_signs_locations = [
 r2p8_dropped_correct = (drag, drop) => {
     // disable item dragging
     drag.draggable("option", "disabled", true);
-    // changing sign location
-    $(`#${matrix[nRoom][nPage].divName} .drag.data-num-${arr_r2p8_signs_order[counter_r2p8_signs_order]}`).animate({top: arr_r2p8_signs_locations[arr_r2p8_signs_order[counter_r2p8_signs_order] - 1].top, left: arr_r2p8_signs_locations[arr_r2p8_signs_order[counter_r2p8_signs_order] - 1].left}, 200);
-    counter_r2p8_signs_order++;
-    if (counter_r2p8_signs_order < arr_r2p8_signs_order.length) {
-        // new sign appear
-        switch_class($(`#${matrix[nRoom][nPage].divName} .drag.data-num-${arr_r2p8_signs_order[counter_r2p8_signs_order]}`), "none", "block");
+    // changing item location
+    $(`#${matrix[nRoom][nPage].divName} .drag.data-num-${arr_r2p8_items_order[counter_r2p8_items_order]}`).animate({top: arr_r2p8_items_locations[arr_r2p8_items_order[counter_r2p8_items_order] - 1].top, left: arr_r2p8_items_locations[arr_r2p8_items_order[counter_r2p8_items_order] - 1].left}, 200);
+    counter_r2p8_items_order++;
+    if (counter_r2p8_items_order < arr_r2p8_items_order.length) {
+        // new item appear
+        switch_class($(`#${matrix[nRoom][nPage].divName} .drag.data-num-${arr_r2p8_items_order[counter_r2p8_items_order]}`), "none", "block");
     } else if (b_timer) {
         V_X(true);
     }
 }
 
-// the parameter is the clicked correct sign
+// the parameter is the clicked correct item
 r2p11_clicked_correct = (item) => {
     $(`#${matrix[nRoom][nPage].divName} .item`).css("pointer-events", "none");
     // blink effect
@@ -172,6 +172,37 @@ r2p13_dropped_correct = (drag, drop) => {
     r1p10_dropped_correct(drag, drop);
 }
 
+
+var counter_r2p16_items_order = 0;
+var arr_r2p16_items_order = [1,4,5,6,2,3];
+// exactly the same exercise
+r2p16_clicked_correct = (item) => {
+    $(item).stop();
+    item.animate({opacity: `0`}, 200, function() {
+        switch_class(item, "block", "none");
+        counter_r2p16_items_order++;
+        drop_item($(`#r2p16 .data-num-${arr_r2p16_items_order[counter_r2p16_items_order]}`));
+        if (($(`#${matrix[nRoom][nPage].divName} .none`).length === 3)) {
+            $(`#${matrix[nRoom][nPage].divName} .item`).css("pointer-events", "none");
+            V_X(true);
+        }
+    });
+}
+
+// falling animation
+drop_item = (item) => {
+    switch_class(item, "none", "block");
+    $(item).css("right", `${Math.floor(Math.random() * 60) + 20}vw`);
+    $(item).animate({right: `+=${Math.floor(Math.random() * 50)}vw`, top: "105vw"}, 100000, function() {
+        if($(item).hasClass("correct")) {
+            V_X(false);
+        } else {
+            counter_r2p16_items_order++;
+            drop_item($(`#r2p16 .data-num-${arr_r2p16_items_order[counter_r2p16_items_order]}`));
+        }
+    });
+}
+
 restart_2 = () => {
     // r2p4
     switch_class($(`#r2p4 .item`), "block", "none");
@@ -187,12 +218,17 @@ restart_2 = () => {
     }
 
     // r2p8
-    restart_sign_drag("r2p8");
-    // signs return to original location
-    $("#r2p8 .sign").css({top: "86vw", left: "32vw"});
+    restart_item("r2p8");
+    // items return to original location
+    $("#r2p8 .item").css({top: "86vw", left: "32vw"});
 
     // r2p13
     restart_trash_drag("r2p13");
     $("#r2p13 .data-num-2.drag-3").attr("src", `assets/media/exer3/exer3_bikurofe.svg`);
+
+    // r2p16
+    switch_class($("#r2p16 .item"), "hidden", "visible");
+    $("#r2p16 .item").css("opacity", "1");
+    restart_item("r2p16");
 }
 

@@ -4,7 +4,7 @@ let carousel_count;
 let carousel_current_item;
 const EXER_12_WIN_COUNT = 5;
 const EXER_13_CORRECT_NAME = "עוז צהבי";
-// the parameter is the clicked correct sign
+// the parameter is the clicked correct item
 r3p2_clicked_correct = (item) => {
     // send for win
     if (b_timer) {
@@ -12,7 +12,7 @@ r3p2_clicked_correct = (item) => {
     }
 }
 
-// the parameter is the clicked correct sign
+// the parameter is the clicked correct item
 r3p4_clicked_correct = (item) => {
     // save clicked item
     let clicked_item = item[0].classList[0];
@@ -32,7 +32,7 @@ r3p4_clicked_correct = (item) => {
     }
 }
 
-// the parameter is the clicked correct sign
+// the parameter is the clicked correct item
 r3p8_clicked_correct = () => {
     $(`#r3p8 .doctor-name`).on("input", () => {
         exer_13_input = $(`.doctor-name`).val();
@@ -42,7 +42,7 @@ r3p8_clicked_correct = () => {
     })
 }
 
-// the parameter is the clicked correct sign
+// the parameter is the clicked correct item
 r3p11_dropped_correct = (item) => {
     // send for win
     if (b_timer) {

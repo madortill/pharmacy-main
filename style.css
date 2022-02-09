@@ -484,7 +484,7 @@ body, #main {
 }
 
 /* ending room */
-#room-sign {
+#room-item {
   width: 40vw;
   bottom: -1vw;
   margin: auto;
@@ -830,7 +830,7 @@ body, #main {
   background-image: url("assets/media/exer1/exer1_bg.svg");
 }
 
-#signs-flex {
+#items-flex {
   bottom: 7vw;
   right: 13vw;
   flex-wrap: wrap;
@@ -840,35 +840,35 @@ body, #main {
   position: absolute;
 }
 
-#signs-flex .data-num-1, #signs-flex .data-num-2, #signs-flex .data-num-3 {
+#items-flex .data-num-1, #items-flex .data-num-2, #items-flex .data-num-3 {
   align-self: flex-start;
 }
 
-#signs-flex .data-num-4, #signs-flex .data-num-5, #signs-flex .data-num-6 {
+#items-flex .data-num-4, #items-flex .data-num-5, #items-flex .data-num-6 {
   align-self: flex-end;
 }
 
-#signs-flex .data-num-1 {
+#items-flex .data-num-1 {
   width: 38%
 }
 
-#signs-flex .data-num-2 {
+#items-flex .data-num-2 {
   width: 28%
 }
 
-#signs-flex .data-num-3 {
+#items-flex .data-num-3 {
   width: 25%
 }
 
-#signs-flex .data-num-4 {
+#items-flex .data-num-4 {
   width: 30%
 }
 
-#signs-flex .data-num-5 {
+#items-flex .data-num-5 {
   width: 35%
 }
 
-#signs-flex .data-num-6 {
+#items-flex .data-num-6 {
   width: 26%;
 }
 
@@ -906,7 +906,7 @@ body, #main {
   width: 20vw;
 }
 
-#r1p7 .sign {
+#r1p7 .item {
   position: absolute;
   top: 36vw;
   width: 15vw;
@@ -1085,7 +1085,7 @@ body, #main {
   font-size: 2.5vw;
 }
 
-#r2p2 .slider-design {
+#r2p2 .slider-deitem {
   position: relative;
   margin: auto;
   background-image: url(assets/media/exer4/exer4_bar.svg);
@@ -1174,7 +1174,7 @@ body, #main {
   position: absolute;
 }
 
-#r2p8 .sign {
+#r2p8 .item {
   width: 10vw;
   position: absolute;
   left: 86vw;
@@ -1300,6 +1300,46 @@ body, #main {
 
 #treatment-table {
   width: 37vw;
+}
+
+/* r2p16 */
+
+#r2p16 {
+  background-image: url("assets/media/exer9/exer09_bg.svg");
+}
+
+#r2p16 .ahami-head {
+  width: 5rem;
+  margin-left: 1vw;
+}
+  
+#r2p16 .instructions {
+  font-size: 2.4rem;
+  width: 70vw;
+}
+  
+#r2p16 .instructions-flex {
+  width: 100%;
+  position: absolute;
+  bottom: 0vh;
+  background-color: white;
+  padding: 1em 0;
+  padding-right: 2.5vw;
+}
+
+#r2p16 .item {
+  top: -5vw;
+  width: 4.5vw;
+  position: absolute;
+}
+
+
+#r2p16 .item.data-num-1 {
+  width: 10vw;
+}
+
+#r2p16 .item.data-num-4 {
+  width: 3vw;
 }
 
 /* room 3 */

@@ -7,6 +7,21 @@ var nPage = 0;
 // waiting room
 var Arr_1 = [
   {
+    // first game- page 3
+    divName: ["r2p16"],
+    functions: ["pop_click()", "drop_item($(`#r2p16 .data-num-${arr_r2p16_items_order[counter_r2p16_items_order]}`))"],
+    type: "game",
+    feedback: {
+      correct: "תפסתם עמדה",
+      incorrect: "נפלתם בקרב"
+    },
+    instructions: "התבלבלתי ותליתי את כל השלטים מחוץ למרפאה!<br>לחצו על השלטים שאמורים להיות בפנים",
+    instructions_feedback: {
+      correct: "יש לכם תפיסה מהירה!",
+      incorrect: "אין לכם תפיסה מהירה..."
+    }
+  },
+  {
     // opening game question- page 1
     divName: ["r1p1"],
     functions: [`switch_class($("#back-button"), "visible", "hidden")`, `pop_buttons($("#next-button"), 1)`, "pop_watch_room_button()", "pop_home_page_button()", "pop_restart_button()", "pop_quiz_button()"],
@@ -23,7 +38,7 @@ var Arr_1 = [
   {
     // first game- page 3
     divName: ["r1p3"],
-    functions: ["pop_timeEnds()", "pop_sign_click()", "pop_hover_down()"],
+    functions: ["pop_timeEnds()", "pop_click()", "pop_hover_down()"],
     type: "game",
     timer: "10s",
     feedback: {
@@ -245,7 +260,7 @@ var Arr_2 = [
   {
     // forth game- page 11
     divName: ["r2p11"],
-    functions: ["pop_sign_click()"],
+    functions: ["pop_click()"],
     type: "game",
     timer: "5s",
     feedback: {
@@ -295,6 +310,21 @@ var Arr_2 = [
     type: "content",
     topic: 10
   },
+  {
+    // first game- page 3
+    divName: ["r2p16"],
+    functions: ["pop_click()", "drop_item($(`#r2p16 .data-num-${arr_r2p16_items_order[counter_r2p16_items_order]}`))"],
+    type: "game",
+    feedback: {
+      correct: "תפסתם עמדה",
+      incorrect: "נפלתם בקרב"
+    },
+    instructions: "התבלבלתי ותליתי את כל השלטים מחוץ למרפאה!<br>לחצו על השלטים שאמורים להיות בפנים",
+    instructions_feedback: {
+      correct: "יש לכם תפיסה מהירה!",
+      incorrect: "אין לכם תפיסה מהירה..."
+    }
+  },
 ];
 
 // doctor's room
@@ -309,7 +339,7 @@ var Arr_3 = [
 {
   // room 3 page 2
   divName: ["r3p2"],
-  functions: [`switch_class($("#back-button"), "hidden", "visible")`, `pop_sign_click()`],
+  functions: [`switch_class($("#back-button"), "hidden", "visible")`, `pop_click()`],
   type: "game",
   timer: "3s",
   feedback: {
@@ -332,7 +362,7 @@ var Arr_3 = [
 {
   // room 3 page 4
   divName: ["r3p4"],
-  functions: [`pop_sign_click()`],
+  functions: [`pop_click()`],
   type: "game",
   timer: "20s",
   feedback: {

@@ -1,14 +1,4 @@
-// called to add to each sign event listener to click_identify
-// in order the function will work the items need to have the class "item"
-// r1p3 r2p10
-pop_sign_click = () => {
-    // add event listener for each item
-    $(`#${matrix[nRoom][nPage].divName} .item`).on("click", (event) => {
-        click_identify($(event.target));
-    }); 
-}
-
-// the parameter is the clicked correct sign
+// the parameter is the clicked correct item
 r1p3_clicked_correct = (item) => {
     item.animate({opacity: `0`}, 200, function() {
         switch_class(item, "visible", "hidden");
@@ -19,8 +9,8 @@ r1p3_clicked_correct = (item) => {
     });
 }
 
-var counter_r1p7_signs_order = 0;
-var arr_r1p7_signs_order = [1,8,7,6,2,4,5,3];
+var counter_r1p7_items_order = 0;
+var arr_r1p7_items_order = [1,8,7,6,2,4,5,3];
 r1p7_dropped_correct = (drag, drop) => {
     var $this = drop;
     // disable item dragging
@@ -46,10 +36,10 @@ r1p7_dropped_correct = (drag, drop) => {
             }
         });
     }
-    counter_r1p7_signs_order++;
-    if (counter_r1p7_signs_order < arr_r1p7_signs_order.length) {
-        //new sign appear
-        switch_class($(`#${matrix[nRoom][nPage].divName} .drag.data-num-${arr_r1p7_signs_order[counter_r1p7_signs_order]}`), "none", "block");
+    counter_r1p7_items_order++;
+    if (counter_r1p7_items_order < arr_r1p7_items_order.length) {
+        //new item appear
+        switch_class($(`#${matrix[nRoom][nPage].divName} .drag.data-num-${arr_r1p7_items_order[counter_r1p7_items_order]}`), "none", "block");
     } else if (b_timer) {
         V_X(true);
     }
@@ -123,9 +113,9 @@ restart_1 = () => {
 
     // r1p7
     $("#r1p7 .board").addClass("empty");
-    restart_sign_drag("r1p7");
-    // signs return to original location
-    $("#r1p7 .sign").css({top: "36vw", left: "42.5vw"});
+    restart_item("r1p7");
+    // items return to original location
+    $("#r1p7 .item").css({top: "36vw", left: "42.5vw"});
 
     // r1p10
     restart_trash_drag("r1p10");

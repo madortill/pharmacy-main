@@ -263,13 +263,22 @@ pop_hover_down = () => {
 
 // general games
 
+// called to add to each item event listener to click_identify
+// in order the function will work the items need to have the class "item"
+// r1p3 r2p11 r2p16 r3p2 r3p4
+pop_click = () => {
+    // add event listener for each item
+    $(`#${matrix[nRoom][nPage].divName} .item`).on("click", (event) => {
+        click_identify($(event.target));
+    }); 
+}
+
 // game of clicking on items (clicking on wrong item is disqulification)
 // the parameter is the clicked item
-// r1p3 r2p10
+// r1p3 r2p11 r2p16 r3p2 r3p4
 click_identify = (item) => {
     // if the user clicked correct item
     if ((item).hasClass("correct")) {
-        // eval(matrix[nRoom][nPage].divName + "_clicked_correct(" + item + ")");
         window[matrix[nRoom][nPage].divName + "_clicked_correct"](item);
     }
     // if the user clicked incorrect item, the game is over
@@ -308,25 +317,25 @@ pop_drag_drop = () => {
     }
 }
 
-// r1p7 r2p8
-restart_sign_drag = (page) => {
-    eval(`counter_${page}_signs_order`) = 0;
-    eval(`arr_${page}_signs_order`) = [];
-        // new signs order
-        for (let i = 0; i < $(`#${page} .sign`).length ; i++) {
-            let random = Math.floor(Math.random() * $(`#${page} .sign`).length) + 1;
-            while (eval(`counter_${page}_signs_order`).includes(random)) {
-                random = Math.floor(Math.random() * $(`#${page} .sign`).length) + 1;
+// r1p7 r2p8 r2p16
+restart_item = (page) => {
+    eval(`counter_${page}_items_order`) = 0;
+    eval(`arr_${page}_items_order`) = [];
+        // new items order
+        for (let i = 0; i < $(`#${page} .item`).length ; i++) {
+            let random = Math.floor(Math.random() * $(`#${page} .item`).length) + 1;
+            while (eval(`counter_${page}_items_order`).includes(random)) {
+                random = Math.floor(Math.random() * $(`#${page} .item`).length) + 1;
             }
-            eval(`arr_${page}_signs_order`)[i] = random;
+            eval(`arr_${page}_items_order`)[i] = random;
         }
-        // signs dissappear accept from the first
-        for (let i = 1; i <= $(`#${page} .sign`).length ; i++) {
-            // hide all except from the first sign
-            if (i !==   eval(`arr_${page}_signs_order`)[0]) {
-                switch_class($(`#${page} .drag.data-num-${i}`), "block", "none");
+        // items dissappear accept from the first
+        for (let i = 1; i <= $(`#${page} .item`).length ; i++) {
+            // hide all except from the first item
+            if (i !== eval(`arr_${page}_items_order`)[0]) {
+                switch_class($(`#${page} .item.data-num-${i}`), "block", "none");
             } else {
-                switch_class($(`#${page} .drag.data-num-${i}`), "none", "block");
+                switch_class($(`#${page} .item.data-num-${i}`), "none", "block");
             }
         }
 }
