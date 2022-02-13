@@ -330,7 +330,7 @@ var Arr_2 = [
     instructions: "איזו תרופה משולטת נכון?",
     instructions_feedback: {
       correct: "אתם שולטים על השלטים!",
-      incorrect: "חבל שתליית השלטים תלוייה בכם..."
+      incorrect: "אל תילחצו שלא לחצתם נכון :)"
     }
   },
 ];

@@ -1348,16 +1348,41 @@ body, #main {
 }
 
 #r2p18 .items-flex {
-  width: 90%;
-  height: 50vw;
+  width: 95%;
+  height: 18vw;
+  justify-content: space-around;
+  align-items: flex-end;
 }
 
 #r2p18 .item {
-  width: 14vw;
+  width: 23vw;
 }
 
-#r2p18 .item :hover {
-  filter: drop-shadow(16px 16px 0 steelblue);
+#r2p18 .item.data-num-2 {
+  width: 13vw;
+}
+
+#r2p18 .item:hover {
+  filter: drop-shadow(0 0 0.75rem steelblue);
+}
+
+#r2p18 .ahami-head {
+  width: 5rem;
+  margin-left: 1vw;
+}
+  
+#r2p18 .instructions {
+  font-size: 2.4rem;
+  width: 70vw;
+}
+  
+#r2p18 .instructions-flex {
+  width: 100%;
+  position: absolute;
+  top: 0vh;
+  background-color: white;
+  padding: 1em 0;
+  padding-right: 2.5vw;
 }
 
 /* room 3 */
@@ -1585,4 +1610,3 @@ background-image: url("assets/media/exer14/exer14_bg.svg");
     transform: scaleX(-1);
     left: 68vw;
 }
-
