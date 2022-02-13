@@ -7,21 +7,6 @@ var nPage = 0;
 // waiting room
 var Arr_1 = [
   {
-    // first game- page 3
-    divName: ["r2p16"],
-    functions: ["pop_click()", "drop_item($(`#r2p16 .data-num-${arr_r2p16_items_order[counter_r2p16_items_order]}`))"],
-    type: "game",
-    feedback: {
-      correct: "תפסתם עמדה",
-      incorrect: "נפלתם בקרב"
-    },
-    instructions: "התבלבלתי ותליתי את כל השלטים מחוץ למרפאה!<br>לחצו על השלטים שאמורים להיות בפנים",
-    instructions_feedback: {
-      correct: "יש לכם תפיסה מהירה!",
-      incorrect: "אין לכם תפיסה מהירה..."
-    }
-  },
-  {
     // opening game question- page 1
     divName: ["r1p1"],
     functions: [`switch_class($("#back-button"), "visible", "hidden")`, `pop_buttons($("#next-button"), 1)`, "pop_watch_room_button()", "pop_home_page_button()", "pop_restart_button()", "pop_quiz_button()"],
@@ -311,7 +296,7 @@ var Arr_2 = [
     topic: 10
   },
   {
-    // first game- page 3
+    // sixth game- page 16
     divName: ["r2p16"],
     functions: ["pop_click()", "drop_item($(`#r2p16 .data-num-${arr_r2p16_items_order[counter_r2p16_items_order]}`))"],
     type: "game",
@@ -323,6 +308,29 @@ var Arr_2 = [
     instructions_feedback: {
       correct: "יש לכם תפיסה מהירה!",
       incorrect: "אין לכם תפיסה מהירה..."
+    }
+  },
+  {
+    // page 17
+    divName: ["r2p17"],
+    functions: [],
+    type: "content",
+    topic: 11
+  },
+  {
+    // seventh game- page 18
+    divName: ["r2p18"],
+    functions: ["pop_click()"],
+    type: "game",
+    timer: "7s",
+    feedback: {
+      correct: "שלב בוס!",
+      incorrect: "שלב בוס!"
+    },
+    instructions: "איזו תרופה משולטת נכון?",
+    instructions_feedback: {
+      correct: "אתם שולטים על השלטים!",
+      incorrect: "חבל שתליית השלטים תלוייה בכם..."
     }
   },
 ];

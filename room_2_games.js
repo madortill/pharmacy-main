@@ -193,7 +193,7 @@ r2p16_clicked_correct = (item) => {
 drop_item = (item) => {
     switch_class(item, "none", "block");
     $(item).css("right", `${Math.floor(Math.random() * 60) + 20}vw`);
-    $(item).animate({right: `+=${Math.floor(Math.random() * 50)}vw`, top: "105vw"}, 100000, function() {
+    $(item).animate({right: `+=${Math.floor(Math.random() * 50)}vw`, top: "105vw"}, 5000, function() {
         if($(item).hasClass("correct")) {
             V_X(false);
         } else {
