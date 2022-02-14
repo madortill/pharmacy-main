@@ -1660,3 +1660,64 @@ background-image: url("assets/media/exer14/exer14_bg.svg");
 #r4p3-text {
   margin-top: -1vw;
 }
+
+/* r4p5 */
+
+#r4p5 {
+  background-image: url("assets/media/exer16/exer16_bg.svg");
+}
+
+#r4p5 .ahami-head {
+  width: 5rem;
+  margin-left: 1vw;
+}
+  
+#r4p5 .instructions {
+  font-size: 2.4rem;
+  width: 70vw;
+}
+  
+#r4p5 .instructions-flex {
+  width: 100%;
+  position: absolute;
+  bottom: 1.5vw;
+  background-color: white;
+  padding: 1em 0;
+  padding-right: 2.5vw;
+}
+
+#r4p5 .drop {
+  position: absolute;
+}
+
+#r4p5 .drop-1 {
+  top: 0vw;
+  right: 0vw;
+  width: 37vw;
+  height: 27vw;
+}
+
+#r4p5 .drop-2 {
+  top: 5vw;
+  right: 60vw;
+  width: 40vw;
+  height: 25vw;
+}
+
+#r4p5 .item {
+  position: absolute;
+  top: 61vh;
+  width: 7.5vw;
+  z-index: 1;
+  left: 46.1vw;
+  padding-top: 2vw;
+}
+
+#r4p5 .hands {
+  position: absolute;
+  bottom: 15.5vh;
+  width: 13vw;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  z-index: -1;
+}

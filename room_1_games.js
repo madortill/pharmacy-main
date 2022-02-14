@@ -85,6 +85,7 @@ var arr_r1p10_files_order = [
         used: false
     }
 ]
+
 r1p10_dropped_correct = (drag, drop) => {
     // disable item dragging
     drag.draggable("option", "disabled", true);

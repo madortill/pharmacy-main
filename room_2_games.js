@@ -96,11 +96,11 @@ r2p8_dropped_correct = (drag, drop) => {
     // disable item dragging
     drag.draggable("option", "disabled", true);
     // changing item location
-    $(`#${matrix[nRoom][nPage].divName} .drag.data-num-${arr_r2p8_items_order[counter_r2p8_items_order]}`).animate({top: arr_r2p8_items_locations[arr_r2p8_items_order[counter_r2p8_items_order] - 1].top, left: arr_r2p8_items_locations[arr_r2p8_items_order[counter_r2p8_items_order] - 1].left}, 200);
-    counter_r2p8_items_order++;
-    if (counter_r2p8_items_order < arr_r2p8_items_order.length) {
+    $(`#${matrix[nRoom][nPage].divName} .drag.data-num-${eval(`arr_${matrix[nRoom][nPage].divName}_items_order`)[eval(`counter_${matrix[nRoom][nPage].divName}_items_order`)]}`).animate({top: eval(`arr_${matrix[nRoom][nPage].divName}_items_locations`)[eval(`arr_${matrix[nRoom][nPage].divName}_items_order`)[eval(`counter_${matrix[nRoom][nPage].divName}_items_order`)] - 1].top, left: eval(`arr_${matrix[nRoom][nPage].divName}_items_locations`)[eval(`arr_${matrix[nRoom][nPage].divName}_items_order`)[eval(`counter_${matrix[nRoom][nPage].divName}_items_order`)] - 1].left}, 200);
+    window[`counter_${matrix[nRoom][nPage].divName}_items_order`]++;
+    if (eval(`counter_${matrix[nRoom][nPage].divName}_items_order`) < eval(`arr_${matrix[nRoom][nPage].divName}_items_order`).length) {
         // new item appear
-        switch_class($(`#${matrix[nRoom][nPage].divName} .drag.data-num-${arr_r2p8_items_order[counter_r2p8_items_order]}`), "none", "block");
+        switch_class($(`#${matrix[nRoom][nPage].divName} .drag.data-num-${eval(`arr_${matrix[nRoom][nPage].divName}_items_order`)[eval(`counter_${matrix[nRoom][nPage].divName}_items_order`)]}`), "none", "block");
     } else if (b_timer) {
         V_X(true);
     }
