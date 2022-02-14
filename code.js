@@ -7,22 +7,6 @@ var nPage = 0;
 // waiting room
 var Arr_1 = [
   {
-    // second game- page 8
-    divName: ["r4p5"],
-    functions: ["pop_hover_down()", "pop_drag_drop()"],
-    type: "game",
-    timer: "60000s",
-    feedback: {
-      correct: "array",
-      incorrect: "array"
-    },
-    instructions: "גררו למקום כל שלט- אך האם לארון או לדלת?",
-    instructions_feedback: {
-      correct: "הכל מוכן למסדר המפקד!",
-      incorrect: "מזל שאין מסדר היום..."
-    }
-  },
-  {
     // opening game question- page 1
     divName: ["r1p1"],
     functions: [`switch_class($("#back-button"), "visible", "hidden")`, `pop_buttons($("#next-button"), 1)`, "pop_watch_room_button()", "pop_home_page_button()", "pop_restart_button()", "pop_quiz_button()"],

@@ -9,19 +9,19 @@ r4p2_clicked_correct = (item) => {
 }
 
 var counter_r4p5_items_order = 0;
-var arr_r4p5_items_order = [1,2,3,4,5,6,7,8];
+var arr_r4p5_items_order = [4,2,1,6,8,3,7,5];
 var arr_r4p5_items_locations = [
     {
         top: "17.3vw",
         left: "85.5vw"
     }, 
     {
-        top: "69vw",
-        left: "6vw"
+        top: "6vw",
+        left: "69vw"
     },     
     {
-        top: "69vw",
-        left: "14vw"
+        top: "14vw",
+        left: "69vw"
     },
     {
         top: "18vw",
@@ -36,11 +36,11 @@ var arr_r4p5_items_locations = [
         left: "20.2vw"
     },     
     {
-        top: "44vw",
+        top: "6vw",
         left: "10.6vw"
     },     
     {
-        top: "44vw",
+        top: "6vw",
         left: "1vw"
     }  
 ];
