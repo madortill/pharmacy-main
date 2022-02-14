@@ -218,7 +218,7 @@ body, #main {
   margin: auto;
   text-align: center;
   position: relative;
-  margin-top: 13vh;
+  margin-top: 12.5vh;
 }
 
 .little-title {
@@ -748,7 +748,7 @@ body, #main {
 
 .attach {
   width: 2.055vw;
-  height: 2vw;
+  height: 2.06vw;
   margin-top: 0.25vw;
   margin-left: 2vw;
   background-image: url("assets/media/2content/attach_normal.svg");
@@ -1609,4 +1609,54 @@ background-image: url("assets/media/exer14/exer14_bg.svg");
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
     left: 68vw;
+}
+
+/* room 4 */
+/* page 11 */
+
+#r4p2 {
+  background-image: url("assets/media/exer15/exer15_bg.svg");
+}
+
+#r4p2 .ahami-head {
+  width: 5rem;
+  margin-left: 1vw;
+}
+  
+#r4p2 .instructions {
+  font-size: 2.4rem;
+  width: 70vw;
+}
+  
+#r4p2 .instructions-flex {
+  width: 100%;
+  position: absolute;
+  top: 0vh;
+  background-color: white;
+  padding: 1em 0;
+  padding-right: 2.5vw;
+}
+
+#switch {
+  width: 7vw;
+  position: absolute;
+  top: 50%;
+  right: 5vw;
+  transform: translate(0%, -50%);
+}
+
+#wind {
+  background-image: url(assets/media/exer15/exer15_windgroup.svg);
+  width: 41vw;
+  height: 0vh;
+  position: absolute;
+  top: 70vh;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+/* r4p3 */
+
+#r4p3-text {
+  margin-top: -1vw;
 }

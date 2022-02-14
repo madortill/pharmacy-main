@@ -8,7 +8,7 @@ var nPage = 0;
 var Arr_1 = [
   {
     // opening game question- page 1
-    divName: ["r1p1"],
+    divName: ["r4p3"],
     functions: [`switch_class($("#back-button"), "visible", "hidden")`, `pop_buttons($("#next-button"), 1)`, "pop_watch_room_button()", "pop_home_page_button()", "pop_restart_button()", "pop_quiz_button()"],
     type: "content",
     topic: 1
@@ -337,7 +337,7 @@ var Arr_2 = [
 
 // doctor's room
 var Arr_3 = [  
-  {
+{
   // room 3 page 1
   divName: ["r3p1"],
   functions: [`switch_class($("#back-button"), "visible", "hidden")`],
@@ -407,7 +407,7 @@ var Arr_3 = [
 {
   // room 3 page 8
   divName: ["r3p8"],
-  functions: [`r3p8_clicked_correct()`],
+  functions: [`pop_r3p8_input()`],
   type: "game",
   timer: "8s",
   feedback: {
@@ -461,6 +461,36 @@ var Arr_3 = [
 
 // medicines room
 var Arr_4 = [
+  {
+    // page 1
+    divName: ["r4p1"],
+    functions: [`switch_class($("#back-button"), "visible", "hidden")`],
+    type: "content",
+    topic: 1
+  },
+  {
+    // first game- page 2
+    divName: ["r4p2"],
+    functions: [`pop_click()`],
+    type: "game",
+    timer: "5s",
+    feedback: {
+      correct: "array",
+      incorrect: "array"
+    },
+    instructions: "תעשו טובה תדליקו מזגן",
+    instructions_feedback: {
+      correct: "חיממתם לי את הלב",
+      incorrect: "אתם לא מדליקים"
+    }
+  },
+  {
+    // page 1
+    divName: ["r4p3"],
+    functions: [`switch_class($("#back-button"), "hidden", "visible")`],
+    type: "content",
+    topic: 2
+  },
 ];
 
 var matrix = [[

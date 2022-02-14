@@ -46,7 +46,51 @@ var arr_questions_bank_1 = [
         wrong_answer: [`ניצן סלומון`,`בריטני ספירס`,`מרגי`]
     }          
 ];
-var arr_questions_bank_2 = [];
+var arr_questions_bank_2 = [    {
+    question: "מה חייב להימצא בחדר המתנה?",
+    correct_answer: `ספסלים, פחים, לוח מודעות, שילוט המורה על "איסור עישון" ואמצעי הגנה מפגעי מזג האוויר.`,
+    wrong_answer: [`מזגן, פחים, טלוויזיה, שילוט המורה על "איסור עישון" ואמצעי הגנה מפגעי מזג האוויר.` ,`מזגן, ספסלים, פחים, טלוויזיה בה מוצגים נהלי הרפואה ביחידה ואמצעי הגנה מפגעי מזג האוויר.` ,`ספסלים, פחים, טלוויזיה, שילוט המורה על "איסור עישון" ואמצעי הגנה מפגעי מזג האוויר.`]
+},
+{
+    question: "מי הכי חנפנית במדור?",
+    correct_answer: `מרי`,
+    wrong_answer: [`יובל`,`ניצן`,`עינב`]
+},
+{
+    question: "אני אמרתי את זה?",
+    correct_answer: `כי היום אני לא מרגישה שאני עשה כלום`,
+    wrong_answer: [`כלום בכלל`,`אני נשבע שאני לא עושה כלום`,`אני רוצה רק לשכב במיטה`]
+},
+{
+    question: "מי הכי פז''מ עולם",
+    correct_answer: `אליסה וגרגמל`,
+    wrong_answer: [`אופק`,`דורין`,`טלי`]
+},
+{
+    question: "מי אכל גלידה",
+    correct_answer: `טלי`,
+    wrong_answer: [`דורית`,`שחף`,`מרב`]
+}, 
+{
+    question: "חללהכג",
+    correct_answer: `עכעכע`,
+    wrong_answer: [`דורית`,`עככגדגכדגכד`,`מרב`]
+},
+{
+    question: "שלומי",
+    correct_answer: `אוגר`,
+    wrong_answer: [`לוויתן`,`חתולים`,`דולפין`]
+},
+{
+    question: "קטן",
+    correct_answer: `חמוד`,
+    wrong_answer: [`מרב`,`גדול`,`שמנמן`]
+},
+{
+    question: "מי הכי טוב?",
+    correct_answer: `נועה קילה`,
+    wrong_answer: [`ניצן סלומון`,`בריטני ספירס`,`מרגי`]
+}   ];
 var arr_questions_bank_3 = [];
 var arr_questions_bank_4 = [];
 var mat_questions_bank = [copy(arr_questions_bank_1), copy(arr_questions_bank_2), copy(arr_questions_bank_3), copy(arr_questions_bank_4)];

@@ -33,7 +33,7 @@ r3p4_clicked_correct = (item) => {
 }
 
 // the parameter is the clicked correct item
-r3p8_clicked_correct = () => {
+pop_r3p8_input = () => {
     $(`#r3p8 .doctor-name`).on("input", () => {
         exer_13_input = $(`.doctor-name`).val();
         if(exer_13_input === EXER_13_CORRECT_NAME && b_timer) {
