@@ -492,14 +492,14 @@ var Arr_4 = [
     topic: 2
   },
   {
-    // page 1
+    // page 4
     divName: ["r4p4"],
     functions: [],
     type: "content",
     topic: 3
   },
   {
-    // second game- page 8
+    // second game- page 5
     divName: ["r4p5"],
     functions: ["pop_hover_down()", "pop_drag_drop()"],
     type: "game",
@@ -513,6 +513,13 @@ var Arr_4 = [
       correct: "הכל מוכן למסדר המפקד!",
       incorrect: "מזל שאין מסדר היום..."
     }
+  },
+  {
+    // page 6
+    divName: ["r4p6"],
+    functions: [],
+    type: "content",
+    topic: 4
   },
 ];
 
