@@ -1721,3 +1721,48 @@ background-image: url("assets/media/exer14/exer14_bg.svg");
   transform: translate(-50%, 0%);
   z-index: -1;
 }
+
+/* r4p7 */
+
+#r4p7 {
+  background-image: url("assets/media/exer17/exer17_bg.svg");
+}
+
+#r4p7 .ahami-head {
+  width: 5rem;
+  margin-left: 1vw;
+}
+  
+#r4p7 .instructions {
+  font-size: 2.4rem;
+  width: 20vw;
+}
+  
+#r4p7 .instructions-flex {
+  width: 30vw;
+  position: absolute;
+  top: 5vh;
+  right: 2vw;
+  background-color: white;
+  padding: 1em 0;
+  padding-right: 2.5vw;
+  border-radius: 2vw;
+}
+
+#r4p7 .item {
+  position: absolute;
+  top: -3vw;
+  left: 3vw;
+}
+
+#r4p7 .data-num-1 {
+  width: 7vw;
+}
+
+#r4p7 .data-num-2 {
+  width: 7vw;
+}
+
+#r4p7 .data-num-3 {
+  width: 10vw;
+}

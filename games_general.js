@@ -371,6 +371,34 @@ enter = (check) => {
     });
 }
 
+// builds a matrix contains information about game objects' location and movement
+// r2p4 r4p7
+pop_build_mat = () => {
+    let width = eval(`width_${matrix[nRoom][nPage].divName}`);
+    let length= eval(`length_${matrix[nRoom][nPage].divName}`);
+    let mat = eval(`mat_${matrix[nRoom][nPage].divName}`);
+    // create empty arrays
+    for (let i = 0; i <= length - 1; i++) {
+        mat[i] = [];
+    }
+    // fill the arrays
+    for (let i = 0; i < length - 1; i++) {
+        // left wall
+        mat[i][0] = "SAFETY_WALL";
+        for (let j = 1; j < width - 1; j++) {
+            // middle
+            mat[i][j] = "EMPTY";
+        }
+        // right wall
+        mat[i][width - 1] = "SAFETY_WALL";
+    }
+    // fill the floor with safety wall
+    for (let i = 0; i <= width - 1; i++) {
+        mat[length - 1][i] = "SAFETY_WALL"
+    }
+    eval(`${matrix[nRoom][nPage].divName}_build_mat()`);
+}
+
 let x_position = 1;
 let y_position = 0;
 let falling_item;
@@ -394,8 +422,6 @@ falling_items_down = (distance) => {
     switch_class(falling_item, "none", "block");
     // the item is not collapsing the floor
     if (eval(`mat_${matrix[nRoom][nPage].divName}`)[y_position + 1][x_position] !== "SAFETY_WALL") {
-        // if the next square is a trash can
-        if (eval(`mat_${matrix[nRoom][nPage].divName}`)[y_position + 1][x_position].includes("SQUARE")) {
             // if the square matches the item
             if (eval(`mat_${matrix[nRoom][nPage].divName}`)[y_position + 1][x_position] === `SQUARE_${eval(`${matrix[nRoom][nPage].divName}_falling_order`)[0].data_num}`) {
                 falling_item.animate({top: `+=3vw`}, eval(`${matrix[nRoom][nPage].divName}_falling_order`)[0].velocity);
@@ -412,18 +438,12 @@ falling_items_down = (distance) => {
                 } 
                 // reveal another item
                 else {
-                    // random number between 1-4
-                    x_position = Math.floor(Math.random() * 4) + 1;
+                    // random number between 1-4/1-5
+                    x_position = Math.floor(Math.random() * (width_r2p4-2)) + 1;
                     console.log(x_position);
                     y_position = 0;
                     setTimeout(falling_items_down, `${matrix[nRoom][nPage].divName}_falling_order`[0].velocity, distance);
                 }
-            } else {
-                // the user put the item in the wrong place
-                V_X(false);
-                x_position = 1;
-                y_position = 0;
-            }
         } 
         // move the item down
         else {

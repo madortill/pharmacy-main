@@ -7,6 +7,21 @@ var nPage = 0;
 // waiting room
 var Arr_1 = [
   {
+    // third game- page 7
+    divName: ["r4p7"],
+    functions: [`pop_build_mat()`, `falling_items(10)`],
+    type: "game",
+    feedback: {
+      correct: "array",
+      incorrect: "array"
+    },
+    instructions: "התרופות נופלות! כוונו אותן ימינה ושמאלה לפי הסוגים שלהן באמצעות המקלדת",
+    instructions_feedback: {
+      correct: "אתם יודעים לכוון!",
+      incorrect: "אתם לא יודעים לכוון..."
+    }
+  },
+  {
     // opening game question- page 1
     divName: ["r1p1"],
     functions: [`switch_class($("#back-button"), "visible", "hidden")`, `pop_buttons($("#next-button"), 1)`, "pop_watch_room_button()", "pop_home_page_button()", "pop_restart_button()", "pop_quiz_button()"],
@@ -179,7 +194,7 @@ var Arr_2 = [
   {
     // second game- page 4
     divName: ["r2p4"],
-    functions: [`pop_r2p4_build_mat()`, `falling_items(21)`],
+    functions: [`pop_build_mat()`, `falling_items(21)`],
     type: "game",
     feedback: {
       correct: "array",
@@ -520,6 +535,21 @@ var Arr_4 = [
     functions: [],
     type: "content",
     topic: 4
+  },
+  {
+    // third game- page 7
+    divName: ["r4p7"],
+    functions: [`pop_build_mat()`, `falling_items(15)`],
+    type: "game",
+    feedback: {
+      correct: "array",
+      incorrect: "array"
+    },
+    instructions: "התרופות נופלות! כוונו אותן ימינה ושמאלה לפי הסוגים שלהן באמצעות המקלדת",
+    instructions_feedback: {
+      correct: "אתם יודעים לכוון!",
+      incorrect: "אתם לא יודעים לכוון..."
+    }
   },
 ];
 

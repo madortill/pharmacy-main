@@ -1,28 +1,3 @@
-let mat_r2p4 = [];
-const width = 6;
-const length = 15;
-
-
-let r2p4_falling_order = [
-    { 
-        data_num: 3,
-        velocity: "500"
-    },
-    { 
-        data_num: 2,
-        velocity: "400"
-    },
-    { 
-        data_num: 4,
-        velocity: "300"
-    },
-    { 
-        data_num: 1,
-        velocity: "200"
-    },
-];
-let r2p4_first_location = 18.5;
-
 // activates the slider
 // works only on items with class "slider"
 // r2p2
@@ -49,32 +24,37 @@ r2p2_check_slider = () => {
 
 }
 
-// builds a matrix contains information about game objects' location and movement
-// r2p4
-pop_r2p4_build_mat = () => {
-    // create empty arrays
-    for (let i = 0; i <= length - 1; i++) {
-        mat_r2p4[i] = [];
-    }
-    // fill the arrays
-    for (let i = 0; i < length - 1; i++) {
-        mat_r2p4[i][0] = "SAFETY_WALL";
-        for (let j = 1; j < width - 1; j++) {
-            mat_r2p4[i][j] = "EMPTY";
-        }
-        mat_r2p4[i][width - 1] = "SAFETY_WALL";
-    }
-    // fill the floor with safety wall
-    for (let i = 0; i <= width - 1; i++) {
-        mat_r2p4[length - 1][i] = "SAFETY_WALL"
-    }
-    for (let i = 0; i < length - 1; i++) {
-        for (let j = 1; j < width - 1; j++) {
-            mat_r2p4[length - 1][j] = `SQUARE_${j}`;
-        }
+let mat_r2p4 = [];
+const width_r2p4 = 6;
+const length_r2p4 = 16;
+let r2p4_falling_order = [
+    { 
+        data_num: 3,
+        velocity: "500"
+    },
+    { 
+        data_num: 2,
+        velocity: "400"
+    },
+    { 
+        data_num: 4,
+        velocity: "300"
+    },
+    { 
+        data_num: 1,
+        velocity: "200"
+    },
+];
+let r2p4_first_location = 18.5;
+// specific locations of items in r2p4
+r2p4_build_mat = () => {
+    for (let j = 1; j < width_r2p4 - 1; j++) {
+        mat_r2p4[length_r2p4 - 2][j] = `SQUARE_${j}`;
     }
     console.log(mat_r2p4);
 }
+
+
 
 var counter_r2p8_items_order = 0;
 var arr_r2p8_items_order = [1,3,2];
