@@ -55,18 +55,18 @@ const length_r4p7 = 15;
 let r4p7_falling_order = [
     { 
         data_num: 1,
-        velocity: "1000"
+        velocity: "800"
     },
     { 
         data_num: 2,
-        velocity: "400"
+        velocity: "1000"
     },
     { 
         data_num: 3,
-        velocity: "300"
+        velocity: "1200"
     }
 ];
-let r4p7_first_location = 3;
+let r4p7_first_location = 1;
 // specific locations of items in r4p7
 // the shelves are aligned in doubles of five (first shelf is rows 0-4, second in 5-9, third 10-14)
 r4p7_build_mat = () => {
@@ -83,15 +83,86 @@ r4p7_build_mat = () => {
     mat_r4p7[13][3] = "SAFETY_WALL";
     mat_r4p7[14][3] = "SAFETY_WALL";
 
+    // empty
+    mat_r4p7[14][1] = "SAFETY_WALL";
+    mat_r4p7[14][2] = "SAFETY_WALL";
+
     // medicines places
-    // optalgin
-    mat_r4p7[4][3] = `SQUARE_3`;
-    // mopirosin
-    mat_r4p7[9][4] = `SQUARE_2`;
-    mat_r4p7[9][5] = `SQUARE_2`;
     // gaza
     mat_r4p7[14][4] = `SQUARE_1`;
     mat_r4p7[14][5] = `SQUARE_1`;
+}
+
+r4p7_match_square = (falling_item) => {
+    // the lower shelf is irelevant
+    mat_r4p7.splice(mat_r4p7.length - 5, 5);
+    console.log(mat_r4p7);
+    // updating last current shelf
+    switch (mat_r4p7.length) {
+        case 10:
+            mat_r4p7[9][1] = "SAFETY_WALL";
+            mat_r4p7[9][2] = "SAFETY_WALL"; 
+            // mopirosin
+            mat_r4p7[9][4] = `SQUARE_2`;
+            mat_r4p7[9][5] = `SQUARE_2`;
+
+          break;
+        case 5:
+            mat_r4p7[4][1] = "SAFETY_WALL";
+            mat_r4p7[4][5] = "SAFETY_WALL";
+            // optalgin
+            mat_r4p7[4][3] = `SQUARE_3`;   
+          break;
+    }
+}
+
+var arr_r4p11_files_order = [
+    {
+        top: "14vw",
+        left: "81vw",
+        transform: "rotate(2deg)",
+        used: false
+    },
+    {
+        top: "14vw",
+        left: "52vw",
+        transform: "rotate(-3deg)",
+        used: false
+    },
+    {
+        top: "12vw",
+        left: "24vw",
+        transform: "rotate(-13deg)",
+        used: false
+    },
+    {
+        top: "23vw",
+        left: "35vw",
+        transform: "rotate(1deg)",
+        used: false
+    },
+    {
+        top: "33vw",
+        left: "18vw",
+        transform: "rotate(5deg)",
+        used: false
+    },
+    {
+        top: "27vw",
+        left: "48vw",
+        transform: "rotate(-6deg)",
+        used: false
+    }
+]
+// the parameter is the clicked correct item
+r4p11_clicked_correct = (item) => {
+    item.animate({opacity: `0`}, 200, function() {
+        switch_class(item, "visible", "hidden");
+        if (($(`#${matrix[nRoom][nPage].divName} .hidden`).length === 1) && b_timer) {
+            $(`#${matrix[nRoom][nPage].divName} .item`).css("pointer-events", "none");
+            V_X(true);
+        }
+    });
 }
 
 restart_4 = () => {
@@ -103,4 +174,24 @@ restart_4 = () => {
     restart_item("r4p5");
     // items return to original location
     $("#r4p5 .item").css({top: "61vh", left: "46.1vw"});
+
+    // r4p7
+    // restore array
+    $(matrix[nRoom][nPage].functions).unshift(`pop_build_mat()`);
+    switch_class($(`#r4p7 .item`), "block", "none");
+    $(`#r2p4 .item`).css("top", "-3vw");
+    r4p7_falling_order = [
+        { 
+            data_num: 1,
+            velocity: "800"
+        },
+        { 
+            data_num: 2,
+            velocity: "1000"
+        },
+        { 
+            data_num: 3,
+            velocity: "1200"
+        }
+    ];
 }

@@ -340,12 +340,16 @@ restart_item = (page) => {
         }
 }
 
-// r1p10 r2p13
+// r1p10 r2p13 r4p11
 restart_trash_drag = (page) => {
-    eval(`counter_${page}_folder`) = 0;
-    eval(`counter_${page}_trash`) = 0;
-    $(`#${page} .drag`).css({width: "10.5vw"});
-    switch_class($(`#${page} .drag-1`), "none", "block");
+    // not including r4p11 because it is not drag
+    if ($(`#${page} .item`).hasClass("drag")) {
+        eval(`counter_${page}_folder`) = 0;
+        eval(`counter_${page}_trash`) = 0;
+        $(`#${page} .drag`).css({width: "10.5vw"});
+        switch_class($(`#${page} .drag-1`), "none", "block");
+    }
+
     // new files order
     for (let i = 0; i < eval(`arr_${page}_files_order`).length ; i++) {
         eval(`arr_${page}_files_order`)[i].used = false;
@@ -399,7 +403,7 @@ pop_build_mat = () => {
     eval(`${matrix[nRoom][nPage].divName}_build_mat()`);
 }
 
-let x_position = 1;
+let x_position = 3;
 let y_position = 0;
 let falling_item;
 
@@ -422,28 +426,30 @@ falling_items_down = (distance) => {
     switch_class(falling_item, "none", "block");
     // the item is not collapsing the floor
     if (eval(`mat_${matrix[nRoom][nPage].divName}`)[y_position + 1][x_position] !== "SAFETY_WALL") {
-            // if the square matches the item
-            if (eval(`mat_${matrix[nRoom][nPage].divName}`)[y_position + 1][x_position] === `SQUARE_${eval(`${matrix[nRoom][nPage].divName}_falling_order`)[0].data_num}`) {
-                falling_item.animate({top: `+=3vw`}, eval(`${matrix[nRoom][nPage].divName}_falling_order`)[0].velocity);
-                falling_item.addClass("heart-animation");
-                switch_class(falling_item, "block", "none");
-                // remove item from the array
-                eval(`${matrix[nRoom][nPage].divName}_falling_order`).shift();
-                // finish game
-                if (eval(`${matrix[nRoom][nPage].divName}_falling_order`).length === 0) {
-                    V_X(true);
-                    $(document).off("keydown");
-                    x_position = 1;
-                    y_position = 0;
-                } 
-                // reveal another item
-                else {
-                    // random number between 1-4/1-5
-                    x_position = Math.floor(Math.random() * (width_r2p4-2)) + 1;
-                    console.log(x_position);
-                    y_position = 0;
-                    setTimeout(falling_items_down, `${matrix[nRoom][nPage].divName}_falling_order`[0].velocity, distance);
-                }
+        // if the square matches the item
+        if (eval(`mat_${matrix[nRoom][nPage].divName}`)[y_position + 1][x_position] === `SQUARE_${eval(`${matrix[nRoom][nPage].divName}_falling_order`)[0].data_num}`) {
+            falling_item.animate({top: `+=3vw`}, eval(`${matrix[nRoom][nPage].divName}_falling_order`)[0].velocity);
+            eval(`${matrix[nRoom][nPage].divName}_match_square(falling_item)`);
+            // remove item from the array
+            eval(`${matrix[nRoom][nPage].divName}_falling_order`).shift();
+            // finish game
+            if (eval(`${matrix[nRoom][nPage].divName}_falling_order`).length === 0) {
+                V_X(true);
+                $(document).off("keydown");
+                x_position = 3;
+                y_position = 0;
+            } 
+            // reveal another item
+            else {
+                // random number between 1-4
+                if (matrix[nRoom][nPage].divName.includes("r2p4")) {
+                    x_position = Math.floor(Math.random() * (eval(`width_${matrix[nRoom][nPage].divName}`)-2)) + 1;
+                } else if (matrix[nRoom][nPage].divName.includes("r4p7")) {
+                    x_position = 3; 
+                }  
+                y_position = 0;
+                setTimeout(falling_items_down, `${matrix[nRoom][nPage].divName}_falling_order`[0].velocity, distance);
+            }
         } 
         // move the item down
         else {
@@ -457,7 +463,7 @@ falling_items_down = (distance) => {
     // the item collapsed the floor
     else {
         V_X(false);
-        x_position = 1;
+        x_position = 3;
         y_position = 0;
     }
 }
@@ -492,7 +498,7 @@ show_keyboard = (keyboard_blink) => {
     }
 }
 
-// item must heve class carousel-item
+// item must have class carousel-item
 // arrows must have class arrow-left and arrow-right
 carousel = (event) => {
     let arr_carousel_items = $(`#${matrix[nRoom][nPage].divName} .carousel-item`);

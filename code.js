@@ -7,21 +7,6 @@ var nPage = 0;
 // waiting room
 var Arr_1 = [
   {
-    // third game- page 7
-    divName: ["r4p7"],
-    functions: [`pop_build_mat()`, `falling_items(10)`],
-    type: "game",
-    feedback: {
-      correct: "array",
-      incorrect: "array"
-    },
-    instructions: "התרופות נופלות! כוונו אותן ימינה ושמאלה לפי הסוגים שלהן באמצעות המקלדת",
-    instructions_feedback: {
-      correct: "אתם יודעים לכוון!",
-      incorrect: "אתם לא יודעים לכוון..."
-    }
-  },
-  {
     // opening game question- page 1
     divName: ["r1p1"],
     functions: [`switch_class($("#back-button"), "visible", "hidden")`, `pop_buttons($("#next-button"), 1)`, "pop_watch_room_button()", "pop_home_page_button()", "pop_restart_button()", "pop_quiz_button()"],
@@ -348,130 +333,215 @@ var Arr_2 = [
       incorrect: "אל תילחצו שלא לחצתם נכון :)"
     }
   },
+  ,
+  {
+    // question 1- page 19
+    divName: ["q1"],
+    functions: [`first_question()`, `switch_class($("#next-button"), "hidden", "visible")`, `switch_class($("#back-button"), "visible", "hidden")`],
+    type: "quiz",
+    questionType: "finish"
+  },
+  {
+    // question 2- page 20
+    divName: ["q2"],
+    functions: [`switch_class($("#back-button"), "hidden", "visible")`],
+    type: "quiz",
+    questionType: "finish"
+  },
+  {
+    // question 3- page 21
+    divName: ["q3"],
+    functions: [],
+    type: "quiz",
+    questionType: "finish"
+  },
+  {
+    // question 4- page 22
+    divName: ["q4"],
+    functions: [],
+    type: "quiz",
+    questionType: "finish"
+  },
+  {
+    // question 5- page 23
+    divName: ["q5"],
+    functions: [`switch_class($("#next-button"), "hidden", "visible")`],
+    type: "quiz",
+    questionType: "finish"
+  },
+  {
+    // question 6- page 24
+    divName: ["q6"],
+    functions: [`switch_class($("#next-button"), "visible", "hidden")`],
+    type: "quiz",
+    questionType: "finish"
+  }
 ];
 
 // doctor's room
 var Arr_3 = [  
-{
-  // room 3 page 1
-  divName: ["r3p1"],
-  functions: [`switch_class($("#back-button"), "visible", "hidden")`],
-  type: "content",
-  topic: 1
-},
-{
-  // room 3 page 2
-  divName: ["r3p2"],
-  functions: [`switch_class($("#back-button"), "hidden", "visible")`, `pop_click()`],
-  type: "game",
-  timer: "3s",
-  feedback: {
-    correct: "array",
-    incorrect: "array"
+  {
+    // room 3 page 1
+    divName: ["r3p1"],
+    functions: [`switch_class($("#back-button"), "visible", "hidden")`],
+    type: "content",
+    topic: 1
   },
-  instructions: "הרופא שכח לקחת את החותמת הביתה... תוכלו למצוא אותה?",
-  instructions_feedback: {
-    correct: "תחתמו קבע!",
-    incorrect: "אתם מבולבלים... תחתמו חופש!"
-  }
-},
-{
-  // room 3 page 3
-  divName: ["r3p3"],
-  functions: [],
-  type: "content",
-  topic: 2
-},
-{
-  // room 3 page 4
-  divName: ["r3p4"],
-  functions: [`pop_click()`],
-  type: "game",
-  timer: "20s",
-  feedback: {
-    correct: "array",
-    incorrect: "array"
+  {
+    // room 3 page 2
+    divName: ["r3p2"],
+    functions: [`switch_class($("#back-button"), "hidden", "visible")`, `pop_click()`],
+    type: "game",
+    timer: "3s",
+    feedback: {
+      correct: "array",
+      incorrect: "array"
+    },
+    instructions: "הרופא שכח לקחת את החותמת הביתה... תוכלו למצוא אותה?",
+    instructions_feedback: {
+      correct: "תחתמו קבע!",
+      incorrect: "אתם מבולבלים... תחתמו חופש!"
+    }
   },
-  instructions: "מצא את ההבדלים בין החדרים!",
-  instructions_feedback: {
-    correct: "ראייה 6-6! יכולתם להיות צלפים!",
-    incorrect: "מזל שאנחנו בחדר רופא תקבעו תור לרופא עיניים!"
-  }
-},
-{
-  // room 3 page 5
-  divName: ["r3p5"],
-  functions: [],
-  type: "content",
-  topic: 3
-},
-{
-  // room 3 page 6
-  divName: ["r3p6"],
-  functions: [],
-  type: "content",
-  topic: 3
-},
-{
-  // room 3 page 7
-  divName: ["r3p7"],
-  functions: [],
-  type: "content",
-  topic: 4
-},
-{
-  // room 3 page 8
-  divName: ["r3p8"],
-  functions: [`pop_r3p8_input()`],
-  type: "game",
-  timer: "8s",
-  feedback: {
-    correct: "array",
-    incorrect: "array"
+  {
+    // room 3 page 3
+    divName: ["r3p3"],
+    functions: [],
+    type: "content",
+    topic: 2
   },
-  instructions: `רשמו את השם המלא של הד"ר על השלט של הדלת!`,
-  instructions_feedback: {
-    correct: "אתה כוכב כמו עוז זהבי",
-    incorrect: "חבל על הזמן..."
-  }
-},
-{
-  // room 3 page 9
-  divName: ["r3p9"],
-  functions: [],
-  type: "content",
-  topic: 5
-},
-{
-  // room 3 page 10
-  divName: ["r3p10"],
-  functions: [],
-  type: "content",
-  topic: 5
-},
-{
-  // room 3 page 11
-  divName: ["r3p11"],
-  functions: [`pop_drag_drop()`, `pop_hover_down()`, `carousel()`, `pop_down()`],
-  type: "game",
-  timer: "30s",
-  feedback: {
-    correct: "array",
-    incorrect: "array"
+  {
+    // room 3 page 4
+    divName: ["r3p4"],
+    functions: [`pop_click()`],
+    type: "game",
+    timer: "20s",
+    feedback: {
+      correct: "array",
+      incorrect: "array"
+    },
+    instructions: "מצא את ההבדלים בין החדרים!",
+    instructions_feedback: {
+      correct: "ראייה 6-6! יכולתם להיות צלפים!",
+      incorrect: "מזל שאנחנו בחדר רופא תקבעו תור לרופא עיניים!"
+    }
   },
-  instructions: "איזה טופס חסר? עברו בין הטפסים וגררו את הנכון למקום!",
-  instructions_feedback: {
-    correct: "אתם טיפוס מוצלח!",
-    incorrect: "אין לכם טפיסה מהירה אה..."
+  {
+    // room 3 page 5
+    divName: ["r3p5"],
+    functions: [],
+    type: "content",
+    topic: 3
+  },
+  {
+    // room 3 page 6
+    divName: ["r3p6"],
+    functions: [],
+    type: "content",
+    topic: 3
+  },
+  {
+    // room 3 page 7
+    divName: ["r3p7"],
+    functions: [],
+    type: "content",
+    topic: 4
+  },
+  {
+    // room 3 page 8
+    divName: ["r3p8"],
+    functions: [`pop_r3p8_input()`],
+    type: "game",
+    timer: "8s",
+    feedback: {
+      correct: "array",
+      incorrect: "array"
+    },
+    instructions: `רשמו את השם המלא של הד"ר על השלט של הדלת!`,
+    instructions_feedback: {
+      correct: "אתה כוכב כמו עוז זהבי",
+      incorrect: "חבל על הזמן..."
+    }
+  },
+  {
+    // room 3 page 9
+    divName: ["r3p9"],
+    functions: [],
+    type: "content",
+    topic: 5
+  },
+  {
+    // room 3 page 10
+    divName: ["r3p10"],
+    functions: [],
+    type: "content",
+    topic: 5
+  },
+  {
+    // room 3 page 11
+    divName: ["r3p11"],
+    functions: [`pop_drag_drop()`, `pop_hover_down()`, `carousel()`, `pop_down()`],
+    type: "game",
+    timer: "30s",
+    feedback: {
+      correct: "array",
+      incorrect: "array"
+    },
+    instructions: "איזה טופס חסר? עברו בין הטפסים וגררו את הנכון למקום!",
+    instructions_feedback: {
+      correct: "אתם טיפוס מוצלח!",
+      incorrect: "אין לכם טפיסה מהירה אה..."
+    }
+  },
+  {
+    // room 3 page 12
+    divName: ["r3p12"],
+    functions: [],
+    type: "content",
+    topic: 6
+  },
+  {
+    // question 1- page 13
+    divName: ["q1"],
+    functions: [`first_question()`, `switch_class($("#next-button"), "hidden", "visible")`, `switch_class($("#back-button"), "visible", "hidden")`],
+    type: "quiz",
+    questionType: "finish"
+  },
+  {
+    // question 2- page 14
+    divName: ["q2"],
+    functions: [`switch_class($("#back-button"), "hidden", "visible")`],
+    type: "quiz",
+    questionType: "finish"
+  },
+  {
+    // question 3- page 15
+    divName: ["q3"],
+    functions: [],
+    type: "quiz",
+    questionType: "finish"
+  },
+  {
+    // question 4- page 16
+    divName: ["q4"],
+    functions: [],
+    type: "quiz",
+    questionType: "finish"
+  },
+  {
+    // question 5- page 17
+    divName: ["q5"],
+    functions: [`switch_class($("#next-button"), "hidden", "visible")`],
+    type: "quiz",
+    questionType: "finish"
+  },
+  {
+    // question 6- page 18
+    divName: ["q6"],
+    functions: [`switch_class($("#next-button"), "visible", "hidden")`],
+    type: "quiz",
+    questionType: "finish"
   }
-},
-{
-  // room 3 page 12
-  divName: ["r3p12"],
-  functions: [],
-  type: "content",
-  topic: 6
-}
 ];
 
 // medicines room
@@ -539,7 +609,7 @@ var Arr_4 = [
   {
     // third game- page 7
     divName: ["r4p7"],
-    functions: [`pop_build_mat()`, `falling_items(15)`],
+    functions: [`pop_build_mat()`, `falling_items(11)`],
     type: "game",
     feedback: {
       correct: "array",
@@ -551,6 +621,57 @@ var Arr_4 = [
       incorrect: "אתם לא יודעים לכוון..."
     }
   },
+  {
+    // page 8
+    divName: ["r4p8"],
+    functions: [],
+    type: "content",
+    topic: 5
+  },
+  {
+    // page 9
+    divName: ["r4p9"],
+    functions: [],
+    type: "content",
+    topic: 6
+  },
+  {
+    // page 10
+    divName: ["r4p10"],
+    functions: [],
+    type: "content"
+  },
+  {
+    // forth game- page 11
+    divName: ["r4p11"],
+    functions: ["pop_click()", "pop_hover_down()"],
+    type: "game",
+    timer: "10s",
+    feedback: {
+      correct: "array",
+      incorrect: "array"
+    },
+    instructions: "לחצו על הטופס שלא אמור להיות בחדר תרופות!",
+    instructions_feedback: {
+      correct: "אתם שולטים על השלטים!",
+      incorrect: "חבל שתליית השלטים תלוייה בכם..."
+    }
+  },
+  {
+    // page 12
+    divName: ["r4p12"],
+    functions: [],
+    type: "content",
+    topic: 7
+  },
+  {
+    // page 13
+    divName: ["r4p13"],
+    functions: [],
+    type: "content",
+    topic: 8
+  },
+  
 ];
 
 var matrix = [[

@@ -54,7 +54,10 @@ r2p4_build_mat = () => {
     console.log(mat_r2p4);
 }
 
-
+r2p4_match_square = (falling_item) => {
+    falling_item.addClass("heart-animation");
+    switch_class(falling_item, "block", "none");
+}
 
 var counter_r2p8_items_order = 0;
 var arr_r2p8_items_order = [1,3,2];
@@ -186,6 +189,7 @@ drop_item = (item) => {
 restart_2 = () => {
     // r2p4
     switch_class($(`#r2p4 .item`), "block", "none");
+    $(`#r2p4 .item`).css("top", "-3vw");
     for (let i = 0; i < $(`#r2p4 .item`).length; i++) {
         let random = Math.floor(Math.random() * $(`#r2p4 .item`).length) + 1;
         for (let j = 0; j < i; i++) {
