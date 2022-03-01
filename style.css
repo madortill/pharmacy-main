@@ -1813,3 +1813,24 @@ background-image: url("assets/media/exer14/exer14_bg.svg");
   left: 48vw;
   transform: rotate(-6deg);
 }
+
+/* r4p14 */
+
+#r4p14 {
+  background-image: url("assets/media/exer19+20/exer19_bg.svg");
+}
+
+#r4p14 .ahami-head {
+  width: 5rem;
+  margin-left: 1vw;
+}
+
+#r4p14 .instructions {
+  font-size: 2.4rem;
+  width: 70vw;
+}
+
+#r4p14 .instructions-flex {
+  top: 6vh;
+  right: 2.5vw;
+}

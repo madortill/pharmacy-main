@@ -1,7 +1,7 @@
 let exer_12_click_count = 0;
 let exer_13_input;
-let carousel_count;
-let carousel_current_item;
+
+
 const EXER_12_WIN_COUNT = 5;
 const EXER_13_CORRECT_NAME = "עוז צהבי";
 // the parameter is the clicked correct item

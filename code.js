@@ -7,6 +7,22 @@ var nPage = 0;
 // waiting room
 var Arr_1 = [
   {
+    // first game- page 3
+    divName: ["r4p14"],
+    functions: ["pop_timeEnds()", "pop_click()", "pop_hover_down()"],
+    type: "game",
+    timer: "1000000s",
+    feedback: {
+      correct: "array",
+      incorrect: "array"
+    },
+    instructions: "התבלבלתי ותליתי את כל השלטים מחוץ למרפאה!<br>לחצו על השלטים שאמורים להיות בפנים",
+    instructions_feedback: {
+      correct: "אתם שולטים על השלטים!",
+      incorrect: "חבל שתליית השלטים תלוייה בכם..."
+    }
+  },
+  {
     // opening game question- page 1
     divName: ["r1p1"],
     functions: [`switch_class($("#back-button"), "visible", "hidden")`, `pop_buttons($("#next-button"), 1)`, "pop_watch_room_button()", "pop_home_page_button()", "pop_restart_button()", "pop_quiz_button()"],
