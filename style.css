@@ -1824,13 +1824,109 @@ background-image: url("assets/media/exer14/exer14_bg.svg");
   width: 5rem;
   margin-left: 1vw;
 }
-
+  
 #r4p14 .instructions {
   font-size: 2.4rem;
   width: 70vw;
 }
-
+  
 #r4p14 .instructions-flex {
-  top: 6vh;
-  right: 2.5vw;
+  width: 100%;
+  position: absolute;
+  top: 0vh;
+  background-color: white;
+  padding: 1em 0;
+  padding-right: 2.5vw;
+}
+
+#r4p14 .arrows {
+  width: 2vw;
+  margin-top: 37.2vw;
+  position: absolute;
+  z-index: 1;
+}
+
+#r4p14 #carousel-1 .arrow-right {
+  margin-right: 35.1vw;
+}
+
+#r4p14 #carousel-2 .arrow-right {
+  margin-right: 40.1vw;
+}
+
+#r4p14 #carousel-3 .arrow-right {
+  margin-right: 45.1vw;
+}
+
+#r4p14 #carousel-4 .arrow-right {
+  margin-right: 75.2vw;
+}
+
+#r4p14 #carousel-1 .arrow-left {
+  margin-right: 37.6vw;
+}
+
+#r4p14 #carousel-2 .arrow-left {
+  margin-right: 42.5vw;
+}
+
+#r4p14 #carousel-3 .arrow-left {
+  margin-right: 47.5vw;
+}
+
+#r4p14 #carousel-4 .arrow-left {
+  margin-right: 77.6vw;
+}
+
+#moxipen-date {
+  width: 15vw;
+  position: absolute;
+  transform: rotate(10deg);
+  z-index: -1;
+  top: 5.5vw;
+  right: 2vw;
+}
+
+#moxipen-table {
+  width: 69vw;
+  z-index: -2;
+  right: -11vw;
+}
+
+#r4p14 .carousel-item {
+  width: 1.2vw;
+  position: absolute;
+  width: 4vw;
+  text-align: center;
+  top: 33vw;
+  font-size: 1vw;
+}
+
+#r4p14 #carousel-1 .carousel-item {
+  right: 35.4vw;
+}
+
+#r4p14 #carousel-2 .carousel-item {
+  right: 40.4vw;
+}
+
+#r4p14 #carousel-3 .carousel-item {
+  right: 45.4vw;
+}
+
+#r4p14 #carousel-4 .carousel-item {
+  right: 75.3vw;
+}
+
+#r4p14 fieldset {
+  height: 16vh;
+  width: 30vw;
+  position: absolute;
+  border-color: transparent;
+  top: 33.3vw;
+  right: 51vw;
+}
+
+#r4p14 input {
+  margin-left: 3.95vw;
 }

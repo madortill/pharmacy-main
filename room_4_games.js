@@ -165,6 +165,17 @@ r4p11_clicked_correct = (item) => {
     });
 }
 
+r4p14_check_carousel = () => {
+    $(document).off("keypress");
+    //$("input").checkboxradio("disable");
+    // if the user inserted all true
+   if ($(`#r4p14 .carousel .correct`).hasClass("visible") && $("#r4p14 input.correct").prop("checked") && b_timer) {
+        V_X(true);
+   } else {
+        V_X(false);
+   }
+}
+
 restart_4 = () => {
     // r4p2
     $("#wind").css("height", "0vh");
@@ -194,4 +205,10 @@ restart_4 = () => {
             velocity: "1200"
         }
     ];
+
+    // r4p14
+    for (let i = 1; i <= $(`.carousel`).length; i++) {
+       window[`r4p14_carousel_count_${i}`] = 0;
+    }
 }
+

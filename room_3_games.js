@@ -97,4 +97,7 @@ restart_3 = () => {
         $(arr_forms[i]).css("top", "60vh");
         $(arr_forms[i]).css("left", "73.5vw");
     }
+    for (let i = 1; i <= $(`.carousel`).length; i++) {
+        window[`r3p11_carousel_count_${i}`] = 0;
+    }
 }

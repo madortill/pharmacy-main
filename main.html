@@ -1021,13 +1021,16 @@
             <img class="ahami-head" src="assets/media/2content/head_happy.svg">
             <div class="bold instructions">איזה טופס חסר? עברו בין הטפסים וגררו את הנכון למקום!</div>
           </div>
-          <div class="drop drop-1"></div>   
-          <img class="carousel-item drag state form form_101 button hidden" src="assets/media/exer14/exer14_101.svg">    
-          <img class="carousel-item drag state form form_141 button drag-1 hidden" src="assets/media/exer14/exer14_141.svg">    
-          <img class="carousel-item drag state form form_125 button hidden" src="assets/media/exer14/exer14_125.svg">    
-          <img class="carousel-item drag state form form_nohal button hidden" src="assets/media/exer14/exer14_nohal.svg">    
-          <img class="arrows arrow-left down" src="assets/media/exer14/exer14_arrow.svg">
-          <img class="arrows arrow-right down" src="assets/media/exer14/exer14_arrow.svg">
+
+          <div class="drop drop-1"></div> 
+          <div id="carousel-1" class="carousel">  
+            <img class="carousel-item drag state form form_101 button visible" src="assets/media/exer14/exer14_101.svg">    
+            <img class="carousel-item drag state form form_141 button drag-1 hidden" src="assets/media/exer14/exer14_141.svg">    
+            <img class="carousel-item drag state form form_125 button hidden" src="assets/media/exer14/exer14_125.svg">    
+            <img class="carousel-item drag state form form_nohal button hidden" src="assets/media/exer14/exer14_nohal.svg">    
+            <img class="arrows arrow-left down button" src="assets/media/exer14/exer14_arrow.svg">
+            <img class="arrows arrow-right down button" src="assets/media/exer14/exer14_arrow.svg">
+          </div> 
         </div>
       </div>
 
@@ -1380,17 +1383,49 @@
         <div class="container">
           <div class="instructions-flex flex">
             <img class="ahami-head" src="assets/media/2content/head_happy.svg">
-            <div class="bold instructions">איזה טופס חסר? עברו בין הטפסים וגררו את הנכון למקום!</div>
+            <div class="bold instructions">מלאו את הטבלה לפני שפג זמנכם, והקישו ENTER כדי לבדוק את עצמכם</div>
           </div>
-          <img id="moxipen-date" src="assets/media/exer19+20/moxipen_date.svg">  
-          <div class="carousel-1 carousel">
-            <img class="carousel-item drag state form form_101 button hidden" src="assets/media/exer14/exer14_101.svg">    
-            <img class="carousel-item drag state form form_141 button drag-1 hidden" src="assets/media/exer14/exer14_141.svg">    
-            <img class="carousel-item drag state form form_125 button hidden" src="assets/media/exer14/exer14_125.svg">    
-            <img class="carousel-item drag state form form_nohal button hidden" src="assets/media/exer14/exer14_nohal.svg">    
-            <img class="arrows arrow-left down" src="assets/media/exer14/exer14_arrow.svg">
-            <img class="arrows arrow-right down" src="assets/media/exer14/exer14_arrow.svg">
-        </div> 
+          <img id="moxipen-date" src="assets/media/exer19+20/moxipen_date.svg"> 
+          <img id="moxipen-table" class="center" src="assets/media/exer19+20/exer19_table.svg">   
+          <div id="carousel-1" class="carousel">
+            <div class="carousel-item visible">טב' אסיוואל</div>    
+            <div class="carousel-item hidden correct">כמוסת מוקסיפן</div>    
+            <div class="carousel-item hidden">כמוסת אופטלגין</div>    
+            <div class="carousel-item hidden">תמיסת סביעור</div>
+            <img class="arrows arrow-right state button" src="assets/media/exer19+20/exer19_right.svg">   
+            <img class="arrows arrow-left state button" src="assets/media/exer19+20/exer19_left.svg">
+          </div>
+          <div id="carousel-2" class="carousel">
+            <div class="carousel-item visible">87914</div>    
+            <div class="carousel-item hidden">78923</div>    
+            <div class="carousel-item hidden correct">88913</div>    
+            <div class="carousel-item hidden">48912</div>
+            <img class="arrows arrow-right state button" src="assets/media/exer19+20/exer19_right.svg">   
+            <img class="arrows arrow-left state button" src="assets/media/exer19+20/exer19_left.svg">
+          </div>
+          <div id="carousel-3" class="carousel">
+            <div class="carousel-item visible correct">טבע</div>    
+            <div class="carousel-item hidden">קמהדע</div>    
+            <div class="carousel-item hidden">אוניפארם</div>    
+            <div class="carousel-item hidden">כצט</div>
+            <img class="arrows arrow-right state button" src="assets/media/exer19+20/exer19_right.svg">   
+            <img class="arrows arrow-left state button" src="assets/media/exer19+20/exer19_left.svg">
+          </div>
+          <div id="carousel-4" class="carousel">
+            <div class="carousel-item visible">מעבדה</div>    
+            <div class="carousel-item hidden">חדר רופא</div>    
+            <div class="carousel-item hidden">חדר תרופות</div>    
+            <div class="carousel-item hidden correct">חדר טיפולים</div>
+            <img class="arrows arrow-right state button" src="assets/media/exer19+20/exer19_right.svg">   
+            <img class="arrows arrow-left state button" src="assets/media/exer19+20/exer19_left.svg">
+          </div> 
+          <fieldset>
+            <input type="radio" name="radio-1" class="button">
+            <input type="radio" name="radio-1" class="button">
+            <input type="radio" name="radio-1" class="button">
+            <input type="radio" name="radio-1" class="button correct">
+            <input type="radio" name="radio-1" class="button">
+          </fieldset>
         </div>
       </div>
 

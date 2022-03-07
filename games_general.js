@@ -498,63 +498,65 @@ show_keyboard = (keyboard_blink) => {
     }
 }
 
-// item must have class carousel-item
-// arrows must have class arrow-left and arrow-right
-let carousel_count;
-let carousel_current_item;
-carousel = (event) => {
-    let arr_carousel_items = $(`#${matrix[nRoom][nPage].divName} .carousel-item`);
-    if(!event){ // first time in the function
-        carousel_count = 0;
-        $(`.arrows`).on("click", carousel);
-    } else { // come from arrows 
-        // check which arrow and adjust count
-        if($(event.target).hasClass("arrow-right")) {
-            carousel_count--;
-            if (Number(carousel_count) === -1) {
-                carousel_count = arr_carousel_items.length - 1;
-            }
-        } else if($(event.target).hasClass("arrow-left")) {
-            carousel_count++;
-            if (Number(carousel_count) === arr_carousel_items.length) {
-                carousel_count = 0;
-            }
-        }
-    }
-    switch_class($(carousel_current_item), "visible", "hidden"); // hide privious element
-    carousel_current_item = arr_carousel_items[carousel_count]; // save current element
-    switch_class($(carousel_current_item), "hidden", "visible"); // show current element
-}
+// // item must have class carousel-item
+// // arrows must have class arrow-left and arrow-right
+// let carousel_count;
+// let carousel_current_item;
+// carousel = (event) => {
+//     let arr_carousel_items = $(`#${matrix[nRoom][nPage].divName} .carousel-item`);
+//     if(!event){ // first time in the function
+//         carousel_count = 0;
+//         $(`.arrows`).on("click", carousel);
+//     } else { // come from arrows 
+//         // check which arrow and adjust count
+//         if($(event.target).hasClass("arrow-right")) {
+//             carousel_count--;
+//             if (Number(carousel_count) === -1) {
+//                 carousel_count = arr_carousel_items.length - 1;
+//             }
+//         } else if($(event.target).hasClass("arrow-left")) {
+//             carousel_count++;
+//             if (Number(carousel_count) === arr_carousel_items.length) {
+//                 carousel_count = 0;
+//             }
+//         }
+//     }
+//     switch_class($(carousel_current_item), "visible", "hidden"); // hide privious element
+//     carousel_current_item = arr_carousel_items[carousel_count]; // save current element
+//     switch_class($(carousel_current_item), "hidden", "visible"); // show current element
+// }
 
 // item must have class carousel-item
 // arrows must have class arrow-left and arrow-right
 let carousel_num;
-carousel = (event) => {
-    let arr_carousel_items = $(`#${matrix[nRoom][nPage].divName} .carousel-item`);
+let carousel_count;
+pop_carousel = (event) => {
     if(!event){ // first time in the function
         for (let i = 1; i <= $(`.carousel`).length; i++) {
-            eval(`var ${matrix[nRoom][nPage].divName}_carousel_count_${i}`) = 0;
-            eval(`var ${matrix[nRoom][nPage].divName}_carousel_current_item_${i}`) = 0;
-            eval(`var ${matrix[nRoom][nPage].divName}_arr_carousel_items_${i}`) = $(`#${matrix[nRoom][nPage].divName} .carousel-${i} .carousel-item`);
+           window[`${matrix[nRoom][nPage].divName}_carousel_count_${i}`] = 0;
         }
-        $(`.arrows`).on("click", carousel);
+        $(`.arrows`).on("click", pop_carousel);
     } else { // come from arrows 
         // check which arrow and adjust count
         // carousel number (there are 4)
-        carousel_num = $(event.target).parent.attr("class").split(/\s+/)[0].slice(-1);
+        carousel_num = $(event.target).parent().prop('id').slice(-1);
+        // easy to read
+        carousel_count = window[`${matrix[nRoom][nPage].divName}_carousel_count_${carousel_num}`];
+        // hide prev item
+        switch_class($($(`#${matrix[nRoom][nPage].divName} #carousel-${carousel_num} .carousel-item`)[carousel_count]), "visible", "hidden");
         if($(event.target).hasClass("arrow-right")) {
-            eval(`carousel_count_${carousel_num}`)--;
-            if (Number( eval(`carousel_count_${carousel_num}`)) === -1) {
-                eval(`carousel_count_${carousel_num}`) = arr_carousel_items.length - 1;
+            carousel_count--;
+            if (carousel_count === -1) {
+                carousel_count = $(`#${matrix[nRoom][nPage].divName} #carousel-${carousel_num} .carousel-item`).length - 1;
             }
         } else if($(event.target).hasClass("arrow-left")) {
-            eval(`carousel_count_${carousel_num}`)++;
-            if (Number(eval(`carousel_count_${carousel_num}`)) === arr_carousel_items.length) {
-                eval(`carousel_count_${carousel_num}`) = 0;
+            carousel_count++;
+            if (carousel_count === $(`#${matrix[nRoom][nPage].divName} #carousel-${carousel_num} .carousel-item`).length) {
+                carousel_count = 0;
             }
         }
+        switch_class($($(`#${matrix[nRoom][nPage].divName} #carousel-${carousel_num} .carousel-item`)[carousel_count]), "hidden", "visible");
+        // update
+        window[`${matrix[nRoom][nPage].divName}_carousel_count_${carousel_num}`] = carousel_count;
     }
-    switch_class($(carousel_current_item), "visible", "hidden");
-    carousel_current_item = arr_carousel_items[eval(`carousel_count_${carousel_num}`)];
-    switch_class($(carousel_current_item), "hidden", "visible");
 }
