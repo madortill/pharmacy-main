@@ -1941,13 +1941,30 @@ background-image: url("assets/media/exer14/exer14_bg.svg");
   position: absolute;
   width: 3.5vw;
   right: 46vw;
-  top: 81vh;
+  top: 72vh;
+}
+
+/* key */
+@keyframes key {
+  0% {
+    transform: rotate3d(0, 1 ,0, 0deg);
+  }
+  100% {
+    transform: rotate3d(0, 1 ,0, 360deg);
+  }
 }
 
 #key {
   position: absolute;
-  width: 4vw;
+  width: 3vw;
   z-index: 1;
+  top: 73.6vh;
+  left: 93vmax;
+  transform: rotate(263deg);
+}
+
+.key-animation {
+  animation: key 1s linear;
 }
 
 #r4p17 .ahami-head {
@@ -1968,3 +1985,14 @@ background-image: url("assets/media/exer14/exer14_bg.svg");
   padding: 1em 0;
   padding-right: 2.5vw;
 }
+
+#r4p17 .drop {
+  width: 4vw;
+  height: 11vh;
+  position: absolute;
+  top: 74vh;
+  right: 45.8vw;
+}
+
+
+

@@ -176,6 +176,16 @@ r4p14_check_carousel = () => {
    }
 }
 
+r4p17_dropped_correct = (drag, drop) => {
+    // disable item dragging
+    drag.draggable("option", "disabled", true);
+    drag.animate({top: "74.5vh", left: "50.7vmax"}, 200);
+    drag.addClass("key-animation");
+    if (b_timer) {
+        V_X(true);
+    }
+}
+
 restart_4 = () => {
     // r4p2
     $("#wind").css("height", "0vh");
@@ -210,5 +220,7 @@ restart_4 = () => {
     for (let i = 1; i <= $(`.carousel`).length; i++) {
        window[`r4p14_carousel_count_${i}`] = 0;
     }
+    // r4p17
+    $("#key").css({top: "73.6vh", left: "93vmax", transform: "rotate3d(0, 0 ,1, 263deg)"});
 }
 

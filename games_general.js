@@ -297,7 +297,11 @@ pop_drag_drop = () => {
         revert:"invalid",
         revertDuration: 200,
         containment: "window",
-        drag: function(event, ui) {}
+        drag: function(event, ui) {
+            if (matrix[nRoom][nPage].divName.includes("r4p17")) {
+                $("#key").css("transform", "rotate3d(0, 1 ,0, 0deg)");
+            }
+        }
     }).css("position", "absolute");
 
     for (let i = 1; i <= $(`#${matrix[nRoom][nPage].divName} .drop`).length; i++) {

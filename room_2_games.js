@@ -172,6 +172,12 @@ r2p16_clicked_correct = (item) => {
     });
 }
 
+r2p18_clicked_correct = (item) => {
+    if (b_timer) {
+        V_X(true);
+    }
+}
+
 // falling animation
 drop_item = (item) => {
     switch_class(item, "none", "block");

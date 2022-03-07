@@ -7,22 +7,6 @@ var nPage = 0;
 // waiting room
 var Arr_1 = [
   {
-    // sixth game- page 17
-    divName: ["r4p17"],
-    functions: ["pop_drag_drop()"],
-    type: "game",
-    timer: "100000000s",
-    feedback: {
-      correct: "שני ארונות",
-      incorrect: "array"
-    },
-    instructions: "תנעל ת'ארון",
-    instructions_feedback: {
-      correct: "זה המפתח להצלחה!",
-      incorrect: "אתם לא נעולים על זה..."
-    }
-  },
-  {
     // opening game question- page 1
     divName: ["r1p1"],
     functions: [`switch_class($("#back-button"), "visible", "hidden")`, `pop_buttons($("#next-button"), 1)`, "pop_watch_room_button()", "pop_home_page_button()", "pop_restart_button()", "pop_quiz_button()"],
@@ -349,7 +333,6 @@ var Arr_2 = [
       incorrect: "אל תילחצו שלא לחצתם נכון :)"
     }
   },
-  ,
   {
     // question 1- page 19
     divName: ["q1"],
@@ -722,15 +705,15 @@ var Arr_4 = [
     divName: ["r4p17"],
     functions: ["pop_drag_drop()"],
     type: "game",
-    timer: "10s",
+    timer: "7s",
     feedback: {
-      correct: "array",
+      correct: "שני ארונות",
       incorrect: "array"
     },
-    instructions: "לחצו על הטופס שלא אמור להיות בחדר תרופות!",
+    instructions: "תנעל ת'ארון",
     instructions_feedback: {
-      correct: "אתם שולטים על השלטים!",
-      incorrect: "חבל שתליית השלטים תלוייה בכם..."
+      correct: "זה המפתח להצלחה!",
+      incorrect: "אתם לא נעולים על זה..."
     }
   },
 ];
