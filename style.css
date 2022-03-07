@@ -1930,3 +1930,41 @@ background-image: url("assets/media/exer14/exer14_bg.svg");
 #r4p14 input {
   margin-left: 3.95vw;
 }
+
+/* r4p17 */
+
+#r4p17 {
+  background-image: url("assets/media/exer21/exer21_bg.svg");
+}
+
+#lock {
+  position: absolute;
+  width: 3.5vw;
+  right: 46vw;
+  top: 81vh;
+}
+
+#key {
+  position: absolute;
+  width: 4vw;
+  z-index: 1;
+}
+
+#r4p17 .ahami-head {
+  width: 5rem;
+  margin-left: 1vw;
+}
+  
+#r4p17 .instructions {
+  font-size: 2.4rem;
+  width: 70vw;
+}
+  
+#r4p17 .instructions-flex {
+  width: 100%;
+  position: absolute;
+  top: 0vh;
+  background-color: white;
+  padding: 1em 0;
+  padding-right: 2.5vw;
+}
