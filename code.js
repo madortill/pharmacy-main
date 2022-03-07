@@ -672,7 +672,7 @@ var Arr_4 = [
     topic: 8
   },
   {
-    // room 3 page 11
+    // fifth game- page 14
     divName: ["r4p14"],
     functions: [`pop_hover_down()`, `pop_carousel()`, `enter("carousel")`],
     type: "game",
@@ -685,6 +685,36 @@ var Arr_4 = [
     instructions_feedback: {
       correct: "תיקפתם את הטבלה!",
       incorrect: "פג הזמן!"
+    }
+  },
+  {
+    // page 15
+    divName: ["r4p15"],
+    functions: [],
+    type: "content",
+    topic: 9
+  },
+  {
+    // page 15
+    divName: ["r4p16"],
+    functions: [],
+    type: "content",
+    topic: 10
+  },
+  {
+    // sixth game- page 17
+    divName: ["r4p17"],
+    functions: ["pop_drag_drop()"],
+    type: "game",
+    timer: "10s",
+    feedback: {
+      correct: "array",
+      incorrect: "array"
+    },
+    instructions: "לחצו על הטופס שלא אמור להיות בחדר תרופות!",
+    instructions_feedback: {
+      correct: "אתם שולטים על השלטים!",
+      incorrect: "חבל שתליית השלטים תלוייה בכם..."
     }
   },
 ];
