@@ -9,7 +9,7 @@ var Arr_1 = [
   {
     // first game- page 2
     divName: ["r4p19"],
-    functions: ["pop_r4p19_slider()", `enter("slider")`],
+    functions: ["pop_r4p19_slider()", `enter("slider")`, "r4p19_slider_move()"],
     type: "game",
     timer: "100000000s",
     feedback: {

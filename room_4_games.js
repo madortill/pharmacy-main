@@ -191,11 +191,32 @@ r4p17_dropped_correct = (drag, drop) => {
 // r4p19
 pop_r4p19_slider = () => {
     $(`#${matrix[nRoom][nPage].divName} .slider`).slider({
+        orientation: "vertical",
         min: -4,
         max: 14,
         value: -4,
-        step: 2,
+        step: 0.1,
     });
+}
+
+let slider_value = -4;
+let slider_action = "add"
+r4p19_slider_move = () => {
+    if (slider_action === "add") {
+        slider_value += 0.1;
+        if (slider_value === $(`#${matrix[nRoom][nPage].divName} .slider`).slider( "option", "max")) {
+            slider_action = "substract";
+        }
+    } else if (slider_action === "substract") {
+        slider_value -= 0.1;
+        if (slider_value === $(`#${matrix[nRoom][nPage].divName} .slider`).slider( "option", "min")) {
+            slider_action = "add";
+        }
+    }
+    $(`#${matrix[nRoom][nPage].divName} .slider`).slider("value", slider_value);
+    setTimeout(function() {
+        r4p19_slider_move();
+    }, 200)
 }
 
 // function called when clicking enter

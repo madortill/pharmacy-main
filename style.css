@@ -2019,5 +2019,36 @@ background-image: url("assets/media/exer14/exer14_bg.svg");
   padding-right: 2.5vw;
 }
 
+#r4p19 .slider-conteiner {
+  position: relative;
+  margin: auto;
+  background-image: url(assets/media/exer22/exer22_meter.svg);
+  width: 5.3vw;
+  height: 34.8vw;
+  /* margin-top: 15vw; */
+  /* justify-content: center; */
+  align-items: center;
+  right: -28vw;
+  top: 10vw;
+}
 
+.slider {
+  right: 0vw;
+  width: 3.15vw;
+  height: 31vw;
+}
 
+#fridge {
+  height: 94vh;
+  z-index: -1;
+}
+
+#r4p19 .ui-slider .ui-slider-handle {
+  position: absolute;
+  z-index: 2;
+  width: 4.1em;
+  height: 1.1vw;
+  cursor: default;
+  -ms-touch-action: none;
+  touch-action: none;
+}
