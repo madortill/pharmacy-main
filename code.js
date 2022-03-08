@@ -7,22 +7,6 @@ var nPage = 0;
 // waiting room
 var Arr_1 = [
   {
-    // first game- page 2
-    divName: ["r4p19"],
-    functions: ["pop_r4p19_slider()", `enter("slider")`, "r4p19_slider_move()"],
-    type: "game",
-    timer: "100000000s",
-    feedback: {
-      correct: "array",
-      incorrect: "array"
-    },
-    instructions: "המקרר השתגע!<br>הקישו ENTER כאשר המדחום מגיע לטמפרטורה הנכונה",
-    instructions_feedback: {
-      correct: "חיממתם לי את הלב",
-      incorrect: "חמומי מוח"
-    }
-  },
-  {
     // opening game question- page 1
     divName: ["r1p1"],
     functions: [`switch_class($("#back-button"), "visible", "hidden")`, `pop_buttons($("#next-button"), 1)`, "pop_watch_room_button()", "pop_home_page_button()", "pop_restart_button()", "pop_quiz_button()", "attach()"],
@@ -738,6 +722,22 @@ var Arr_4 = [
     functions: [],
     type: "content",
     topic: 11
+  },
+  {
+    // seventh game- page 19
+    divName: ["r4p19"],
+    functions: ["pop_r4p19_slider()", `enter("slider")`, "r4p19_slider_move()"],
+    type: "game",
+    timer: "7s",
+    feedback: {
+      correct: "array",
+      incorrect: "array"
+    },
+    instructions: "המקרר השתגע!<br>הקישו ENTER כאשר המדחום מגיע לטמפרטורה הנכונה",
+    instructions_feedback: {
+      correct: "חיממתם לי את הלב",
+      incorrect: "חמומי מוח"
+    }
   },
 ];
 

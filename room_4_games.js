@@ -202,6 +202,7 @@ pop_r4p19_slider = () => {
 
 let slider_value = -4;
 let slider_action = "add"
+let setTimeout_slider;
 r4p19_slider_move = () => {
     if (slider_action === "add") {
         slider_value += 0.1;
@@ -215,18 +216,15 @@ r4p19_slider_move = () => {
         }
     }
     $(`#${matrix[nRoom][nPage].divName} .slider`).slider("value", slider_value);
-    setTimeout(function() {
-        r4p19_slider_move();
-    }, 0.5)
+    setTimeout_slider = setTimeout(r4p19_slider_move, 0.5)
 }
 
 // function called when clicking enter
 r4p19_check_slider = () => {
     $(document).off("keypress");
-    $(`#${matrix[nRoom][nPage].divName} .slider`).slider("disable");
-    let hour = $(`#${matrix[nRoom][nPage].divName} .slider`).slider("value");
+    clearTimeout(setTimeout_slider);
     // if the user dragged the anchore between 09:00-12:00 or 13:00-15:00
-    if (((9 < hour) && (hour < 12)) || ((13 < hour) && (hour < 15)) && b_timer) {
+    if (((2 <= $(`#${matrix[nRoom][nPage].divName} .slider`).slider("value")) && ($(`#${matrix[nRoom][nPage].divName} .slider`).slider("value" <= 8))) && b_timer) {
         V_X(true);
     } else {
         V_X(false);
