@@ -196,6 +196,7 @@ pop_r4p19_slider = () => {
         max: 14,
         value: -4,
         step: 0.1,
+        disabled: true
     });
 }
 
@@ -204,19 +205,19 @@ let slider_action = "add"
 r4p19_slider_move = () => {
     if (slider_action === "add") {
         slider_value += 0.1;
-        if (slider_value === $(`#${matrix[nRoom][nPage].divName} .slider`).slider( "option", "max")) {
+        if (slider_value >= $(`#${matrix[nRoom][nPage].divName} .slider`).slider( "option", "max")) {
             slider_action = "substract";
         }
     } else if (slider_action === "substract") {
         slider_value -= 0.1;
-        if (slider_value === $(`#${matrix[nRoom][nPage].divName} .slider`).slider( "option", "min")) {
+        if (slider_value <= $(`#${matrix[nRoom][nPage].divName} .slider`).slider( "option", "min")) {
             slider_action = "add";
         }
     }
     $(`#${matrix[nRoom][nPage].divName} .slider`).slider("value", slider_value);
     setTimeout(function() {
         r4p19_slider_move();
-    }, 200)
+    }, 0.5)
 }
 
 // function called when clicking enter
