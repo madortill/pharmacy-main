@@ -186,6 +186,31 @@ r4p17_dropped_correct = (drag, drop) => {
     }
 }
 
+// activates the slider
+// works only on items with class "slider"
+// r4p19
+pop_r4p19_slider = () => {
+    $(`#${matrix[nRoom][nPage].divName} .slider`).slider({
+        min: -4,
+        max: 14,
+        value: -4,
+        step: 2,
+    });
+}
+
+// function called when clicking enter
+r4p19_check_slider = () => {
+    $(document).off("keypress");
+    $(`#${matrix[nRoom][nPage].divName} .slider`).slider("disable");
+    let hour = $(`#${matrix[nRoom][nPage].divName} .slider`).slider("value");
+    // if the user dragged the anchore between 09:00-12:00 or 13:00-15:00
+    if (((9 < hour) && (hour < 12)) || ((13 < hour) && (hour < 15)) && b_timer) {
+        V_X(true);
+    } else {
+        V_X(false);
+    }
+}
+
 restart_4 = () => {
     // r4p2
     $("#wind").css("height", "0vh");

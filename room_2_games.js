@@ -21,7 +21,6 @@ r2p2_check_slider = () => {
     } else {
         V_X(false);
     }
-
 }
 
 let mat_r2p4 = [];

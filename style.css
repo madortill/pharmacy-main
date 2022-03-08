@@ -1994,5 +1994,30 @@ background-image: url("assets/media/exer14/exer14_bg.svg");
   right: 45.8vw;
 }
 
+/* r4p19 */
+
+#r4p19 {
+  background-image: url("assets/media/exer22/exer22_bg.svg");
+}
+
+#r4p19 .ahami-head {
+  width: 5rem;
+  margin-left: 1vw;
+}
+  
+#r4p19 .instructions {
+  font-size: 2.4rem;
+  width: 70vw;
+}
+  
+#r4p19 .instructions-flex {
+  width: 100%;
+  position: absolute;
+  top: 0vh;
+  background-color: white;
+  padding: 1em 0;
+  padding-right: 2.5vw;
+}
+
 
 

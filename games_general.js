@@ -4,8 +4,8 @@ var nLife = 3;
 // feedback arrays
 let correct_num = 0;
 let incorrect_num = 0;
-var arr_correct_feedback = ["תותח!", "תותחן!"];
-var arr_incorrect_feedback = ['דו"ח!' ,"איזה לוזר!"];
+var arr_correct_feedback = ["תותח!", "תותחן!", "אש!"];
+var arr_incorrect_feedback = ["איזה לוזר!", 'דו"ח!', "חדלו!"];
 
 // timer
 let b_timer = true;
