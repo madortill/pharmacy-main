@@ -33,8 +33,8 @@ r3p4_clicked_correct = (item) => {
 }
 
 // the parameter is the clicked correct item
-pop_r3p8_input = () => {
-    $(`#r3p8 .doctor-name`).on("input", () => {
+pop_r3p9_input = () => {
+    $(`#r3p9 .doctor-name`).on("input", () => {
         exer_13_input = $(`.doctor-name`).val();
         if(exer_13_input === EXER_13_CORRECT_NAME && b_timer) {
             V_X(true);
@@ -43,7 +43,7 @@ pop_r3p8_input = () => {
 }
 
 // the parameter is the clicked correct item
-r3p11_dropped_correct = (item) => {
+r3p12_dropped_correct = (item) => {
     // send for win
     if (b_timer) {
         V_X(true);
@@ -88,16 +88,16 @@ restart_3 = () => {
     }
     exer_12_click_count = 0;
 
-    // r3p8
-    $(`#r3p8 .doctor-name`).val("");
+    // r3p9
+    $(`#r3p9 .doctor-name`).val("");
     
-    // r3p11
-    let arr_forms = $(`#r3p11 .form`);
+    // r3p12
+    let arr_forms = $(`#r3p12 .form`);
     for(let i = 0; i < arr_forms.length; i++) {
         $(arr_forms[i]).css("top", "60vh");
         $(arr_forms[i]).css("left", "73.5vw");
     }
     for (let i = 1; i <= $(`.carousel`).length; i++) {
-        window[`r3p11_carousel_count_${i}`] = 0;
+        window[`r3p12_carousel_count_${i}`] = 0;
     }
 }

@@ -172,7 +172,7 @@ pop_quiz_button = () => {
             {
             // question 1
             divName: ["q1"],
-            functions: [, `first_question()`, `switch_class($("#next-button"), "hidden", "visible")`, `switch_class($("#back-button"), "visible", "hidden")`],
+            functions: [`first_question()`, `switch_class($("#next-button"), "hidden", "visible")`, `switch_class($("#back-button"), "visible", "hidden")`],
             type: "quiz",
             questionType: "life"
             },                        

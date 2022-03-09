@@ -1047,14 +1047,28 @@ body, #main {
   background-image: url("assets/media/test/answer_wrong.svg");
 }
 
-.question-counter {
-  bottom: -8.5vw;
+.question-counter, .quiz-type {
   font-size: 2.5rem;
-  width: 5.8vw;
   height: 2.5vw;
   position: relative;
-  right: 5vw;
   text-align: center;
+}
+
+.question-counter {
+  right: 5vw;
+  width: 5.8vw;
+  bottom: -8.5vw;
+}
+
+.quiz-type {
+  top: 5.3vw;
+  width: 12vw;
+  right: 82vw;
+}
+
+.text-heart {
+  width: 3vw;
+  margin-bottom: -0.6vw;
 }
 
 /* r2p2 */
@@ -1518,6 +1532,13 @@ background-image: url("assets/media/exer11/exer11_bg.svg");
 
 .opic {
     opacity: 1;
+}
+
+/* r3p5 */
+
+#doctor-table {
+  width: 25vw;
+  margin-top: -2vw;
 }
 
 /* page 8 */

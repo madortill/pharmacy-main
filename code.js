@@ -437,19 +437,25 @@ var Arr_3 = [
     divName: ["r3p6"],
     functions: [],
     type: "content",
-    topic: 3
+    topic: 4
   },
   {
     // room 3 page 7
     divName: ["r3p7"],
     functions: [],
     type: "content",
-    topic: 4
   },
   {
     // room 3 page 8
     divName: ["r3p8"],
-    functions: [`pop_r3p8_input()`],
+    functions: [],
+    type: "content",
+    topic: 5
+  },
+  {
+    // room 3 page 9
+    divName: ["r3p9"],
+    functions: [`pop_r3p9_input()`],
     type: "game",
     timer: "8s",
     feedback: {
@@ -463,22 +469,21 @@ var Arr_3 = [
     }
   },
   {
-    // room 3 page 9
-    divName: ["r3p9"],
-    functions: [],
-    type: "content",
-    topic: 5
-  },
-  {
     // room 3 page 10
     divName: ["r3p10"],
     functions: [],
     type: "content",
-    topic: 5
+    topic: 6
   },
   {
     // room 3 page 11
     divName: ["r3p11"],
+    functions: [],
+    type: "content",
+  },
+  {
+    // room 3 page 12
+    divName: ["r3p12"],
     functions: [`pop_drag_drop()`, `pop_hover_down()`, `pop_carousel()`, `pop_down()`],
     type: "game",
     timer: "30s",
@@ -493,11 +498,11 @@ var Arr_3 = [
     }
   },
   {
-    // room 3 page 12
-    divName: ["r3p12"],
+    // room 3 page 13
+    divName: ["r3p13"],
     functions: [],
     type: "content",
-    topic: 6
+    topic: 7
   },
   {
     // question 1- page 13
@@ -739,6 +744,62 @@ var Arr_4 = [
       incorrect: "חמומי מוח"
     }
   },
+  {
+    // page 20
+    divName: ["r4p20"],
+    functions: [],
+    type: "content",
+    topic: 12
+  },
+  {
+    // page 21
+    divName: ["r4p21"],
+    functions: [],
+    type: "content",
+    topic: 13
+  }, 
+  {
+    // question 1- page 22
+    divName: ["q1"],
+    functions: [`first_question()`, `switch_class($("#next-button"), "hidden", "visible")`, `switch_class($("#back-button"), "visible", "hidden")`],
+    type: "quiz",
+    questionType: "finish"
+  },
+  {
+    // question 2- page 23
+    divName: ["q2"],
+    functions: [`switch_class($("#back-button"), "hidden", "visible")`],
+    type: "quiz",
+    questionType: "finish"
+  },
+  {
+    // question 3- page 24
+    divName: ["q3"],
+    functions: [],
+    type: "quiz",
+    questionType: "finish"
+  },
+  {
+    // question 4- page 25
+    divName: ["q4"],
+    functions: [],
+    type: "quiz",
+    questionType: "finish"
+  },
+  {
+    // question 5- page 26
+    divName: ["q5"],
+    functions: [`switch_class($("#next-button"), "hidden", "visible")`],
+    type: "quiz",
+    questionType: "finish"
+  },
+  {
+    // question 6- page 27
+    divName: ["q6"],
+    functions: [`switch_class($("#next-button"), "visible", "hidden")`],
+    type: "quiz",
+    questionType: "finish"
+  }
 ];
 
 var matrix = [[

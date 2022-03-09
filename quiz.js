@@ -123,6 +123,12 @@ first_question = () => {
             matrix[nRoom][nPage + i].functions.push("pop_insert_question()");
             }
     }
+    // display text in left-bottom corner
+    if (matrix[nRoom][nPage].questionType === "life") {
+        $(".quiz-type").html(`בוחן עבור <img class="text-heart" src="assets/media/heart/heart1_happy.svg">`);
+    } else if (matrix[nRoom][nPage].questionType === "finish") {
+        $(".quiz-type").html(`בוחן סיום חדר`);
+    }
 }
 
 type_quiz = () => {
@@ -140,7 +146,7 @@ type_quiz = () => {
     // number between 1-4
     let correct_answer = Math.floor(Math.random() * ANSWER_NUM) + 1;
     // insert question
-    $(`#${matrix[nRoom][nPage].divName} .questions`).text(question_bank[question_number].question);
+    $(`#${matrix[nRoom][nPage].divName} .questions`).html(question_bank[question_number].question);
     // fill answers
     for (let i = 1; i <= ANSWER_NUM; i++) {
         if (i === correct_answer) {
@@ -156,7 +162,7 @@ type_quiz = () => {
     question_bank.splice(question_number, 1);
   }
 
-// check if the user clickes the right answer
+// check if the user clicks the right answer
   check_answer = (event) => {
     switch_class($(`#${matrix[nRoom][nPage].divName} .correct`), "normal", "right");
     $(`#${matrix[nRoom][nPage].divName} .answer`).off("click");
