@@ -391,7 +391,7 @@ var Arr_3 = [
     divName: ["r3p2"],
     functions: [`switch_class($("#back-button"), "hidden", "visible")`, `pop_click()`],
     type: "game",
-    timer: "3s",
+    timer: "7s",
     feedback: {
       correct: "array",
       incorrect: "array"

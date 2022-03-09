@@ -90,7 +90,7 @@ var arr_questions_bank_2 = [    {
     question: "מי הכי טוב?",
     correct_answer: `נועה קילה`,
     wrong_answer: [`ניצן סלומון`,`בריטני ספירס`,`מרגי`]
-}   ];
+}];
 var arr_questions_bank_3 = [];
 var arr_questions_bank_4 = [];
 var mat_questions_bank = [copy(arr_questions_bank_1), copy(arr_questions_bank_2), copy(arr_questions_bank_3), copy(arr_questions_bank_4)];
