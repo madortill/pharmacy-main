@@ -398,6 +398,36 @@ body, #main {
  right: -63.5vw;
 }
 
+/* black-div */
+#black-div {
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 7;
+}
+
+#scroll-div {
+  overflow-y: scroll;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+#scroll-back-button {
+  margin-top: 7vh;
+  margin-right: 8vh;
+}
+
+.attach-file {
+  width: 25vw;
+  height: 50vh;
+}
+
 /* game */
 #spinning-bg {
   z-index: 2;
@@ -763,6 +793,10 @@ body, #main {
   background-image: url("assets/media/2content/attach_down.svg");
 }
 
+.attach.visited {
+  background-image: url("assets/media/2content/attach_visited.svg");
+}
+
 .flex-text {
   flex-wrap: nowrap;
   margin: auto;
@@ -1062,7 +1096,7 @@ body, #main {
 
 .quiz-type {
   top: 5.3vw;
-  width: 12vw;
+  width: 14vw;
   right: 82vw;
 }
 

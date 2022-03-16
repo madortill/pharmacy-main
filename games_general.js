@@ -4,8 +4,8 @@ var nLife = 3;
 // feedback arrays
 let correct_num = 0;
 let incorrect_num = 0;
-var arr_correct_feedback = ["תותח!", "תותחן!", "אש!"];
-var arr_incorrect_feedback = ["איזה לוזר!", 'דו"ח!', "חדלו!"];
+var arr_correct_feedback = ["תותח!", "תותחן!", "אש!", "א' ניצחונות!", "מורעלים!", "פגז!", "סמל לשלמות", "אלופים!", "רב אלופים!", "קודקוד!", "לוחמים!"];
+var arr_incorrect_feedback = ["איזה לוזר!", 'דו"ח!', "חדלו!", 'ש"צצצצצ', "מחבוש!", "יא צעירים", "שוקיסטים", "יא חפשנים", "יא שבוזים", 'מסמ"רי שיער', 'ריח של בקו"ם', "טירונים", "תת-עלובים"];
 
 // timer
 let b_timer = true;

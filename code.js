@@ -9,7 +9,7 @@ var Arr_1 = [
   {
     // opening game question- page 1
     divName: ["r1p1"],
-    functions: [`switch_class($("#back-button"), "visible", "hidden")`, `pop_buttons($("#next-button"), 1)`, "pop_watch_room_button()", "pop_home_page_button()", "pop_restart_button()", "pop_quiz_button()", "attach()"],
+    functions: [`switch_class($("#back-button"), "visible", "hidden")`, `pop_buttons($("#next-button"), 1)`, "pop_watch_room_button()", "pop_home_page_button()", "pop_restart_button()", "pop_quiz_button()", "pop_attach()"],
     type: "content",
     topic: 1
   },
@@ -18,7 +18,16 @@ var Arr_1 = [
     divName: ["r1p2"],
     functions: [`switch_class($("#back-button"), "hidden", "visible")`, `pop_buttons($("#back-button"), -1)`],
     type: "content",
-    topic: 2
+    topic: 2,
+    attach : [
+      ["heart_bg", "heart1_happy"],
+      ["heart1_sad"],
+      [],
+      [],
+      [],
+      [],
+      []
+    ]
   },
   {
     // first game- page 3
@@ -683,7 +692,7 @@ var Arr_4 = [
     timer: "60s",
     feedback: {
       correct: "array",
-      incorrect: "array"
+      incorrect: "פגי תוקף"
     },
     instructions: "מלאו את הטבלה לפני שפג זמנכם, והקישו ENTER כדי לבדוק את עצמכם",
     instructions_feedback: {
@@ -878,9 +887,9 @@ function pop_room_buttons(button) {
     nRoom = Number(button.attr("id").slice(-1)); 
     // display room
     $(`#room-${nRoom}`).css("display", "block");
-    setTimeout(toggle_room, 3000); 
+    setTimeout(toggle_room, 2000); 
     // shows next page
-    setTimeout(movePage, 3000); 
+    setTimeout(movePage, 2000); 
     check_room(); 
   });
 }
@@ -1008,7 +1017,26 @@ toggle_room = ()  => {
 }
 
 // when clicking on attach sign
-attach = ()  => {
+pop_attach = ()  => {
+  $(".attach").on("click", function() {
+    // darken page
+    $("#black-div").css("display", "block");
+    if (!$(this).hasClass("visited")) {
+      $(this).addClass("visited");
+    }
+    // display files
+    for (let i = 0; i < matrix[nRoom][nPage].attach.length ; i++) {
+      $("#scroll-div").append(`<img class="attach-file" src="assets/media/files/${matrix[nRoom][nPage].divName[0]}/${matrix[nRoom][nPage].attach[$(this).attr("class").split(/\s+/)[2].slice(-1) - 1][i]}.svg">`);
+    }
+    if ($(".attach.visited").length === matrix[nRoom][nPage].attach.length) {
+      switch_class($("#next-button"), "hidden", "visible");
+    }
+  });
+
+  $("#scroll-back-button").on("click", function() {
+    $("#black-div").css("display", "none");
+     $("#scroll-div").html();
+  });
 }
 
 // setting content page
@@ -1016,6 +1044,11 @@ type_content = () => {
   // display controls
   switch_class($("#controls"), "none", "flex");
   switch_class($(`#lesson-map-${nRoom}`), "none", "flex");
+  
+  if (matrix[nRoom][nPage].attach !== undefined) {
+    // identify type
+    switch_class($("#next-button"), "visible", "hidden");
+  }
 }
 
 pop_home_page_button = () => {
