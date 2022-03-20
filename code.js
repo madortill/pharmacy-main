@@ -22,11 +22,10 @@ var Arr_1 = [
     attach : [
       ["heart_bg", "heart1_happy"],
       ["heart1_sad"],
-      [],
-      [],
-      [],
-      [],
-      []
+      ["heart1_sad", "heart_bg"],
+      ["heart_bg", "heart1_happy"],
+      ["heart_bg", "heart1_happy"],
+      ["heart_bg", "heart1_happy"]
     ]
   },
   {
@@ -1025,17 +1024,18 @@ pop_attach = ()  => {
       $(this).addClass("visited");
     }
     // display files
-    for (let i = 0; i < matrix[nRoom][nPage].attach.length ; i++) {
-      $("#scroll-div").append(`<img class="attach-file" src="assets/media/files/${matrix[nRoom][nPage].divName[0]}/${matrix[nRoom][nPage].attach[$(this).attr("class").split(/\s+/)[2].slice(-1) - 1][i]}.svg">`);
+    for (let j = 0; j < matrix[nRoom][nPage].attach[$(this).attr("class").split(/\s+/)[2].slice(-1) - 1].length; j++) {
+      $("#scroll-div").append(`<img class="attach-file" src="assets/media/files/${matrix[nRoom][nPage].divName[0]}/${matrix[nRoom][nPage].attach[$(this).attr("class").split(/\s+/)[2].slice(-1) - 1][j]}.svg">`);
     }
+
     if ($(".attach.visited").length === matrix[nRoom][nPage].attach.length) {
       switch_class($("#next-button"), "hidden", "visible");
     }
   });
 
   $("#scroll-back-button").on("click", function() {
-    $("#black-div").css("display", "none");
-     $("#scroll-div").html();
+     $("#black-div").css("display", "none");
+     $("#scroll-div").html("");
   });
 }
 
