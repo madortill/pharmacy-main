@@ -1028,7 +1028,7 @@ pop_attach = ()  => {
       $("#scroll-div").append(`<img class="attach-file" src="assets/media/files/${matrix[nRoom][nPage].divName[0]}/${matrix[nRoom][nPage].attach[$(this).attr("class").split(/\s+/)[2].slice(-1) - 1][j]}.svg">`);
     }
 
-    if ($(`${matrix[nRoom][nPage].divName} .attach.visited`).length === matrix[nRoom][nPage].attach.length) {
+    if ($(`#${matrix[nRoom][nPage].divName} .attach.visited`).length === matrix[nRoom][nPage].attach.length) {
       switch_class($("#next-button"), "hidden", "visible");
     }
   });
@@ -1048,7 +1048,7 @@ type_content = () => {
   if (matrix[nRoom][nPage].attach !== undefined) {
     // if the user havent visited the room yet
     // the next button is blocked until whole the attached buttons are clicked
-    if ($(`${matrix[nRoom][nPage].divName} .attach.visited`).length !== matrix[nRoom][nPage].attach.length) {
+    if ($(`#${matrix[nRoom][nPage].divName} .attach.visited`).length !== matrix[nRoom][nPage].attach.length) {
       switch_class($("#next-button"), "visible", "hidden");
     }
   } else {

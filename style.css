@@ -1195,7 +1195,7 @@ body, #main {
   align-items: center;
 }
 
-.slider {
+#r2p2 .slider {
   right: 3vw;
   width: 91%;
 }
@@ -1218,10 +1218,10 @@ body, #main {
   cursor: pointer !important;
 }
 
-.ui-slider-horizontal .ui-slider-handle {
+#r2p2 .ui-slider-horizontal .ui-slider-handle {
   top: -2.73vw;
 }
-.ui-slider .ui-slider-handle {
+#r2p2 .ui-slider .ui-slider-handle {
   position: absolute;
   z-index: 2;
   width: 1.2em;
@@ -2138,7 +2138,7 @@ background-image: url("assets/media/exer14/exer14_bg.svg");
   top: 10vw;
 }
 
-.slider {
+#r4p19 .slider {
   right: 0vw;
   width: 3.15vw;
   height: 31vw;
