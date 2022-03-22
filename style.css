@@ -167,6 +167,7 @@ body, #main {
   height: 100%;
   width: 100%;
   z-index: 0;
+  /* top: -5vw; */
 }
 
 .bold {
@@ -181,7 +182,7 @@ body, #main {
 }
 
 .gray {
-  color:rgb(26, 26, 26)
+  color: rgb(115 112 112);
 }
 
 .flex {
@@ -448,7 +449,7 @@ body, #main {
   justify-content: center;
 }
 
-#finish-story {
+#finish-story, #ending-lomda {
   background-image: url("assets/media/gameover+finish/again_radial_bg.svg");
 }
 
@@ -498,6 +499,67 @@ body, #main {
   background-image: url("assets/media/gameover+finish/restart_down.svg");
 }
 
+.grade-flex {
+  background-color: white;
+  width: 50vw;
+  height: 35vh;
+  border-radius: 2vw;
+  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  top: 40%;
+}
+
+.grade-flex .flex span{
+  font-size: 2vw;
+}
+
+.grade-flex div.bold {
+  text-align: center;
+  font-size: 3vw;
+}
+
+#total-score {
+  text-align: center;
+  font-size: 9.5vw;
+  margin-top: -1vw;
+}
+
+.grade-flex .flex {
+  justify-content: space-evenly;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  height: 35vh;
+  width: 18vw;
+}
+
+.grade.flex {
+  justify-content: space-between;
+  flex-direction: row;
+  height: 2vw;
+}
+
+#home-button {
+  background-image: url(assets/media/gameover+finish/home_normal.svg);
+  width: 17vw;
+  height: 7.55vw;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#home-button:hover {
+  background-image: url("assets/media/gameover+finish/home_hover.svg");
+}
+
+#home-button:active {
+  background-image: url("assets/media/gameover+finish/home_down.svg");
+}
+
+#ending-lomda {
+  display: block;
+}
 
 /* ending game */
 

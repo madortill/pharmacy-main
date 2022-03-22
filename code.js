@@ -9,7 +9,7 @@ var Arr_1 = [
   {
     // opening game question- page 1
     divName: ["r1p1"],
-    functions: [`switch_class($("#back-button"), "visible", "hidden")`, `pop_buttons($("#next-button"), 1)`, "pop_watch_room_button()", "pop_home_page_button()", "pop_restart_button()", "pop_quiz_button()", "pop_attach()"],
+    functions: [`switch_class($("#back-button"), "visible", "hidden")`, `pop_buttons($("#next-button"), 1)`, "pop_watch_room_button()", "pop_home_page_button()", "pop_restart_button()", "pop_quiz_button()", "pop_attach()", "pop_home_button()"],
     type: "content",
     topic: 1
   },
@@ -1124,6 +1124,26 @@ restart = () => {
   // }).css("position", "absolute");
   $(`.drag`).draggable("option", "disabled", false);
   $(`.slider`).slider("enable");
+}
+
+pop_home_button = () => {
+  $("#home-button").on("click", function() {
+    $("#ending-lomda").css("display", "none");
+  });
+}
+
+// the user finished all rooms
+// display games
+the_end = () => {
+  homePage();
+  $("#ending-lomda").css("display", "block");
+  let final_grade = 0;
+  for (let i = 1; i <= arr_marks.length; i++) {
+    $(`grade-${i}`).html(String(arr_marks[i - 1]));
+    final_grade += arr_marks[i - 1];
+  }
+  final_grade = final_grade/arr_marks.length;
+  $("#total-score").html(String(final_grade));
 }
 
 // text css opening
