@@ -297,11 +297,11 @@ body, #main {
 }
 
 .home-page-button:hover {
-  background-image: url("assets/media/gameover+finish/home_normal\ copy.svg");
+  background-image: url("assets/media/gameover+finish/home_hover.svg");
 }
 
 .home-page-button:hover {
-  background-image: url("assets/media/gameover+finish/home_normal\ copy\ 2.svg");
+  background-image: url("assets/media/gameover+finish/home_down.svg");
 }
 
 .watch-room-button {
@@ -540,21 +540,12 @@ body, #main {
 }
 
 #home-button {
-  background-image: url(assets/media/gameover+finish/home_normal.svg);
   width: 17vw;
   height: 7.55vw;
   position: absolute;
   top: 70%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-
-#home-button:hover {
-  background-image: url("assets/media/gameover+finish/home_hover.svg");
-}
-
-#home-button:active {
-  background-image: url("assets/media/gameover+finish/home_down.svg");
 }
 
 /* ending game */
