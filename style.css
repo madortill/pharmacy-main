@@ -182,7 +182,7 @@ body, #main {
 }
 
 .gray {
-  color: rgb(115 112 112);
+  color: rgb(75 73 73);
 }
 
 .flex {
@@ -385,11 +385,11 @@ body, #main {
 }
 
 #lesson-map-3 .topic {
-  margin-right: 7vw;
+  margin-right: 6.7vw;
 }
 
 #lesson-map-4 .topic {
-  margin-right: 2.5vw;
+  margin-right: 2.6vw;
 }
 
 #topic-counter {
@@ -555,10 +555,6 @@ body, #main {
 
 #home-button:active {
   background-image: url("assets/media/gameover+finish/home_down.svg");
-}
-
-#ending-lomda {
-  display: block;
 }
 
 /* ending game */

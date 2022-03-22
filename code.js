@@ -944,10 +944,10 @@ check_room = () => {
       topic_distance = 5.5;  
       break;
     case 3:
-      topic_distance = 3;  
+      topic_distance = 8.5;  
       break;
     case 4:
-      topic_distance = 2;  
+      topic_distance = 4.6;  
       break;
     default:
       topic_distance = 4; 
