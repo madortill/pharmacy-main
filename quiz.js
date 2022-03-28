@@ -292,12 +292,12 @@ type_quiz = () => {
     switch_class($("#next-button"), "hidden", "visible");
     switch_class($("#controls"), "flex" ,"none"); 
     // user finished quiz
+    // user can start new test
+    start_quiz = true;
     // user passed the test
     if (correct_question_counter > (question_num/2)) {
         hidePage();
         switch_class($("#spinning-flex"), "none", "flex");
-        // user can start new test
-        start_quiz = true;
         // user passed life test
         // adding life and showing animation
         if (matrix[nRoom][nPage].questionType === "life") {
