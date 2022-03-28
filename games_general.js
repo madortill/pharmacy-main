@@ -185,6 +185,7 @@ pop_quiz_button = () => {
             },
             {
             // quest
+            divName: ["q3"],
             functions: [`switch_class($("#next-button"), "visible", "hidden")`],
             type: "quiz",
             questionType: "life"
@@ -323,20 +324,20 @@ pop_drag_drop = () => {
 
 // r1p7 r2p8 r2p16
 restart_item = (page) => {
-    eval(`counter_${page}_items_order`) = 0;
-    eval(`arr_${page}_items_order`) = [];
+    window[`counter_${page}_items_order`] = 0;
+    window[`arr_${page}_items_order`] = [];
         // new items order
         for (let i = 0; i < $(`#${page} .item`).length ; i++) {
             let random = Math.floor(Math.random() * $(`#${page} .item`).length) + 1;
-            while (eval(`counter_${page}_items_order`).includes(random)) {
+            while ([`counter_${page}_items_order`].includes(random)) {
                 random = Math.floor(Math.random() * $(`#${page} .item`).length) + 1;
             }
-            eval(`arr_${page}_items_order`)[i] = random;
+            window[`arr_${page}_items_order`][i] = random;
         }
         // items dissappear accept from the first
         for (let i = 1; i <= $(`#${page} .item`).length ; i++) {
             // hide all except from the first item
-            if (i !== eval(`arr_${page}_items_order`)[0]) {
+            if (i !== window[`arr_${page}_items_order`][0]) {
                 switch_class($(`#${page} .item.data-num-${i}`), "block", "none");
             } else {
                 switch_class($(`#${page} .item.data-num-${i}`), "none", "block");

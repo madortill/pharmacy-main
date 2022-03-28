@@ -46,7 +46,7 @@ var arr_questions_bank_1 = [
         wrong_answer: [`תלויים ברחבי המרפאה או מודפסים בעלונים שנמצאים בחדר קבלה`,`תלויים על גבי דלתות חדרי הרופאים`,`תלויים במרפאה בלבד`]
     }          
 ];
-var arr_questions_bank_2 = [    {
+var arr_questions_bank_2 = [{
     question: "מה חייב להימצא בחדר המתנה?",
     correct_answer: `ספסלים, פחים, לוח מודעות, שילוט המורה על "איסור עישון" ואמצעי הגנה מפגעי מזג האוויר.`,
     wrong_answer: [`מזגן, פחים, טלוויזיה, שילוט המורה על "איסור עישון" ואמצעי הגנה מפגעי מזג האוויר.` ,`מזגן, ספסלים, פחים, טלוויזיה בה מוצגים נהלי הרפואה ביחידה ואמצעי הגנה מפגעי מזג האוויר.` ,`ספסלים, פחים, טלוויזיה, שילוט המורה על "איסור עישון" ואמצעי הגנה מפגעי מזג האוויר.`]
@@ -91,8 +91,96 @@ var arr_questions_bank_2 = [    {
     correct_answer: `נועה קילה`,
     wrong_answer: [`ניצן סלומון`,`בריטני ספירס`,`מרגי`]
 }];
-var arr_questions_bank_3 = [];
-var arr_questions_bank_4 = [];
+var arr_questions_bank_3 = [{
+    question: "מה חייב להימצא בחדר המתנה?",
+    correct_answer: `ספסלים, פחים, לוח מודעות, שילוט המורה על "איסור עישון" ואמצעי הגנה מפגעי מזג האוויר.`,
+    wrong_answer: [`מזגן, פחים, טלוויזיה, שילוט המורה על "איסור עישון" ואמצעי הגנה מפגעי מזג האוויר.` ,`מזגן, ספסלים, פחים, טלוויזיה בה מוצגים נהלי הרפואה ביחידה ואמצעי הגנה מפגעי מזג האוויר.` ,`ספסלים, פחים, טלוויזיה, שילוט המורה על "איסור עישון" ואמצעי הגנה מפגעי מזג האוויר.`]
+},
+{
+    question: "מי הכי חנפנית במדור?",
+    correct_answer: `מרי`,
+    wrong_answer: [`יובל`,`ניצן`,`עינב`]
+},
+{
+    question: "אני אמרתי את זה?",
+    correct_answer: `כי היום אני לא מרגישה שאני עשה כלום`,
+    wrong_answer: [`כלום בכלל`,`אני נשבע שאני לא עושה כלום`,`אני רוצה רק לשכב במיטה`]
+},
+{
+    question: "מי הכי פז''מ עולם",
+    correct_answer: `אליסה וגרגמל`,
+    wrong_answer: [`אופק`,`דורין`,`טלי`]
+},
+{
+    question: "מי אכל גלידה",
+    correct_answer: `טלי`,
+    wrong_answer: [`דורית`,`שחף`,`מרב`]
+}, 
+{
+    question: "חללהכג",
+    correct_answer: `עכעכע`,
+    wrong_answer: [`דורית`,`עככגדגכדגכד`,`מרב`]
+},
+{
+    question: "שלומי",
+    correct_answer: `אוגר`,
+    wrong_answer: [`לוויתן`,`חתולים`,`דולפין`]
+},
+{
+    question: "קטן",
+    correct_answer: `חמוד`,
+    wrong_answer: [`מרב`,`גדול`,`שמנמן`]
+},
+{
+    question: "מי הכי טוב?",
+    correct_answer: `נועה קילה`,
+    wrong_answer: [`ניצן סלומון`,`בריטני ספירס`,`מרגי`]
+}];
+var arr_questions_bank_4 = [{
+    question: "מה חייב להימצא בחדר המתנה?",
+    correct_answer: `ספסלים, פחים, לוח מודעות, שילוט המורה על "איסור עישון" ואמצעי הגנה מפגעי מזג האוויר.`,
+    wrong_answer: [`מזגן, פחים, טלוויזיה, שילוט המורה על "איסור עישון" ואמצעי הגנה מפגעי מזג האוויר.` ,`מזגן, ספסלים, פחים, טלוויזיה בה מוצגים נהלי הרפואה ביחידה ואמצעי הגנה מפגעי מזג האוויר.` ,`ספסלים, פחים, טלוויזיה, שילוט המורה על "איסור עישון" ואמצעי הגנה מפגעי מזג האוויר.`]
+},
+{
+    question: "מי הכי חנפנית במדור?",
+    correct_answer: `מרי`,
+    wrong_answer: [`יובל`,`ניצן`,`עינב`]
+},
+{
+    question: "אני אמרתי את זה?",
+    correct_answer: `כי היום אני לא מרגישה שאני עשה כלום`,
+    wrong_answer: [`כלום בכלל`,`אני נשבע שאני לא עושה כלום`,`אני רוצה רק לשכב במיטה`]
+},
+{
+    question: "מי הכי פז''מ עולם",
+    correct_answer: `אליסה וגרגמל`,
+    wrong_answer: [`אופק`,`דורין`,`טלי`]
+},
+{
+    question: "מי אכל גלידה",
+    correct_answer: `טלי`,
+    wrong_answer: [`דורית`,`שחף`,`מרב`]
+}, 
+{
+    question: "חללהכג",
+    correct_answer: `עכעכע`,
+    wrong_answer: [`דורית`,`עככגדגכדגכד`,`מרב`]
+},
+{
+    question: "שלומי",
+    correct_answer: `אוגר`,
+    wrong_answer: [`לוויתן`,`חתולים`,`דולפין`]
+},
+{
+    question: "קטן",
+    correct_answer: `חמוד`,
+    wrong_answer: [`מרב`,`גדול`,`שמנמן`]
+},
+{
+    question: "מי הכי טוב?",
+    correct_answer: `נועה קילה`,
+    wrong_answer: [`ניצן סלומון`,`בריטני ספירס`,`מרגי`]
+}];
 var mat_questions_bank = [copy(arr_questions_bank_1), copy(arr_questions_bank_2), copy(arr_questions_bank_3), copy(arr_questions_bank_4)];
 
 var question_bank;
@@ -103,6 +191,7 @@ const ANSWER_NUM = 4;
 var correct_question_counter = 0;
 var incorrect_question_counter = 0;
 var question_num = 0;
+let start_quiz = true;
 
 var arr_marks = [];
 
@@ -115,13 +204,23 @@ first_question = () => {
     switch_class($(`#controls .home-page-button`), "visible", "hidden"); 
     switch_class($("#controls"),"none", "flex");
     // set variables
+    // number of questions in a set- 3 for life or 6 for test
     question_num = eval(`${matrix[nRoom][nPage].questionType}_question_num`);
+    // the questions array of the current room
     question_bank = mat_questions_bank[nRoom - 1];
     // add function that will pop after one time but will be executed again after restart
-    if (mat_questions_bank[nRoom - 1].length === arr_questions_bank_1.length) {
+    //if (question_bank.length === window[`arr_questions_bank_${nRoom}`].length) {
+
+    // pop_insert_question will be called only once per set of questions
+    // if variable checks if this is the first time first_question is called for this set of questions
+    if (start_quiz) {
         for (let i = 0; i < question_num; i++) {
-            matrix[nRoom][nPage + i].functions.push("pop_insert_question()");
+            // the function first_question has been called once for this set
+            if (i === 0) {
+                start_quiz = false;
             }
+            matrix[nRoom][nPage + i].functions.push("pop_insert_question()");
+        }
     }
     // display text in left-bottom corner
     if (matrix[nRoom][nPage].questionType === "life") {
@@ -197,6 +296,8 @@ type_quiz = () => {
     if (correct_question_counter > (question_num/2)) {
         hidePage();
         switch_class($("#spinning-flex"), "none", "flex");
+        // user can start new test
+        start_quiz = true;
         // user passed life test
         // adding life and showing animation
         if (matrix[nRoom][nPage].questionType === "life") {

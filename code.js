@@ -47,20 +47,20 @@ var Arr_1 = [
   {
     // page 4
     divName: ["r1p4"],
-    functions: [""],
+    functions: [],
     type: "content",
     topic: 3
   },
   {
     // page 5
     divName: ["r1p5"],
-    functions: [""],
+    functions: [],
     type: "content"
   },
   {
     // page 6
     divName: ["r1p6"],
-    functions: [""],
+    functions: [],
     type: "content"
   },
   {
@@ -82,14 +82,14 @@ var Arr_1 = [
   {
     // page 8
     divName: ["r1p8"],
-    functions: [""],
+    functions: [],
     type: "content",
     topic: 4
   },
   {
     // page 9
     divName: ["r1p9"],
-    functions: [""],
+    functions: [],
     type: "content"
   },
   {
@@ -312,7 +312,7 @@ var Arr_2 = [
       correct: "תפסתם עמדה",
       incorrect: "נפלתם בקרב"
     },
-    instructions: "התבלבלתי ותליתי את כל השלטים מחוץ למרפאה!<br>לחצו על השלטים שאמורים להיות בפנים",
+    instructions: "תתפסו רק כאלה שאמורות להיות על שולחן הטיפולים!<br>אוי לא! נופלות תרופות!",
     instructions_feedback: {
       correct: "יש לכם תפיסה מהירה!",
       incorrect: "אין לכם תפיסה מהירה..."
@@ -843,7 +843,7 @@ function movePage() {
  
   // functions
   // calls the functions of the page
-  if ("#" + matrix[nRoom][nPage].functions !== "") {
+  if (matrix[nRoom][nPage].functions.length > 0) {
     let nFunction = 0;
     while (nFunction < matrix[nRoom][nPage].functions.length) {
       eval(matrix[nRoom][nPage].functions[nFunction]);
@@ -1051,7 +1051,7 @@ type_content = () => {
     if ($(`#${matrix[nRoom][nPage].divName} .attach.visited`).length !== matrix[nRoom][nPage].attach.length) {
       switch_class($("#next-button"), "visible", "hidden");
     }
-  } else {
+  } else if (matrix[nRoom][nPage] !== matrix[nRoom][matrix[nRoom].length - 1]) {
      switch_class($("#next-button"), "hidden", "visible");
   }
 }
@@ -1127,8 +1127,24 @@ restart = () => {
   //   containment: "window",
   //   drag: function(event, ui) {}
   // }).css("position", "absolute");
-  $(`.drag`).draggable("option", "disabled", false);
-  $(`.slider`).slider("enable");
+
+  // $(`.drag`).forEach((drag) => {
+  //   if ($(drag).is('.ui-draggable')) {
+  //     $(drag).draggable("option", "disabled", false);
+  //   }
+  // });
+
+  $(`.drag`).each(function(index, drag) {
+    if ($(drag).is('.ui-draggable')) {
+      $(drag).draggable("option", "disabled", false);
+    }
+  });
+
+  $(`.slider`).each(function(index, slider) {
+    if (typeof $(slider).slider() !== "undefined") {
+      $(slider).slider("enable");
+    }
+  });
 }
 
 pop_home_button = () => {

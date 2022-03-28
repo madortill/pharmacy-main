@@ -1626,31 +1626,31 @@ background-image: url("assets/media/exer11/exer11_bg.svg");
   margin-top: -2vw;
 }
 
-/* page 8 */
-#r3p8 {
+/* page 9 */
+#r3p9 {
     background-image: url("assets/media/exer13/exer13_bg.svg");
 }
 
-#r3p8 .ahami-head {
+#r3p9 .ahami-head {
     width: 5rem;
     margin-left: 1vw;
     padding-right: 1.5vw;
 }
     
-#r3p8 .instructions {
+#r3p9 .instructions {
     font-size: 2.4rem;
     width: 80vw;
 }
     
-#r3p8 .instructions-flex {
+#r3p9 .instructions-flex {
     top: 0;
     background-color: white;
     padding: 1em 0;
 }
 
-#r3p8 .doctor-name {
+#r3p9 .doctor-name {
     position: absolute;
-    top: 36vh;
+    top: 33vh;
     right: 47.5vw;
     font-family: "Rubik-Bold";
     font-size: 2.5em;
@@ -1660,7 +1660,7 @@ background-image: url("assets/media/exer11/exer11_bg.svg");
     color: #88939e;
 }
 
-#r3p8 .doctor-name:focus {
+#r3p9 .doctor-name:focus {
     outline: none;
 }
 
