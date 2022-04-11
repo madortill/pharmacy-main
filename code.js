@@ -187,7 +187,7 @@ var Arr_2 = [
   {
     // second game- page 4
     divName: ["r2p4"],
-    functions: [`pop_build_mat()`, `falling_items(21)`],
+    functions: [`pop_build_mat()`, `pop_falling_items(21)`],
     type: "game",
     feedback: {
       correct: "array",
@@ -621,7 +621,7 @@ var Arr_4 = [
   {
     // third game- page 7
     divName: ["r4p7"],
-    functions: [`pop_build_mat()`, `falling_items(11)`],
+    functions: [`pop_build_mat()`, `pop_falling_items(11)`],
     type: "game",
     feedback: {
       correct: "array",
