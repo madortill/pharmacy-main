@@ -42,7 +42,7 @@ let r2p4_falling_order = [
     { 
         data_num: 1,
         velocity: "200"
-    },
+    }
 ];
 let r2p4_first_location = 18.5;
 // specific locations of items in r2p4
@@ -192,12 +192,33 @@ drop_item = (item) => {
 }
 
 restart_2 = () => {
+    // r2p2
+    $(`#r2p2 .slider`).slider( "value", 13);
+
     // r2p4
     switch_class($(`#r2p4 .item`), "block", "none");
     $(`#r2p4 .item`).css("top", "-3vw");
+    r2p4_falling_order = [
+        { 
+            data_num: undefined,
+            velocity: "500"
+        },
+        { 
+            data_num: undefined,
+            velocity: "400"
+        },
+        { 
+            data_num: undefined,
+            velocity: "300"
+        },
+        { 
+            data_num: undefined,
+            velocity: "200"
+        }
+    ];
     for (let i = 0; i < $(`#r2p4 .item`).length; i++) {
         let random = Math.floor(Math.random() * $(`#r2p4 .item`).length) + 1;
-        for (let j = 0; j < i; i++) {
+        for (let j = 0; j < i; j++) {
             while (r2p4_falling_order[j].data_num === random) {
                 random = Math.floor(Math.random() * $(`#r2p4 .item`).length) + 1;
                 j = 0;
@@ -205,15 +226,16 @@ restart_2 = () => {
         }
         r2p4_falling_order[i].data_num = random;
     }
+    //$("#r2p4 .item").removeClass("heart-animation");
 
     // r2p8
     restart_item("r2p8");
     // items return to original location
-    $("#r2p8 .item").css({top: "86vw", left: "32vw"});
+    $("#r2p8 .item").css({top: "32vw", left: "86vw"});
 
     // r2p13
     restart_trash_drag("r2p13");
-    $("#r2p13 .data-num-2.drag-3").attr("src", `assets/media/exer3/exer3_bikurofe.svg`);
+    $("#r2p13 .data-num-3.drag-2").attr("src", `assets/media/exer3/exer3_bikurofe.svg`);
 
     // r2p16
     switch_class($("#r2p16 .item"), "hidden", "visible");

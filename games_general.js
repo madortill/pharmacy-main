@@ -102,7 +102,7 @@ endingGame = (condition) => {
         // end of game
         if (nLife === 0) {
             // this is the first life test for this room
-            if (mat_questions_bank[nRoom - 1].length !== 0) {
+            if (mat_questions_bank[nRoom - 1].length !== 6) {
                 finish_story("life");
             }
             // user can't do 2 test life
@@ -329,7 +329,7 @@ restart_item = (page) => {
         // new items order
         for (let i = 0; i < $(`#${page} .item`).length ; i++) {
             let random = Math.floor(Math.random() * $(`#${page} .item`).length) + 1;
-            while ([`counter_${page}_items_order`].includes(random)) {
+            while (window[`arr_${page}_items_order`].includes(random)) {
                 random = Math.floor(Math.random() * $(`#${page} .item`).length) + 1;
             }
             window[`arr_${page}_items_order`][i] = random;
@@ -349,8 +349,8 @@ restart_item = (page) => {
 restart_trash_drag = (page) => {
     // not including r4p11 because it is not drag
     if ($(`#${page} .item`).hasClass("drag")) {
-        eval(`counter_${page}_folder`) = 0;
-        eval(`counter_${page}_trash`) = 0;
+        window[`counter_${page}_folder`] = 0;
+        window[`counter_${page}_trash`] = 0;
         $(`#${page} .drag`).css({width: "10.5vw"});
         switch_class($(`#${page} .drag-1`), "none", "block");
     }
@@ -431,31 +431,42 @@ falling_items_down = (distance) => {
     switch_class(falling_item, "none", "block");
     // the item is not collapsing the floor
     if (eval(`mat_${matrix[nRoom][nPage].divName}`)[y_position + 1][x_position] !== "SAFETY_WALL") {
-        // if the square matches the item
-        if (eval(`mat_${matrix[nRoom][nPage].divName}`)[y_position + 1][x_position] === `SQUARE_${eval(`${matrix[nRoom][nPage].divName}_falling_order`)[0].data_num}`) {
-            falling_item.animate({top: `+=3vw`}, eval(`${matrix[nRoom][nPage].divName}_falling_order`)[0].velocity);
-            eval(`${matrix[nRoom][nPage].divName}_match_square(falling_item)`);
-            // remove item from the array
-            eval(`${matrix[nRoom][nPage].divName}_falling_order`).shift();
-            // finish game
-            if (eval(`${matrix[nRoom][nPage].divName}_falling_order`).length === 0) {
-                V_X(true);
-                $(document).off("keydown");
+        // if the item collapsing a square
+        if (eval(`mat_${matrix[nRoom][nPage].divName}`)[y_position + 1][x_position].includes(`SQUARE`)) {
+            // if the square matches the item
+            if (eval(`mat_${matrix[nRoom][nPage].divName}`)[y_position + 1][x_position] === `SQUARE_${eval(`${matrix[nRoom][nPage].divName}_falling_order`)[0].data_num}`) {
+                eval(`mat_${matrix[nRoom][nPage].divName}`)[y_position][x_position] = "EMPTY";
+                falling_item.animate({top: `+=3vw`}, eval(`${matrix[nRoom][nPage].divName}_falling_order`)[0].velocity);
+                eval(`${matrix[nRoom][nPage].divName}_match_square(falling_item)`);
+                // remove item from the array
+                eval(`${matrix[nRoom][nPage].divName}_falling_order`).shift();
+                // finish game
+                if (eval(`${matrix[nRoom][nPage].divName}_falling_order`).length === 0) {
+                    V_X(true);
+                    $(document).off("keydown");
+                    x_position = 3;
+                    y_position = 0;
+                } 
+                // reveal another item
+                else {
+                    // random number between 1-4
+                    if (matrix[nRoom][nPage].divName.includes("r2p4")) {
+                        x_position = Math.floor(Math.random() * (eval(`width_${matrix[nRoom][nPage].divName}`)-2)) + 1;
+                    } else if (matrix[nRoom][nPage].divName.includes("r4p7")) {
+                        x_position = 3; 
+                    }  
+                    y_position = 0;
+                    setTimeout(falling_items_down, `${matrix[nRoom][nPage].divName}_falling_order`[0].velocity, distance);
+                }
+            } 
+            // wrong square
+            else {
+                eval(`mat_${matrix[nRoom][nPage].divName}`)[y_position][x_position] = "EMPTY";
+                V_X(false);
                 x_position = 3;
                 y_position = 0;
-            } 
-            // reveal another item
-            else {
-                // random number between 1-4
-                if (matrix[nRoom][nPage].divName.includes("r2p4")) {
-                    x_position = Math.floor(Math.random() * (eval(`width_${matrix[nRoom][nPage].divName}`)-2)) + 1;
-                } else if (matrix[nRoom][nPage].divName.includes("r4p7")) {
-                    x_position = 3; 
-                }  
-                y_position = 0;
-                setTimeout(falling_items_down, `${matrix[nRoom][nPage].divName}_falling_order`[0].velocity, distance);
             }
-        } 
+        }
         // move the item down
         else {
             eval(`mat_${matrix[nRoom][nPage].divName}`)[y_position][x_position] = "EMPTY";
