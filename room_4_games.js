@@ -169,7 +169,7 @@ r4p14_check_carousel = () => {
     $(document).off("keypress");
     //$("input").checkboxradio("disable");
     // if the user inserted all true
-   if ($(`#r4p14 .carousel .correct`).hasClass("visible") && $("#r4p14 input.correct").prop("checked") && b_timer) {
+   if ($(`#r4p14 .carousel-item.correct.visible`).length === 4 && $("#r4p14 input.correct").prop("checked") && b_timer) {
         V_X(true);
    } else {
         V_X(false);
@@ -243,9 +243,9 @@ restart_4 = () => {
 
     // r4p7
     // restore array
-    $(matrix[nRoom][nPage].functions).unshift(`pop_build_mat()`);
+    matrix[4][6].functions.unshift(`pop_build_mat()`);
     switch_class($(`#r4p7 .item`), "block", "none");
-    $(`#r2p4 .item`).css("top", "-3vw");
+    $(`#r4p7 .item`).css("top", "-3vw");
     r4p7_falling_order = [
         { 
             data_num: 1,
@@ -261,11 +261,17 @@ restart_4 = () => {
         }
     ];
 
-    // r4p14
-    for (let i = 1; i <= $(`.carousel`).length; i++) {
-       window[`r4p14_carousel_count_${i}`] = 0;
-    }
+    // r4p11
+    // show file
+    switch_class($(`#r4p11 .correct`), "hidden", "visible");
+    $(`#r4p11 .correct`).css("opacity", "1");
+
+    // // r4p14
+    // for (let i = 1; i <= $(`.carousel`).length; i++) {
+    //    window[`r4p14_carousel_count_${i}`] = 0;
+    // }
     // r4p17
     $("#key").css({top: "73.6vh", left: "93vmax", transform: "rotate3d(0, 0 ,1, 263deg)"});
+    $("#key").removeClass("key-animation");
 }
 

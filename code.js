@@ -187,7 +187,7 @@ var Arr_2 = [
   {
     // second game- page 4
     divName: ["r2p4"],
-    functions: [`pop_build_mat()`, `pop_falling_items(21)`],
+    functions: [`pop_build_mat()`, `falling_items(21)`],
     type: "game",
     feedback: {
       correct: "array",
@@ -397,7 +397,7 @@ var Arr_3 = [
   {
     // room 3 page 2
     divName: ["r3p2"],
-    functions: [`switch_class($("#back-button"), "hidden", "visible")`, `pop_click()`],
+    functions: [`pop_click()`],
     type: "game",
     timer: "7s",
     feedback: {
@@ -413,7 +413,7 @@ var Arr_3 = [
   {
     // room 3 page 3
     divName: ["r3p3"],
-    functions: [],
+    functions: [`switch_class($("#back-button"), "hidden", "visible")`],
     type: "content",
     topic: 2
   },
@@ -584,7 +584,7 @@ var Arr_4 = [
   {
     // page 3
     divName: ["r4p3"],
-    functions: [],
+    functions: [`switch_class($("#back-button"), "hidden", "visible")`],
     type: "content",
     topic: 2
   },
@@ -621,7 +621,7 @@ var Arr_4 = [
   {
     // third game- page 7
     divName: ["r4p7"],
-    functions: [`pop_build_mat()`, `pop_falling_items(11)`],
+    functions: [`pop_build_mat()`, `falling_items(11)`],
     type: "game",
     feedback: {
       correct: "array",
@@ -941,7 +941,7 @@ check_room = () => {
       topic_distance = 14.8;  
       break;
     case 2:
-      topic_distance = 5.5;  
+      topic_distance = 5.38;  
       break;
     case 3:
       topic_distance = 8.5;  
@@ -1145,6 +1145,8 @@ restart = () => {
       $(slider).slider("enable");
     }
   });
+
+  $(document).off();
 }
 
 pop_home_button = () => {

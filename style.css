@@ -381,7 +381,7 @@ body, #main {
 }
 
 #lesson-map-2 .topic {
-  margin-right: 3.5vw;
+  margin-right: 3.4vw;
 }
 
 #lesson-map-3 .topic {
@@ -955,6 +955,10 @@ body, #main {
 
 #r1p3 .items-flex .data-num-6 {
   width: 26%;
+}
+
+.ahami-head, .hands {
+  -webkit-user-drag: none;
 }
 
 #r1p3 .ahami-head {
@@ -1664,29 +1668,30 @@ background-image: url("assets/media/exer11/exer11_bg.svg");
     outline: none;
 }
 
-/* page 11 */
 
-#r3p11 .ahami-head {
+/* page 12 */
+
+#r3p12 {
+  background-image: url("assets/media/exer14/exer14_bg.svg");
+} 
+
+#r3p12 .ahami-head {
     width: 5rem;
     margin-left: 1vw;
 }
 
-#r3p11 {
-background-image: url("assets/media/exer14/exer14_bg.svg");
-}
-
-.instructions {
+#r3p12 .instructions {
     font-size: 2.4rem;
     width: 70vw;
 }
 
-#r3p11 .instructions-flex {
+#r3p12 .instructions-flex {
     top: 0;
     background-color: white;
     padding: 1em 0;
 }
 
-#r3p11 .drop-1 {
+#r3p12 .drop-1 {
     position: absolute;
     top: 22vh;
     right: 13vw;
@@ -1696,7 +1701,7 @@ background-image: url("assets/media/exer14/exer14_bg.svg");
     border-radius: 5px;
 }
 
-#r3p11 .form {
+#r3p12 .form {
     width: 13vw;
     height: 30vh;
     position: absolute;
@@ -1704,14 +1709,14 @@ background-image: url("assets/media/exer14/exer14_bg.svg");
     left: 73.5vw;
 }
 
-#r3p11 .arrows {
+#r3p12 .arrows {
     width: 4vw;
     position: absolute;
     top: 70vh;
     left: 88vw;
 }
 
-#r3p11 .arrow-left {
+#r3p12 .arrow-left {
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
     left: 68vw;
@@ -1991,6 +1996,16 @@ background-image: url("assets/media/exer14/exer14_bg.svg");
   z-index: -1;
   top: 5.5vw;
   right: 2vw;
+}
+
+#atzva {
+  position: absolute;
+  width: 7vw;
+  top: 35.5vw;
+  font-size: 0.7vw;
+  transform: rotate(10deg);
+  right: 11vw;
+  direction: ltr;
 }
 
 #moxipen-table {

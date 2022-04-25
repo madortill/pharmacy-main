@@ -413,7 +413,7 @@ let y_position = 0;
 let falling_item;
 
 // generic function for games with falling items controled by keyboard's arrows
-pop_falling_items = (distance) => {
+falling_items = (distance) => {
     //let data_num = eval(`${matrix[nRoom][nPage].divName}_falling_order`)[0].data_num;
     //falling_item = $(`#${matrix[nRoom][nPage].divName} .item.data-num-${eval(`${matrix[nRoom][nPage].divName}_falling_order`)[0].data_num}`);
     setTimeout(show_keyboard, 1000, keyboard_blinks);
