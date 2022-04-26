@@ -155,23 +155,23 @@ r2p13_dropped_correct = (drag, drop) => {
 }
 
 
-var counter_r2p16_items_order = 0;
-var arr_r2p16_items_order = [1,4,5,6,2,3];
-// exactly the same exercise
-r2p16_clicked_correct = (item) => {
-    $(item).stop();
-    item.animate({opacity: `0`}, 200, function() {
-        switch_class(item, "block", "none");
-        counter_r2p16_items_order++;
-        drop_item($(`#r2p16 .data-num-${arr_r2p16_items_order[counter_r2p16_items_order]}`));
-        if (($(`#${matrix[nRoom][nPage].divName} .none`).length === 3)) {
-            $(`#${matrix[nRoom][nPage].divName} .item`).css("pointer-events", "none");
-            V_X(true);
-        }
-    });
-}
+// var counter_r2p16_items_order = 0;
+// var arr_r2p16_items_order = [1,4,5,6,2,3];
+// // exactly the same exercise
+// r2p16_clicked_correct = (item) => {
+//     $(item).stop();
+//     item.animate({opacity: `0`}, 200, function() {
+//         switch_class(item, "block", "none");
+//         counter_r2p16_items_order++;
+//         drop_item($(`#r2p16 .data-num-${arr_r2p16_items_order[counter_r2p16_items_order]}`));
+//         if (($(`#${matrix[nRoom][nPage].divName} .none`).length === 3)) {
+//             $(`#${matrix[nRoom][nPage].divName} .item`).css("pointer-events", "none");
+//             V_X(true);
+//         }
+//     });
+// }
 
-r2p18_clicked_correct = (item) => {
+r2p17_clicked_correct = (item) => {
     if (b_timer) {
         V_X(true);
     }
@@ -184,10 +184,11 @@ drop_item = (item) => {
     $(item).animate({right: `+=${Math.floor(Math.random() * 50)}vw`, top: "105vw"}, 5000, function() {
         if($(item).hasClass("correct")) {
             V_X(false);
-        } else {
-            counter_r2p16_items_order++;
-            drop_item($(`#r2p16 .data-num-${arr_r2p16_items_order[counter_r2p16_items_order]}`));
-        }
+        } 
+        // else {
+        //     counter_r2p16_items_order++;
+        //     drop_item($(`#r2p16 .data-num-${arr_r2p16_items_order[counter_r2p16_items_order]}`));
+        // }
     });
 }
 
@@ -238,8 +239,8 @@ restart_2 = () => {
     $("#r2p13 .data-num-3.drag-2").attr("src", `assets/media/exer3/exer3_bikurofe.svg`);
 
     // r2p16
-    switch_class($("#r2p16 .item"), "hidden", "visible");
-    $("#r2p16 .item").css("opacity", "1");
-    restart_item("r2p16");
+    // switch_class($("#r2p16 .item"), "hidden", "visible");
+    // $("#r2p16 .item").css("opacity", "1");
+    // restart_item("r2p16");
 }
 

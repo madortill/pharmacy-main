@@ -551,7 +551,6 @@ pop_carousel = (event) => {
         for (let i = 1; i <= $(`.carousel`).length; i++) {
            window[`${matrix[nRoom][nPage].divName}_carousel_count_${i}`] = 0;
         }
-        $(`.arrows`).on("click", pop_carousel);
     } else { // come from arrows 
         // check which arrow and adjust count
         // carousel number (there are 4)

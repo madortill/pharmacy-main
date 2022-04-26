@@ -521,7 +521,7 @@ body, #main {
 
 #total-score {
   text-align: center;
-  font-size: 9.5vw;
+  font-size: 7.3vw;
   margin-top: -1vw;
 }
 
@@ -664,6 +664,10 @@ body, #main {
   height: 5vh;
 }
 
+#about .flex-text {
+  margin-top: 1.45vw;
+}
+
 #about-button {
   height: 1;
   background-color: white;
@@ -797,6 +801,14 @@ body, #main {
     calc(var(--stroke-width) * 0.9239) calc(var(--stroke-width) * -0.3827) 0
       var(--stroke-color);
 }
+
+#grade-print {
+  position: absolute;
+  left: 2vw;
+  font-size: 4vw;
+  margin-top: -2vw;
+}
+
 .abled {
  opacity: 0.8;
 }
@@ -1285,7 +1297,6 @@ body, #main {
 }
 
 #r2p8 .drop {
-  background-color: salmon;
   position: absolute;
 }
 
@@ -1304,10 +1315,10 @@ body, #main {
 }
 
 #r2p8 .drop-3 {
-  top: 44vw;
+  top: 28vw;
   right: 45vw;
   width: 44vw;
-  height: 7vw;
+  height: 20vw;
 }
 
 #r2p8 .ahami-head {
@@ -1405,7 +1416,7 @@ body, #main {
   width: 37vw;
 }
 
-/* r2p16 */
+/* r2p16
 
 #r2p16 {
   background-image: url("assets/media/exer9/exer09_bg.svg");
@@ -1442,44 +1453,44 @@ body, #main {
 
 #r2p16 .item.data-num-4 {
   width: 3vw;
-}
+} */
 
-/* r2p18 */
+/* r2p17 */
 
-#r2p18 {
+#r2p17 {
   background-image: url("assets/media/exer10/exer10_bg.svg");
 }
 
-#r2p18 .items-flex {
+#r2p17 .items-flex {
   width: 95%;
   height: 18vw;
   justify-content: space-around;
   align-items: flex-end;
 }
 
-#r2p18 .item {
+#r2p17 .item {
   width: 23vw;
 }
 
-#r2p18 .item.data-num-2 {
+#r2p17 .item.data-num-2 {
   width: 13vw;
 }
 
-#r2p18 .item:hover {
+#r2p17 .item:hover {
   filter: drop-shadow(0 0 0.75rem steelblue);
 }
 
-#r2p18 .ahami-head {
+#r2p17 .ahami-head {
   width: 5rem;
   margin-left: 1vw;
 }
   
-#r2p18 .instructions {
+#r2p17 .instructions {
   font-size: 2.4rem;
   width: 70vw;
 }
   
-#r2p18 .instructions-flex {
+#r2p17 .instructions-flex {
   width: 100%;
   position: absolute;
   top: 0vh;

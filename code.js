@@ -304,30 +304,15 @@ var Arr_2 = [
     topic: 10
   },
   {
-    // sixth game- page 16
-    divName: ["r2p16"],
-    functions: ["pop_click()", "drop_item($(`#r2p16 .data-num-${arr_r2p16_items_order[counter_r2p16_items_order]}`))"],
-    type: "game",
-    feedback: {
-      correct: "תפסתם עמדה",
-      incorrect: "נפלתם בקרב"
-    },
-    instructions: "תתפסו רק כאלה שאמורות להיות על שולחן הטיפולים!<br>אוי לא! נופלות תרופות!",
-    instructions_feedback: {
-      correct: "יש לכם תפיסה מהירה!",
-      incorrect: "אין לכם תפיסה מהירה..."
-    }
-  },
-  {
     // page 17
-    divName: ["r2p17"],
+    divName: ["r2p16"],
     functions: [],
     type: "content",
     topic: 11
   },
   {
     // seventh game- page 18
-    divName: ["r2p18"],
+    divName: ["r2p17"],
     functions: ["pop_click()"],
     type: "game",
     timer: "7s",
@@ -492,7 +477,7 @@ var Arr_3 = [
   {
     // room 3 page 12
     divName: ["r3p12"],
-    functions: [`pop_drag_drop()`, `pop_hover_down()`, `pop_carousel()`, `pop_down()`],
+    functions: [`pop_drag_drop()`, `pop_hover_down()`, `pop_carousel()`, `$(".arrows").on("click", pop_carousel)`, `pop_down()`],
     type: "game",
     timer: "30s",
     feedback: {
@@ -1152,6 +1137,7 @@ restart = () => {
 pop_home_button = () => {
   $("#home-button").on("click", function() {
     $("#ending-lomda").css("display", "none");
+    switch_class($("#spinning-flex"), "flex", "none");
   });
 }
 
@@ -1160,13 +1146,15 @@ pop_home_button = () => {
 the_end = () => {
   homePage();
   $("#ending-lomda").css("display", "block");
+  switch_class($("#spinning-flex"), "none", "flex");
   let final_grade = 0;
   for (let i = 1; i <= arr_marks.length; i++) {
-    $(`grade-${i}`).html(String(arr_marks[i - 1]));
+    $(`#grade-${i}`).html(String(arr_marks[i - 1]));
     final_grade += arr_marks[i - 1];
   }
   final_grade = final_grade/arr_marks.length;
   $("#total-score").html(String(final_grade));
+  $(`#grade-print`).html(`ציון: ${String(final_grade)}`);
 }
 
 // text css opening
