@@ -450,7 +450,7 @@ var Arr_3 = [
     divName: ["r3p9"],
     functions: [`pop_r3p9_input()`],
     type: "game",
-    timer: "8s",
+    timer: "10s",
     feedback: {
       correct: "array",
       incorrect: "array"
