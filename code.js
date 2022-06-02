@@ -18,15 +18,7 @@ var Arr_1 = [
     divName: ["r1p2"],
     functions: [`switch_class($("#back-button"), "hidden", "visible")`, `pop_buttons($("#back-button"), -1)`],
     type: "content",
-    topic: 2,
-    attach : [
-      ["heart_bg", "heart1_happy"],
-      ["heart1_sad"],
-      ["heart1_sad", "heart_bg"],
-      ["heart_bg", "heart1_happy"],
-      ["heart_bg", "heart1_happy"],
-      ["heart_bg", "heart1_happy"]
-    ]
+    topic: 2
   },
   {
     // first game- page 3
